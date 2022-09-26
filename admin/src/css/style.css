@@ -1,0 +1,537 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --width-sidebar: 300px;
+    --padding-sidebar: 350px;
+    --color-main:#3bb77e;
+    --text-color:#868686;
+}
+/* css bảng điều khiển */
+.container {
+    width: 100%;
+    height: auto;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* custom thanh scrollbar */
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #3bb77e;
+    border-radius: 10px;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.admin {
+    width: 100%;
+    /* background-color: #3bb77e; */
+    height: 80px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.admin__info {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin__info--avatar {
+    height: 50px;
+    width: 50px;
+    padding-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.admin__info--avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.admin__info--name {
+    font-size: 20px;
+}
+
+.sidebar {
+    width: var(--width-sidebar);
+    height: 100vh;
+    background-color: var(--color-main);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color: #fff;
+    overflow: auto;
+    -webkit-box-shadow: 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: 3px 3px 10px 3px #ddd;
+    box-shadow: 3px 3px 10px 3px #ddd;
+}
+
+.sidebar__logo {
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+.sidebar__logo::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    left: 0%;
+    background-color: var(--color-main);
+    transform: skewX(-20deg);
+    animation: logo 2s infinite linear;
+}
+@keyframes logo {
+    0%{
+        left: 0%;
+    }
+    100%{
+        left: 90%;
+    }
+}
+
+.sidebar__menu {}
+
+.sidebar__menu--item {
+    list-style: none;
+    padding: 0 20px;
+}
+.sidebar__menu--item.active{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: inset 3px 3px 10px 3px #ddd;
+    box-shadow: inset 3px 3px 10px 3px #ddd;
+}
+.sidebar__menu--item.active a{
+    color:var(--text-color);
+}
+
+.sidebar__menu--item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    display: block;
+    padding: 15px 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__menu--item a>i {
+    margin-right: 5px;
+    font-size: 30px;
+}
+
+/* .bx{
+
+}
+.bxs-universal-access{
+
+} */
+main {
+    width: 100%;
+    height: auto;
+}
+.title{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+    font-weight: bold;
+    color: var(--color-main);
+    width: 100%;
+    height: 200px;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.title>span{
+    color: var(--text-color);
+}
+
+.content-box {
+    width: 100%;
+    height: auto;
+    padding:0px 50px 0px var(--padding-sidebar);
+}
+
+.parameters {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 50px 0; 
+}
+
+.parameters__item {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    -webkit-box-shadow: 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: 3px 3px 10px 3px #ddd;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 10px;
+}
+
+.parameters__item--left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.parameters__item--left p{
+    font-size: 12px;
+    text-align: center;
+    color: var(--text-color);
+}
+.parameters__item--left p>span{
+    font-weight: bold;
+    font-size: 25px;
+    color: var(--color-main);
+}
+
+.parameters__item--right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+.parameters__item--right i{
+    color: var(--text-color);
+}
+
+.table-main {
+    width: 100%;
+    height: auto;
+    padding:40px;
+    -webkit-box-shadow: 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: 3px 3px 10px 3px #ddd;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.table-main table{
+    width: 100%;
+}
+.table-main tr{
+    height: 50px;
+    box-shadow: 0 1px #868686;
+}
+.table-main td{
+    padding: 15px 0;
+    text-align: center;
+    max-width: 150px;
+}
+.table-main td>div{
+    /* white-space: nowrap; 
+    thuộc tính cho cá chữ trong hàng không xuống dòng trừ khi găoj thẻ br */
+    white-space: nowrap; 
+    overflow: hidden;
+    /* text-overflow: ellipsis; hiển thị dấu ... khi văn bản dài */
+    text-overflow: ellipsis;
+    width: 100%;
+    margin-right: -50px;
+    padding: 0 30px;
+}
+
+/* css quản lý sản phẩm */
+
+.table-main img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.table-main button{
+    padding: 5px 20px;
+    margin-left: 10px;
+    -webkit-box-shadow: 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: 3px 3px 10px 3px #ddd;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.delete{background-color: red;}
+.edit{background-color: blue;}
+.table-main button:active{
+    transform: scale(0.8);
+}
+
+.add,.btn-delete{
+    text-decoration: none;
+}
+.add button ,.check-all,.btn-delete button{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: 3px 3px 10px 3px #ddd;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border: none;
+    font-size: 20px;
+    border-radius:5px;
+    background: #fff;
+    color: var(--text-color);
+    margin-right: 20px;
+    user-select: none;
+}
+.add span{
+    display: inline-block;
+    margin-left: 10px;
+}
+.add button:active, .check-all:active,.btn-delete button:active{
+    -webkit-box-shadow: inset 3px 3px 10px 3px #ddd;
+    -moz-box-shadow: inset 3px 3px 10px 3px #ddd;
+    box-shadow: inset 3px 3px 10px 3px #ddd;
+}
+.box-btn{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+/* css trang thêm mới sản phẩm  */
+.form-add{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.form-left{
+    width: 50%;
+    height: auto;
+    padding: 50px 0px;
+    /* background-color: red; */
+}
+.form-left input,
+.form-left select{
+    width: 90%;
+    height: 60px;
+    margin-top:50px;
+    outline: none;
+    border: none;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 20px;
+}
+.form-right{
+    width: 50%;
+    height: auto;
+    padding: 50px 0px;
+}
+.form-right label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    margin-top: 50px;
+    position: relative;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.form-right label>span{
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    background-color: #fff;
+}
+.form-right label>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+.form-bottom{
+    width: 100%;
+    height: 300px;
+}
+.form-bottom textarea{
+    width: 100%;
+    height: 70%;
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+}
+.btn-form{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    width: 180px;
+    height: 50px;
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: var(--color-main);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-form>span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.btn-form::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--color-main);
+    transition: 0.25s;
+}
+.btn-form::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 20px;
+    background: var(--color-main);
+    transition: 0.25s;
+}
+.btn-form>span::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--color-main);
+    transition: 0.25s;
+}
+.btn-form>span::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 20px;
+    background: var(--color-main);
+    transition: 0.25s;
+}
+.btn-form:hover::before{
+    width: 100%;
+}
+.btn-form:hover::after{
+    height: 100%;
+}
+
+.btn-form>span:hover::before{
+    width: 100%;
+}
+.btn-form>span:hover::after{
+    height: 100%;
+}
+
+
+/* css thêm danh mục */
+.form-right-2 input{
+    width: 100%;
+    height: 60px;
+    margin-top:50px;
+    outline: none;
+    border: none;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 20px;
+}
+/* css chi tiết và xóa danh mục */
+
+.sub-title{
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+.select-save{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border: none;
+    font-size: 20px;
+    border-radius:5px;
+    background: #fff;
+    color: var(--text-color);
+    margin-right: 20px;
+    user-select: none;
+}
+.select-save2{
+    width: 150px;
+    height: 30px;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    border: none;
+    outline: none;
+    user-select: none;
+    border-radius:5px;
+    color: var(--text-color);
+}
