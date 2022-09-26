@@ -1,5 +1,6 @@
 <?php
     include "../model/connect.php";
+    
     include "./view/header.php";
 
     if(isset($_GET['action'])){
