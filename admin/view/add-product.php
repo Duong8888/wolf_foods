@@ -6,13 +6,13 @@ if (isset($_POST['product-add'])) {
     $dateUp = date('Y-m-d');
     $discount = $_POST['discount'];
 
-    if (!empty($discount)) {
-        if (!is_numeric($discount)) {
-            $erro['discount'] = "Vui lòng nhập số";
-        }else{
-            $erro['discount'] = "";
-        }
-    }
+    // if (!empty($discount)) {
+    //     if (!is_numeric($discount)) {
+    //         $erro['discount'] = "Vui lòng nhập số";
+    //     }else{
+    //         $erro['discount'] = "";
+    //     }
+    // }
 
     if (!empty($_POST['name-product'])) {
         $name = $_POST['name-product'];
@@ -51,7 +51,7 @@ if (isset($_POST['product-add'])) {
     } else {
         $erro['avatar'] = "vui lòng nhập ảnh sản phẩm.";
     }
-
+    // print_r($erro);
     if (empty($erro)) {
         $query = "INSERT INTO products(product_name, price, image, description, input_time, discount, id_categories) VALUE ('$name',$price, '$avatar','$description', '$dateUp', $discount, $categories)";
     }

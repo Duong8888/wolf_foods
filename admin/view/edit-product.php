@@ -10,13 +10,13 @@ if (isset($_POST['product-edit'])) {
     $dateUp = date('Y-m-d');
     $discount = $_POST['discount'];
 
-    if (!empty($discount)) {
-        if (!is_numeric($discount)) {
-            $erro['discount'] = "Vui lòng nhập số";
-        }else{
-            $erro['discount'] = "";
-        }
-    }
+    // if (!empty($discount)) {
+    //     if (!is_numeric($discount)) {
+    //         $erro['discount'] = "Vui lòng nhập số";
+    //     }else{
+    //         $erro['discount'] = "";
+    //     }
+    // }
 
     if (!empty($_POST['name-product'])) {
         $name = $_POST['name-product'];
@@ -52,6 +52,7 @@ if (isset($_POST['product-edit'])) {
     if ($_FILES['avatar']['size'] > 0) {
         $avatar = $_FILES['avatar']['name'];
     }
+    print_r($erro);
     // empty nễu là chuỗi rỗng hoặc giá trị bằng 0 sẽ trả về true
     // kiểm tra các trường hơp có thể sảy ra môi trường hợp sẽ có câu lệnh truy vấn khác nhău
     if (empty($erro) && isset($avatar)) {
@@ -72,7 +73,7 @@ if (isset($_POST['product-edit'])) {
 
 <main>
     <div class="content-box">
-        <form action="index.php?action=edit&&productID=<?= $id ?>" method="POST" enctype="multipart/form-data" class="form-add">
+        <form action="index.php?action=edit&&productID=<?= $id ?>&&kkk" method="POST" enctype="multipart/form-data" class="form-add">
             <div class="form-left">
                 <Label>Tên sản phẩm</Label>
                 <input type="text" value="<?= isset($name) ? $name : $product['product_name'] ?>" name="name-product" placeholder="Nhập tên sản phẩm">
@@ -80,7 +81,7 @@ if (isset($_POST['product-edit'])) {
 
                 <Label>Giảm giá %</Label>
                 <input type="text" value="<?= isset($discount) ? $discount : $product['discount'] ?>" name="discount" placeholder="Giảm giá %">
-                <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span>
+                <!-- <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span> -->
 
                 <Label>Giá sản phẩm</Label>
                 <input type="text" value="<?= isset($price) ? $price : $product['price'] ?>" name="price-product" placeholder="Nhập giá sản phẩm">
