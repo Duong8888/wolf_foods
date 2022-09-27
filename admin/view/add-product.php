@@ -36,10 +36,8 @@ if (isset($_POST['product-add'])) {
         $erro['avatar'] = "vui lòng nhập ảnh sản phẩm.";
     }
 
-    if (empty($erro) && $_FILES['avatar']['size'] > 0) {
+    if (empty($erro) ) {
         $query = "INSERT INTO products(product_name, price, image, description, input_time, discount, id_categories) VALUE ('$name',$price, '$avatar','$description', '$dateUp', $discount, $categories)";
-    } else {
-        $query = "INSERT INTO products(product_name, price, description, input_time, discount, id_categories) VALUE ('$name',$price, '$description', '$dateUp', $discount, $categories)";
     }
 
     connect($query);

@@ -306,7 +306,7 @@ main {
     height: 50px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin:0 20px 30px 0 !important;
     -webkit-box-shadow: 3px 3px 10px 3px #ddd;
     -moz-box-shadow: 3px 3px 10px 3px #ddd;
     box-shadow: 3px 3px 10px 3px #ddd;
@@ -315,7 +315,6 @@ main {
     border-radius:5px;
     background: #fff;
     color: var(--text-color);
-    margin-right: 20px;
     user-select: none;
 }
 .add span{
@@ -345,7 +344,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
 }
 .form-left{
     width: 50%;
@@ -357,12 +356,16 @@ main {
 .form-left select{
     width: 90%;
     height: 60px;
-    margin-top:50px;
     outline: none;
     border: none;
     box-shadow: 3px 3px 10px 3px #ddd;
     border-radius: 5px;
     padding: 0 20px;
+    font-size: 20px;
+}
+label{
+    display: block;
+    margin-top: 20px;
     font-size: 20px;
 }
 .form-right{
@@ -534,4 +537,11 @@ main {
     user-select: none;
     border-radius:5px;
     color: var(--text-color);
+}
+
+.erro{
+    display: block;
+    height: 30px;
+    color: red;
+    font-size: 18px;
 }

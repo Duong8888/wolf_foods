@@ -71,7 +71,7 @@ if(isset($_GET['id'])){
                                                 delete
                                             </span>
                                         </button></a>
-                                    <a href="">
+                                    <a href="index.php?action=edit&&productID=<?=$value['id_product']?>">
                                         <button type="button" class="edit">
                                             <span class="material-symbols-outlined">
                                                 edit_document
