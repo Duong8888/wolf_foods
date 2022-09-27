@@ -10,6 +10,14 @@ if (isset($_POST['product-edit'])) {
     $dateUp = date('Y-m-d');
     $discount = $_POST['discount'];
 
+    if (!empty($discount)) {
+        if (!is_numeric($discount)) {
+            $erro['discount'] = "Vui lòng nhập số";
+        }else{
+            $erro['discount'] = "";
+        }
+    }
+
     if (!empty($_POST['name-product'])) {
         $name = $_POST['name-product'];
     } else {
@@ -17,8 +25,12 @@ if (isset($_POST['product-edit'])) {
         $erro['name'] = "Vui lòng nhập tên sản phẩm.";
     }
 
-    if (isset($_POST['price-product'])) {
-        $price = $_POST['price-product'];
+    if (!empty($_POST['price-product'])) {
+        if (!is_numeric($_POST['price-product'])) {
+            $erro['price'] = "Vui lòng nhập số";
+        } else {
+            $price = $_POST['price-product'];
+        }
     } else {
         $price = "";
         $erro['price'] = "Vui lòng nhập giá.";
@@ -27,7 +39,6 @@ if (isset($_POST['product-edit'])) {
     if (!empty($_POST['categories'])) {
         $categories = $_POST['categories'];
     } else {
-        $categories = 0;
         $erro['categories'] = "Vui lòng chọn danh mục.";
     }
 
@@ -69,18 +80,18 @@ if (isset($_POST['product-edit'])) {
 
                 <Label>Giảm giá %</Label>
                 <input type="text" value="<?= isset($discount) ? $discount : $product['discount'] ?>" name="discount" placeholder="Giảm giá %">
-                <span class="erro"></span>
+                <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span>
 
                 <Label>Giá sản phẩm</Label>
                 <input type="text" value="<?= isset($price) ? $price : $product['price'] ?>" name="price-product" placeholder="Nhập giá sản phẩm">
-                <span class="erro"></span>
+                <span class="erro"><?= isset($erro['price']) ? $erro['price'] : "" ?></span>
 
                 <label>Danh mục</label>
                 <select name="categories" id="">
                     <option value="">Cho danh mục</option>
                     <?php foreach ($arrCategories as $key => $value) : ?>
-                        <option <?php if (isset($categories)) {
-                                    echo "";
+                        <option <?php if (isset($categories) && $categories == $value['id_categories']) {
+                                    echo "selected";
                                 } else if ($product['id_categories'] == $value['id_categories']) {
                                     echo "selected";
                                 } ?> value="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></option>
