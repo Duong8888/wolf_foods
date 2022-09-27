@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
     padding: 0;
@@ -10,7 +10,7 @@
 :root {
     --width-sidebar: 300px;
     --padding-sidebar: 350px;
-    --color-main:#3bb77e;
+    --color-main:#ff1853;
     --text-color:#868686;
 }
 /* css bảng điều khiển */
@@ -31,7 +31,7 @@ body::-webkit-scrollbar-track{
     background-color: #fff;
 }
 body::-webkit-scrollbar-thumb{
-    background-color: #3bb77e;
+    background-color: #ff1853;
     border-radius: 10px;
 }
 
