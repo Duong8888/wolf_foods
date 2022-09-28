@@ -9,25 +9,25 @@
                 include "./view/content.php";
                 break;
             case 'products':
-                include "./view/product.php";
+                include "./view/product/product.php";
                 break;
             case 'categories':
-                include "./view/categories.php";
+                include "./view/categories/categories.php";
                 break;
             case 'admin':
-                include "./view/admin.php";
+                include "./view/user/admin.php";
                 break;    
             case 'clients':
-                include "./view/client.php";
+                include "./view/client/client.php";
                 break;
             case 'comment':
-                include "./view/commet.php";
+                include "./view/comment/commet.php";
                 break; 
             case 'add-product':
-                include "./view/add-product.php";
+                include "./view/product/add-product.php";
                 break; 
             case 'edit':
-                include "./view/edit-product.php";
+                include "./view/product/edit-product.php";
                 break; 
             case '':
                 include "";
