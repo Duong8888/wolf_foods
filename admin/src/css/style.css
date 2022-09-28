@@ -102,6 +102,13 @@ header {
     text-align: center;
     position: relative;
 }
+
+.sidebar__logo img{
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .sidebar__logo::after{
     content: "";
     position: absolute;
@@ -315,6 +322,7 @@ main {
     border-radius:5px;
     background: #fff;
     color: var(--text-color);
+    margin-right: 20px;
     user-select: none;
 }
 .add span{
@@ -356,16 +364,12 @@ main {
 .form-left select{
     width: 90%;
     height: 60px;
+    margin-top:50px;
     outline: none;
     border: none;
     box-shadow: 3px 3px 10px 3px #ddd;
     border-radius: 5px;
     padding: 0 20px;
-    font-size: 20px;
-}
-label{
-    display: block;
-    margin-top: 20px;
     font-size: 20px;
 }
 .form-right{
@@ -544,4 +548,9 @@ label{
     height: 30px;
     color: red;
     font-size: 18px;
+}
+label{
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
 }

@@ -24,6 +24,7 @@ if (isset($_POST['product-add'])) {
     if (!empty($_POST['price-product'])) {
         if (!is_numeric($discount)) {
             $erro['price'] = "Vui lòng nhập số";
+            $price = $_POST['price-product'];
         } else {
             $price = $_POST['price-product'];
         }
