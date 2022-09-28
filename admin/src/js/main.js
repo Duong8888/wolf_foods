@@ -18,7 +18,7 @@ if(btn){
     });
 }
 
-// sử lý hiển thị ảnh khi tải file 
+// xử lý hiển thị ảnh khi tải file 
 
 var imgDisplay = document.querySelector('.form-right>label>img');
 var fileImg = document.querySelector('#img');
@@ -30,18 +30,16 @@ if(fileImg){
     });
 }
 
+
+// xử lý active menu
 var menu = document.querySelectorAll('.sidebar__menu--item');
 function active(){
     var nameUrl = new URLSearchParams(window.location.search).get('action');
-    // menu.forEach(element => {
-    //     element.classList.remove("active");
-    // });
     menu.forEach(element => {
         console.log(element.id);
         if(nameUrl == element.id){
             element.classList.add("active");
         }
-        
     });
     // item.classList.add("active");
 }

@@ -1,3 +1,6 @@
+<?php
+
+?>
 <main>
     <div class="content-box">
         <p class="title">Danh mục</p>

@@ -70,19 +70,23 @@ if (isset($_POST['product-add'])) {
         <p class="title">Thêm sản phẩm</p>
         <form action="index.php?action=add-product" method="POST" enctype="multipart/form-data" class="form-add">
             <div class="form-left">
-                <input type="text" value="<?=isset($name)?$name:""?>" name="name-product" placeholder="Nhập tên sản phẩm">
+                <input type="text" value="<?= isset($name) ? $name : "" ?>" name="name-product" placeholder="Nhập tên sản phẩm">
                 <span class="erro"><?= isset($erro['name']) ? $erro['name'] : "" ?></span>
 
-                <input type="text" value="<?=isset($discount)?$discount:""?>" name="discount" placeholder="Giảm giá %">
+                <input type="text" value="<?= isset($discount) ? $discount : "" ?>" name="discount" placeholder="Giảm giá %">
                 <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span>
 
-                <input type="text" value="<?=isset($price)?$price:""?>" name="price-product" placeholder="Nhập giá sản phẩm">
+                <input type="text" value="<?= isset($price) ? $price : "" ?>" name="price-product" placeholder="Nhập giá sản phẩm">
                 <span class="erro"><?= isset($erro['price']) ? $erro['price'] : "" ?></span>
 
                 <select name="categories" id="">
                     <option>Cho danh mục</option>
                     <?php foreach ($arrCategories as $key => $value) : ?>
-                        <option <?php if(isset($categories)){if($categories == $value['id_categories']){echo "selected";}}?> value="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></option>
+                        <option <?php if (isset($categories)) {
+                                    if ($categories == $value['id_categories']) {
+                                        echo "selected";
+                                    }
+                                } ?> value="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></option>
                     <?php endforeach ?>
                 </select>
                 <span class="erro"><?= isset($erro['categories']) ? $erro['categories'] : "" ?></span>
@@ -100,7 +104,7 @@ if (isset($_POST['product-add'])) {
 
             </div>
             <div class="form-bottom">
-                <textarea name="desc-product" id="" cols="30" rows="10" placeholder="Mô tả sản phẩm"><?=isset($description)?$description:""?></textarea>
+                <textarea name="desc-product" id="" cols="30" rows="10" placeholder="Mô tả sản phẩm"><?= isset($description) ? $description : "" ?></textarea>
                 <span class="erro"><?= isset($erro['description']) ? $erro['description'] : "" ?></span>
                 <button type="submit" name="product-add" class="btn-form">Thêm sản phẩm <span></span></button>
             </div>

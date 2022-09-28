@@ -102,6 +102,7 @@ header {
     margin-bottom: 20px;
     text-align: center;
     position: relative;
+    border-radius: 20px;
 }
 
 .sidebar__logo img{
@@ -268,6 +269,7 @@ main {
     text-align: center;
     max-width: 150px;
 }
+
 .table-main td>div{
     /* white-space: nowrap; 
     thuộc tính cho cá chữ trong hàng không xuống dòng trừ khi găoj thẻ br */

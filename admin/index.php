@@ -29,8 +29,8 @@
             case 'edit':
                 include "./view/product/edit-product.php";
                 break; 
-            case '':
-                include "";
+            case 'comment':
+                include "./view/comment/commet.php";
                 break; 
             default:
                 include "./view/content.php";
