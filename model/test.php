@@ -10,7 +10,7 @@ $tests = array(
     "not numeric",
     9.1
 );
- 
+
 foreach ($tests as $element) {
     if (!is_numeric($element)) {
         echo "'{$element}' is numeric <br />" ;
@@ -18,4 +18,3 @@ foreach ($tests as $element) {
         echo "'{$element}' is NOT numeric <br />";
     }
 }
-?>
