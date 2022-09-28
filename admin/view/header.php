@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="admin">
+        <div class="admin">
                 <div class="admin__info">
                     <div class="admin__info--avatar">
                         <img src="./src/img/img-11.png" alt="">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <nav class="sidebar">
-                <p class="sidebar__logo">hello</p>
+                <p class="sidebar__logo"><img src="./src/img/logo.webp" alt=""></p>
                 <ul class="sidebar__menu">
                     <li class="sidebar__menu--item" id="dashboard">
                         <a href="index.php?action=dashboard">

@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT * FROM products ORDER BY input_time DESC";
+$query = "SELECT * FROM products ORDER BY id_product DESC";
 
 $products = getAll($query);
     // xóa một sản phẩm
