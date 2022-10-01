@@ -109,7 +109,7 @@ header {
     height: 100%;
     object-fit: contain;
 }
-
+/*  */
 .sidebar__logo::after{
     content: "";
     position: absolute;
