@@ -1,6 +1,8 @@
 // sử lý chọn tất cả danh sách
 var btn = document.querySelector('.check-all');
 var inputCheck = document.querySelectorAll('.checknow');
+var slectSave = document.querySelector('.select-save');
+var option = document.querySelectorAll('.select-save>option');
 if(btn){
     var countClick = 0;
     btn.addEventListener('click', function(){
@@ -15,6 +17,9 @@ if(btn){
             }
         }
         countClick++;
+        // option.forEach(element => {
+        //     element.style.zIndex = "-99999";
+        // });
     });
 }
 

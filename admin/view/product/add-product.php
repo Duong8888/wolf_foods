@@ -4,16 +4,13 @@ $arrCategories = getAll($queryCategories);
 if (isset($_POST['product-add'])) {
     $erro = [];
     $dateUp = date('Y-m-d');
-    $discount = $_POST['discount'];
+    !empty($_POST['discount']) ? $discount = $_POST['discount'] : $discount = 0;
 
-    // if (!empty($discount)) {
-    //     if (!is_numeric($discount)) {
-    //         $erro['discount'] = "Vui lòng nhập số";
-    //     }else{
-    //         $erro['discount'] = "";
-    //     }
-    // }
-
+    if (!empty($discount)) {
+        if (!is_numeric($discount)) {
+            $erro['discount'] = "Vui lòng nhập số";
+        }
+    }
     if (!empty($_POST['name-product'])) {
         $name = $_POST['name-product'];
     } else {
@@ -22,7 +19,7 @@ if (isset($_POST['product-add'])) {
     }
 
     if (!empty($_POST['price-product'])) {
-        if (!is_numeric($discount)) {
+        if (!is_numeric($_POST['price-product'])) {
             $erro['price'] = "Vui lòng nhập số";
             $price = $_POST['price-product'];
         } else {
@@ -48,7 +45,12 @@ if (isset($_POST['product-add'])) {
     }
 
     if ($_FILES['avatar']['size'] > 0) {
-        $avatar = $_FILES['avatar']['name'];
+        $format = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+        if ($format == 'png' || $format == 'jpg' || $format == 'svg' || $format == 'webp' || $format == 'jpeg') {
+            $avatar = $_FILES['avatar']['name'];
+        } else {
+            $erro['avatar'] = "Ảnh không đúng định dạng.";
+        }
     } else {
         $erro['avatar'] = "vui lòng nhập ảnh sản phẩm.";
     }

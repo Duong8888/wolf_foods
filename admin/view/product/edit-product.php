@@ -8,15 +8,13 @@ $product = getOne($queryProduct);
 if (isset($_POST['product-edit'])) {
     $erro = [];
     $dateUp = date('Y-m-d');
-    $discount = $_POST['discount'];
+    !empty($_POST['discount'])?$discount = $_POST['discount']:$discount = 0;
 
-    // if (!empty($discount)) {
-    //     if (!is_numeric($discount)) {
-    //         $erro['discount'] = "Vui lòng nhập số";
-    //     }else{
-    //         $erro['discount'] = "";
-    //     }
-    // }
+    if (!empty($discount)) {
+        if (!is_numeric($discount)) {
+            $erro['discount'] = "Vui lòng nhập số";
+        }
+    }
 
     if (!empty($_POST['name-product'])) {
         $name = $_POST['name-product'];
@@ -81,7 +79,7 @@ if (isset($_POST['product-edit'])) {
 
                 <Label>Giảm giá %</Label>
                 <input type="text" value="<?= isset($discount) ? $discount : $product['discount'] ?>" name="discount" placeholder="Giảm giá %">
-                <!-- <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span> -->
+                <span class="erro"><?= isset($erro['discount']) ? $erro['discount'] : "" ?></span>
 
                 <Label>Giá sản phẩm</Label>
                 <input type="text" value="<?= isset($price) ? $price : $product['price'] ?>" name="price-product" placeholder="Nhập giá sản phẩm">
