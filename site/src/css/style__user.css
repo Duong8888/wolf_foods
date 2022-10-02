@@ -8,11 +8,12 @@
   margin: 0;
   padding: 0;
   font: inherit;
-  font-family: 'Poppins', sans-serif;
+
 }
 
 body {
   line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
 }
 
 img,
@@ -336,15 +337,15 @@ h6 {
 /* end category */
 
 .wrap-discount {
-  background-color: rgb(244, 245, 249, 0.5);
+  background-color: rgb(255, 70, 59);
 }
 
 .discount__product {
-  height: 450px;
+  height: 475px;
   width: 1080px;
   margin: auto;
   margin-top: 50px;
-  background-color: rgb(255, 70, 59);
+  /* background-color: rgb(255, 70, 59); */
   border-radius: 20px;
 }
 
