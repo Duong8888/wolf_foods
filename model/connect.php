@@ -23,8 +23,8 @@ function getOne($query){
 function deleteAll($arr,$location){
     $arrID = [];
     // kiểm tra các ô input đã được check và lấy theo id ô được check
-    foreach ($arr as $key => $value){
-        $arrID[''.$value["0"].''] = isset($_POST[''.$value["0"].''])?$_POST[''.$value["0"].'']:"off";
+    foreach ($arr as $value){
+        $arrID[''.$value["0"].''] = isset($_POST[''.$value["0"].''])?"on":"off";
     }
     // tách id từ mảng và xóa các sản phẩm được check
     foreach ($arrID as $key => $value){
@@ -33,6 +33,25 @@ function deleteAll($arr,$location){
             connect($query3);
         }
     }
+    // load lại trang hiển thị sản phẩm
+    header('location:index.php?action='.$location.'&&successful');
+}
+
+// hàm chuyển nhiều danh mục
+function updateAll($arr,$location,$idCategories){
+    $arrID = [];
+    // kiểm tra các ô input đã được check và lấy theo id ô được check
+    foreach ($arr as $value){
+        $arrID[''.$value["0"].''] = isset($_POST[''.$value["0"].''])?"on":"off";
+    }
+    foreach ($arrID as $key => $value){
+        if($value == "on"){
+            $queryUpdate = "UPDATE products SET id_categories=$idCategories WHERE id_product = $key";
+            connect($queryUpdate);
+        }
+    }
+    // print_r($arrID);
+    // die;
     // load lại trang hiển thị sản phẩm
     header('location:index.php?action='.$location.'&&successful');
 }
