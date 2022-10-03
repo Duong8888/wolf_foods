@@ -19,6 +19,7 @@ if (isset($_GET['action'])) {
             include "./view/product/edit-product.php";
             break;
             // end product
+
             // categories
         case 'categories':
             include "./view/categories/categories.php";
@@ -33,10 +34,18 @@ if (isset($_GET['action'])) {
             include "./view/categories/edit-categories.php";
             break;
             // end categoreis
+
             // admin
         case 'admin':
             include "./view/user/admin.php";
             break;
+        case 'add-admin':
+            include "./view/user/add-admin.php";
+            break;
+        case 'edit-admin':
+            include "./view/user/edit-admin.php";
+            break;
+            // end admin
         case 'clients':
             include "./view/client/client.php";
             break;

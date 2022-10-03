@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WOLF FOOD</title>
     <!-- link css -->
     <link rel="stylesheet" href="./src/css/style.css">
     <!-- link icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- icon web -->
+    <link rel="shortcut icon" href="./src/img/logo-2.png" type="image/x-icon">
 </head>
 
 <body>

@@ -11,7 +11,9 @@ if(isset($_GET['id'])){
     // xóa nhiều sản phẩm
 }else if(isset($_GET['delete-all'])){
     $location = 'products';
-    deleteAll($products,$location);
+    $tableName = 'products';
+    $columName = 'id_product';
+    deleteAll($products,$tableName,$columName,$location);
 }
 ?>
 <main>
