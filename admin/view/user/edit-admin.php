@@ -7,10 +7,6 @@ if(isset($_GET['ID'])){
 
 if (isset($_POST['add-admin'])) {
     $erro = [];
-    // lưu lại id
-    $id = $_POST['getID'];
-    // lưu lại avatar
-    $nameAvatar = $_POST['name-avatar'];
     $queryUser = "SELECT * FROM user";
     $getAllUser = getAll($queryUser);
 
@@ -31,7 +27,7 @@ if (isset($_POST['add-admin'])) {
         }
         // kiểm tra xem có user nào tồn tại với email tài khoản này không
         foreach ($getAllUser as $key => $value) {
-            if (isset($check) && $check == $value['email'] && $value['id'] != $id) {
+            if (isset($check) && $check == $value['email'] && $value['id'] != $getID) {
                 $erro['email'] = "Email đã được đăng kí bởi tài khoản khác.";
             } else if (isset($check)) {
                 $email = $check;
@@ -81,7 +77,7 @@ if (isset($_POST['add-admin'])) {
 <main>
     <div class="content-box">
         <p class="title">Thêm Nhân Viên</p>
-        <form action="index.php?action=edit-admin" class="form-add" method="POST" enctype="multipart/form-data">
+        <form action="index.php?action=edit-admin&&ID=<?=$_GET['ID']?>" class="form-add" method="POST" enctype="multipart/form-data">
             <div class="form-left">
                 <input type="text" name="getID" value="<?= $getID ?>" hidden>
                 <input value="<?= isset($username) ? $username : $oneUser['username'] ?>" type="text" name="username" placeholder="Username">
@@ -103,7 +99,7 @@ if (isset($_POST['add-admin'])) {
                         add_photo_alternate
                     </span>
                     <input type="text" name="name-avatar" value="<?=$oneUser['avatar']?>" hidden>
-                    <img style="z-index: 10;" src="./src/img/<?=isset($oneUser['avatar'])?$oneUser['avatar']:$nameAvatar?>" alt="">
+                    <img style="z-index: 10;" src="./src/img/<?=$oneUser['avatar']?>" alt="">
                 </label>
                 <input type="file" name="avatar" id="img" hidden>
                 <span class="erro"><?= isset($erro['avatar']) ? $erro['avatar'] : "" ?></span>

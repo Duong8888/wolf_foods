@@ -46,9 +46,18 @@ if (isset($_GET['action'])) {
             include "./view/user/edit-admin.php";
             break;
             // end admin
+
+            // clients
         case 'clients':
             include "./view/client/client.php";
             break;
+        case 'add-clients':
+            include "./view/client/add-client.php";
+            break;
+        case 'edit-clients':
+            include "./view/client/edit-client.php";
+            break;
+            // end clients
         case 'comment':
             include "./view/comment/commet.php";
             break;
