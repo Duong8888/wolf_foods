@@ -39,7 +39,7 @@
                         <a href="index.php?action=products">
                             <i class='bx bx-store-alt'></i>
                             Quản lý sản
-                            phẩn</a>
+                            phẩm</a>
                     </li>
                     <li class="sidebar__menu--item" id="categories">
                         <a href="index.php?action=categories">
@@ -56,7 +56,7 @@
                     <li class="sidebar__menu--item" id="clients">
                         <a href="index.php?action=clients">
                             <i class='bx bxs-user-account'></i>
-                            Quản lý khác
+                            Quản lý khách
                             hàng</a>
                     </li>
                     <li class="sidebar__menu--item" id="comment">
@@ -68,7 +68,7 @@
                     <li class="sidebar__menu--item out">
                         <a href="index.php?action=out">
                             <i class='bx bx-log-out-circle'></i>
-                            Đăng suất</a>
+                            Đăng xuất</a>
                     </li>
                 </ul>
             </nav>
