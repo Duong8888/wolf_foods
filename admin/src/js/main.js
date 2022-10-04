@@ -73,7 +73,7 @@ if(btnEdit){
             item.classList.add('unlog');
         }
         boxProfile.classList.add('overlay-img');
-        unlogRepass.style.display = "block";
+        unlogRepass.style.display = "flex";
         unlogAvatar.setAttribute('for','img');
     });
 }
