@@ -2,8 +2,9 @@
 if (isset($_POST['btn-logIn'])) {
   $getData = "SELECT * FROM user";
   $allUser = getAll($getData);
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+  !empty($_POST['email'])?$email = $_POST['email']: $email = "";
+  !empty($_POST['password'])?$password = $_POST['password']: $password ="";
+  login($allUser,$email,$password);
 }
 ?>
 <main>

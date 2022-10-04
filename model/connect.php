@@ -66,12 +66,23 @@ function validateEmail($email)
     }
 }
 
-
-function login($litUser,$emial,$password){
-    foreach($litUser as $key => $value){
-        if($emial){
-
+// hàm sử lý phần đăng nhập
+function login($litUser, $emial, $password)
+{
+    $erro = [];
+    foreach ($litUser as $key => $value) {
+        if ($emial == $value['email']) {
+            if ($password == $value['password']) {
+                $_SESSION['idUser'] = $value['id'];
+                if($value['id_position'] == 3){
+                    header("location:index.php?Đăng nhập thành công");
+                }else{
+                    header("location:../../admin/index.php?action=dashboard");
+                }
+            }
+        }else{
+            $erro['erro'] = 'Tài khoản hoặc mật khẩu không đúng';
+            header("location:index.php?action=sign_in&&sai tên đăn nhập hoặc mật khẩu");
         }
     }
 }
-
