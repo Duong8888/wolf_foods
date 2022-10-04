@@ -64,16 +64,15 @@ if (isset($_GET['action'])) {
             include "./view/profile/profile.php";
             break;
             // end profile
+
+            //comment
         case 'comment':
-            include "./view/comment/commet.php";
+            include "./view/comment/comment.php";
             break;
-            // log-out
-        case 'log-out':
-            include "./view/logout/log-out.php";
+        case 'detail-Comment':
+            include "./view/comment/detail-comment.php";
             break;
-        case 'comment':
-            include "./view/comment/commet.php";
-            break;
+            //end comment
         default:
             include "./view/content.php";
             break;
