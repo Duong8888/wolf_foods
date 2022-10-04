@@ -836,6 +836,7 @@ label {
     right: 10px;
     color: var(--color-main);
     cursor: pointer;
+    user-select: none;
 }
 .repass{
     display: none;

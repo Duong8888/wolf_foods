@@ -67,15 +67,50 @@ var unlogInput = document.querySelectorAll('.input-profile');
 var unlogRepass = document.querySelector('.repass');
 var boxProfile = document.querySelector('.box-profile');
 var unlogAvatar = document.querySelector('.profile-avatar');
-if(btnEdit){
-    btnEdit.addEventListener('click',function(){
+if (btnEdit) {
+    btnEdit.addEventListener('click', function () {
         for (const item of unlogInput) {
             item.classList.add('unlog');
         }
         boxProfile.classList.add('overlay-img');
         unlogRepass.style.display = "flex";
-        unlogAvatar.setAttribute('for','img');
+        unlogAvatar.setAttribute('for', 'img');
         unlogAvatar.style.backgroundColor = "red";
     });
 }
 
+// show pass profile admin 
+var inputPassword = document.querySelector('#profile-password');
+var inputRePassword = document.querySelector('#profile-repassword');
+var eyePassword = document.querySelector('.row .eye');
+var eyerePassword = document.querySelector('.repass .eye');
+var countClick1 = 0;
+var countClick2 = 0;
+
+eyePassword.addEventListener('click', function () {
+    if (countClick1 % 2 == 0) {
+        inputPassword.type = 'text';
+        eyePassword.innerText = "visibility_off";
+    } else {
+        inputPassword.type = 'password';
+        eyePassword.innerText = "visibility";
+    }
+    countClick1++;
+
+});
+eyerePassword.addEventListener('click', function () {
+
+    if (countClick2 % 2 == 0) {
+        inputRePassword.type = 'text';
+        eyerePassword.innerText = "visibility_off";
+    } else {
+        inputRePassword.type = 'password';
+        eyerePassword.innerText = "visibility";
+    }
+    countClick2++;
+
+});
+
+{/* <span class="material-symbols-outlined">
+visibility_off
+</span> */}
