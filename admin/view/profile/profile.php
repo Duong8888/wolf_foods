@@ -1,6 +1,4 @@
-<?php
 
-?>
 <main>
     <div class="content-box">
         <form action="">
@@ -20,7 +18,7 @@
                     <div class="box-form">
 
                         <div class="row">
-                            <label class="lable-profile" for="profiel-username">UserNameName : </label>
+                            <label class="lable-profile" for="profiel-username">UserName : </label>
                             <input autocomplete="off" id="profiel-username" type="text" name="username" value="" class=" input-profile">
                         </div>
                         <div class="row">

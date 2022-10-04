@@ -1,18 +1,23 @@
 <?php
-require '../model/databse.php';
+require '../../model/connect.php';
 
-// require '../view/main_index.php';
+require '../view/header.php';
+
 if (isset($_GET['action'])) {
   switch ($_GET['action']) {
     case 'sign_in':
-      require '../view/login.php';
+      require '../view/signIn/login.php';
       break;
     case 'sign_up':
-      require '../view/register.php';
+      require '../view/signIn/register.php';
       break;
     case 'contact':
-      require '../view/contact.php';
+      require '../view/contact/contact.php';
+    default:
+      include "../view/main_index.php";
+      break;
   }
 } else {
   require '../view/main_index.php';
 }
+require '../view/footer.php';

@@ -1,6 +1,4 @@
-<?php
-require '../view/header.php';
-?>
+
 
 <main>
   <div class="main__wrap--login">
@@ -22,6 +20,3 @@ require '../view/header.php';
     </form>
   </div>
 </main>
-<?php
-require '../view/footer.php';
-?>

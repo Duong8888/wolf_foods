@@ -40,3 +40,4 @@ function deleteAll($arr, $table, $colum, $location)
     // load lại trang hiển thị sản phẩm
     header('location:index.php?action=' . $location . '&&successful');
 }
+

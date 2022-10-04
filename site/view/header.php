@@ -30,7 +30,7 @@
     <div class="line"></div>
     <!-- end top header -->
     <div class="mid-header">
-      <a href="../view/main_index.php">
+      <a href="index.php">
         <img src="../src/img/img__header/logo.png" alt="" class="logo">
       </a>
       <form action="" class="search">
@@ -48,8 +48,8 @@
         <img src="../src/img/img__header/user.png" alt="" class="account__logo">
         <p class="">Tài khoản</p>
         <div class="account__hover">
-          <a href="../view/login.php?action=sign_in" class="sign__in">Đăng nhập</a>
-          <a href="../view/register.php?action=sign_up" class="sign__up">Đăng ký</a>
+          <a href="index.php?action=sign_in" class="sign__in">Đăng nhập</a>
+          <a href="index.php?action=sign_up" class="sign__up">Đăng ký</a>
         </div>
       </div>
       <div class="cart">
@@ -59,10 +59,10 @@
     </div>
     <!-- end mid header -->
     <ul class="menu">
-      <li><a href="../view/main_index.php">Trang chủ</a></li>
+      <li><a href="index.php">Trang chủ</a></li>
       <li><a href="#">Sản phẩm</a></li>
       <li><a href="#">Giới thiệu</a></li>
-      <li><a href="../view/contact.php?action=contact">Liên hệ</a></li>
+      <li><a href="index.php?action=contact">Liên hệ</a></li>
     </ul>
     <div class="line"></div>
     <!--end menu  -->

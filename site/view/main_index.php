@@ -1,6 +1,4 @@
-<?php
-require '../view/header.php';
-?>
+
 <main>
   <div class="banner">
     <a href="#"><img src="../src/img/img__header/banner.jpg" alt="" class="banner__img"></a>
@@ -226,6 +224,3 @@ require '../view/header.php';
     </div>
   </div>
 </main>
-<?php
-require '../view/footer.php';
-?>

@@ -1,13 +1,12 @@
 <?php
-require '../view/header.php';
+// require '../view/header.php';
 // require '../model/databse.php';
 // require '../../model/validate.php';
-require '../../model/validate.php';
-require '../../model/connect.php';
+// require '../../model/validate.php';
+// require '../../model/connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $account = array();
-
   $error = checkEmty(array('username', 'email', 'password', 're-password'));
   if ($_POST['re-password'] != $_POST['password']) {
     $error['checkpass'] = '';
@@ -48,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <main>
   <div class="main__wrap--register">
     <div class="title">
-      <a href="../view/login.php?action=sign_in" class="title__login--register">Đăng nhập</a>
-      <a href="../view/register.php?action=sign_up" class="title__register--register">Đăng ký</a>
+      <a href="index.php?action=sign_in" class="title__login--register">Đăng nhập</a>
+      <a href="index.php?action=sign_up" class="title__register--register">Đăng ký</a>
     </div>
     <div class="slogan__login">Điền các thông tin bên dưới để đăng ký tài khoản Wolf Food</div>
     <form action="" class="form" method="POST" enctype="multipart/form-data">
@@ -111,6 +110,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
   </div>
 </main>
-<?php
-require '../view/footer.php';
-?>
