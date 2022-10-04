@@ -1,12 +1,28 @@
+<?php
+$queryAdmin = "SELECT * FROM user WHERE id_position = 3";
+$listAdmin = getAll($queryAdmin);
+    // xóa một user
+    if(isset($_GET['id'])){
+        $getID = $_GET['id'];
+        $query2 = "DELETE FROM user WHERE id=$getID";
+        connect($query2);
+        header('location:index.php?action=clients&&successful');
+        // xóa nhiều user
+    }else if(isset($_GET['delete-all'])){
+        $location = 'clients';
+        $tableName = 'user';
+        $columName = 'id';
+        deleteAll($listAdmin,$tableName,$columName,$location);
+    }
+?>
 <main>
     <div class="content-box">
-        <p class="title">Quản lý khác hàng</p>
-        <form action="">
+        <p class="title">Quản lý khách hàng</p>
+        <form action="index.php?action=clients&&delete-all" method="POST">
             <div class="box-btn">
-
-                <a href="#add" class="add">
-                    <button>
-                        Thêm khác hàng
+                <a href="index.php?action=add-clients" class="add">
+                    <button type="button">
+                        Thêm Khách hàng
                         <span class="material-symbols-outlined">
                             post_add
                         </span>
@@ -17,7 +33,7 @@
                     Chọn tất cả
                 </label>
 
-                <a href="#add" class="btn-delete">
+                <a href="" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" class="btn-delete">
                     <button type="submit">
                         Xóa mục đã chọn
                         <span class="material-symbols-outlined">
@@ -32,142 +48,40 @@
                     <thead>
                         <tr>
                             <th>Chọn</th>
-                            <th>Tên khác hàng</th>
+                            <th>Họ và tên</th>
                             <th>Ảnh</th>
                             <th>Email</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="checknow"></td>
-                            <td>
-                                <div>Nguyễn Ánh Dương</div>
-                            </td>
-                            <td><img src="src/img/img-11.png" alt=""></td>
-                            <td>
-                                <div>duongna1603@gmail.com</div>
-                            </td>
-                            <td>
-                                <a href="#1">
-                                    <button class="delete">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </button></a>
-                                <a href="#">
-                                    <button class="edit">
-                                        <span class="material-symbols-outlined">
-                                            edit_document
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox" name="checknow"></td>
-                            <td>
-                                <div>Nguyễn Ánh Dương</div>
-                            </td>
-                            <td><img src="src/img/img-11.png" alt=""></td>
-                            <td>
-                                <div>duongna1603@gmail.com</div>
-                            </td>
-                            <td>
-                                <a href="#1">
-                                    <button class="delete">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </button></a>
-                                <a href="#">
-                                    <button class="edit">
-                                        <span class="material-symbols-outlined">
-                                            edit_document
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox" name="checknow"></td>
-                            <td>
-                                <div>Nguyễn Ánh Dương</div>
-                            </td>
-                            <td><img src="src/img/img-11.png" alt=""></td>
-                            <td>
-                                <div>duongna1603@gmail.com</div>
-                            </td>
-                            <td>
-                                <a href="#1">
-                                    <button class="delete">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </button></a>
-                                <a href="#">
-                                    <button class="edit">
-                                        <span class="material-symbols-outlined">
-                                            edit_document
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox" name="checknow"></td>
-                            <td>
-                                <div>Nguyễn Ánh Dương</div>
-                            </td>
-                            <td><img src="src/img/img-11.png" alt=""></td>
-                            <td>
-                                <div>duongna1603@gmail.com</div>
-                            </td>
-                            <td>
-                                <a href="#1">
-                                    <button class="delete">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </button></a>
-                                <a href="#">
-                                    <button class="edit">
-                                        <span class="material-symbols-outlined">
-                                            edit_document
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox" name="checknow"></td>
-                            <td>
-                                <div>Nguyễn Ánh Dương</div>
-                            </td>
-                            <td><img src="src/img/img-11.png" alt=""></td>
-                            <td>
-                                <div>duongna1603@gmail.com</div>
-                            </td>
-                            <td>
-                                <a href="#1">
-                                    <button class="delete">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </button></a>
-                                <a href="#">
-                                    <button class="edit">
-                                        <span class="material-symbols-outlined">
-                                            edit_document
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php foreach ($listAdmin as $key => $value) : ?>
+                            <tr>
+                                <td><input type="checkbox" class="checknow" name="<?= $value['id'] ?>"></td>
+                                <td>
+                                    <div><?= $value['username'] ?></div>
+                                </td>
+                                <td><img src="./src/img/<?= $value['avatar'] ?>" alt=""></td>
+                                <td>
+                                    <div><?= $value['email'] ?></div>
+                                </td>
+                                <td>
+                                    <a onclick="return confirm('Bạn có muốn xóa không')" href="index.php?action=admin&&id=<?= $value['id'] ?>">
+                                        <button type="button" class="delete">
+                                            <span class="material-symbols-outlined">
+                                                delete
+                                            </span>
+                                        </button></a>
+                                    <a href="index.php?action=edit-admin&&ID=<?=$value['id']?>">
+                                        <button type="button" class="edit">
+                                            <span class="material-symbols-outlined">
+                                                edit_document
+                                            </span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

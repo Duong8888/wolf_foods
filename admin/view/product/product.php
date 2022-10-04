@@ -11,7 +11,9 @@ if(isset($_GET['id'])){
     // xóa nhiều sản phẩm
 }else if(isset($_GET['delete-all'])){
     $location = 'products';
-    deleteAll($products,$location);
+    $tableName = 'products';
+    $columName = 'id_product';
+    deleteAll($products,$tableName,$columName,$location);
 }
 ?>
 <main>
@@ -31,7 +33,7 @@ if(isset($_GET['id'])){
                     Chọn tất cả
                 </label>
 
-                <a class="btn-delete" onclick="return confirm('Bạn có muốn xóa không')" href="">
+                <a class="btn-delete" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" href="">
                     <button type="submit">
                         Xóa mục đã chọn
                         <span class="material-symbols-outlined">
