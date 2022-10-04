@@ -33,7 +33,7 @@ if(isset($_GET['id'])){
                     Chọn tất cả
                 </label>
 
-                <a class="btn-delete" onclick="return confirm('Bạn có muốn xóa không')" href="">
+                <a class="btn-delete" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" href="">
                     <button type="submit">
                         Xóa mục đã chọn
                         <span class="material-symbols-outlined">

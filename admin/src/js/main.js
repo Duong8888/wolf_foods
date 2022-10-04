@@ -24,13 +24,24 @@ if (btn) {
 // xử lý hiển thị ảnh khi tải file 
 
 var imgDisplay = document.querySelector('.form-right>label>img');
+var imgDisplay2 = document.querySelector('.box-profile>label>img');
 var fileImg = document.querySelector('#img');
 if (fileImg) {
-    fileImg.addEventListener('change', function () {
-        console.log(URL.createObjectURL(fileImg.files[0]));
-        imgDisplay.src = URL.createObjectURL(fileImg.files[0]);
-        imgDisplay.style.zIndex = '11';
-    });
+    if (imgDisplay) {
+        fileImg.addEventListener('change', function () {
+            console.log(URL.createObjectURL(fileImg.files[0]));
+            imgDisplay.src = URL.createObjectURL(fileImg.files[0]);
+            imgDisplay.style.zIndex = '11';
+        });
+    }
+    if (imgDisplay2) {
+        fileImg.addEventListener('change', function () {
+            console.log(URL.createObjectURL(fileImg.files[0]));
+            imgDisplay2.src = URL.createObjectURL(fileImg.files[0]);
+            imgDisplay2.style.zIndex = '11';
+        });
+    }
+
 }
 
 
@@ -47,3 +58,23 @@ function active() {
     // item.classList.add("active");
 }
 active();
+
+// profile
+
+// sử lý khi bấm nú edit thì mở khóa để nhập liệu
+var btnEdit = document.querySelector('.profile-edit');
+var unlogInput = document.querySelectorAll('.input-profile');
+var unlogRepass = document.querySelector('.repass');
+var boxProfile = document.querySelector('.box-profile');
+var unlogAvatar = document.querySelector('.profile-avatar');
+if(btnEdit){
+    btnEdit.addEventListener('click',function(){
+        for (const item of unlogInput) {
+            item.classList.add('unlog');
+        }
+        boxProfile.classList.add('overlay-img');
+        unlogRepass.style.display = "block";
+        unlogAvatar.setAttribute('for','img');
+    });
+}
+

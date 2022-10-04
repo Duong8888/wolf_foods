@@ -19,12 +19,12 @@
     <div class="container">
         <header>
         <div class="admin">
-                <div class="admin__info">
+                <a href="index.php?action=profile" class="admin__info">
                     <div class="admin__info--avatar">
                         <img src="./src/img/img-11.png" alt="">
                     </div>
                     <p class="admin__info--name">Nguyễn Ánh Dương</p>
-                </div>
+                </a>
             </div>
             <nav class="sidebar">
                 <p class="sidebar__logo"><img src="./src/img/logo.webp" alt=""></p>

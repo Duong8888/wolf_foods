@@ -58,6 +58,12 @@ if (isset($_GET['action'])) {
             include "./view/client/edit-client.php";
             break;
             // end clients
+
+            // profile 
+        case 'profile':
+            include "./view/profile/profile.php";
+            break;
+            // end profile
         case 'comment':
             include "./view/comment/commet.php";
             break;

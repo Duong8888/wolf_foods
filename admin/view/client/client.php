@@ -33,7 +33,7 @@ $listAdmin = getAll($queryAdmin);
                     Chọn tất cả
                 </label>
 
-                <a href="" class="btn-delete">
+                <a href="" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" class="btn-delete">
                     <button type="submit">
                         Xóa mục đã chọn
                         <span class="material-symbols-outlined">

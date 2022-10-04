@@ -9,10 +9,11 @@
 :root {
     --width-sidebar: 300px;
     --padding-sidebar: 350px;
-    --color-main:#3bb77e;
-    --text-color:#868686;
+    --color-main: #3bb77e;
+    --text-color: #868686;
     /* hello world */
 }
+
 /* css bảng điều khiển */
 .container {
     width: 100%;
@@ -24,13 +25,15 @@ html {
 }
 
 /* custom thanh scrollbar */
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 10px;
 }
-body::-webkit-scrollbar-track{
+
+body::-webkit-scrollbar-track {
     background-color: #fff;
 }
-body::-webkit-scrollbar-thumb{
+
+body::-webkit-scrollbar-thumb {
     background-color: #3bb77e;
     border-radius: 10px;
 }
@@ -59,12 +62,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .admin__info--avatar {
     height: 50px;
     width: 50px;
-    padding-right: 10px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -72,11 +76,34 @@ header {
 .admin__info--avatar img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: contain;
 }
 
 .admin__info--name {
     font-size: 20px;
+    position: relative;
+    padding-left: 10px;
+}
+
+.admin__info:hover .admin__info--name::before {
+    width: 100%;
+    left: 0;
+}
+
+.admin__info:hover .admin__info--name {
+    color: var(--color-main);
+}
+
+.admin__info--name::before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    right: 0;
+    background-color: var(--color-main);
+    transition: .25s;
 }
 
 .sidebar {
@@ -104,13 +131,14 @@ header {
     border-radius: 20px;
 }
 
-.sidebar__logo img{
+.sidebar__logo img {
     width: 70%;
     height: 100%;
     object-fit: contain;
 }
+
 /*  */
-.sidebar__logo::after{
+.sidebar__logo::after {
     content: "";
     position: absolute;
     width: 10px;
@@ -120,11 +148,13 @@ header {
     transform: skewX(-20deg);
     animation: logo 2s infinite linear;
 }
+
 @keyframes logo {
-    0%{
+    0% {
         left: 0%;
     }
-    100%{
+
+    100% {
         left: 90%;
     }
 }
@@ -135,7 +165,8 @@ header {
     list-style: none;
     padding: 0 20px;
 }
-.sidebar__menu--item.active{
+
+.sidebar__menu--item.active {
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
@@ -143,8 +174,9 @@ header {
     -moz-box-shadow: inset 3px 3px 10px 3px #ddd;
     box-shadow: inset 3px 3px 10px 3px #ddd;
 }
-.sidebar__menu--item.active a{
-    color:var(--text-color);
+
+.sidebar__menu--item.active a {
+    color: var(--text-color);
 }
 
 .sidebar__menu--item a {
@@ -173,7 +205,8 @@ main {
     width: 100%;
     height: auto;
 }
-.title{
+
+.title {
     text-align: center;
     font-size: 50px;
     margin-top: 50px;
@@ -187,14 +220,15 @@ main {
     align-items: center;
     border-radius: 10px;
 }
-.title>span{
+
+.title>span {
     color: var(--text-color);
 }
 
 .content-box {
     width: 100%;
     height: auto;
-    padding:0px 50px 0px var(--padding-sidebar);
+    padding: 0px 50px 0px var(--padding-sidebar);
 }
 
 .parameters {
@@ -203,7 +237,7 @@ main {
     display: flex;
     justify-content: start;
     align-items: center;
-    margin: 50px 0; 
+    margin: 50px 0;
 }
 
 .parameters__item {
@@ -225,12 +259,14 @@ main {
     display: flex;
     align-items: center;
 }
-.parameters__item--left p{
+
+.parameters__item--left p {
     font-size: 12px;
     text-align: center;
     color: var(--text-color);
 }
-.parameters__item--left p>span{
+
+.parameters__item--left p>span {
     font-weight: bold;
     font-size: 25px;
     color: var(--color-main);
@@ -242,42 +278,47 @@ main {
     align-items: center;
     font-size: 30px;
 }
-.parameters__item--right i{
+
+.parameters__item--right i {
     color: var(--text-color);
 }
 
 .table-main {
     width: 100%;
     height: auto;
-    padding:40px;
+    padding: 40px;
     -webkit-box-shadow: 3px 3px 10px 3px #ddd;
     -moz-box-shadow: 3px 3px 10px 3px #ddd;
     box-shadow: 3px 3px 10px 3px #ddd;
     border-radius: 10px;
     margin-bottom: 50px;
 }
-.table-main table{
+
+.table-main table {
     width: 100%;
 }
-.table-main tr{
+
+.table-main tr {
     height: 50px;
     box-shadow: 0 1px #868686;
 }
-.table-main td{
+
+.table-main td {
     padding: 15px 0;
     text-align: center;
     max-width: 150px;
 }
-td>img{
+
+td>img {
     border: 3px solid var(--color-main);
     border-radius: 10px;
     object-fit: cover;
 }
 
-.table-main td>div{
+.table-main td>div {
     /* white-space: nowrap; 
     thuộc tính cho cá chữ trong hàng không xuống dòng trừ khi găoj thẻ br */
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     /* text-overflow: ellipsis; hiển thị dấu ... khi văn bản dài */
     text-overflow: ellipsis;
@@ -288,12 +329,13 @@ td>img{
 
 /* css quản lý sản phẩm */
 
-.table-main img{
+.table-main img {
     width: 80px;
     height: 80px;
     object-fit: contain;
 }
-.table-main button{
+
+.table-main button {
     padding: 5px 20px;
     margin-left: 10px;
     -webkit-box-shadow: 3px 3px 10px 3px #ddd;
@@ -305,43 +347,59 @@ td>img{
     cursor: pointer;
     transition: 0.25s;
 }
-.delete{background-color: red;}
-.edit{background-color: blue;}
-.table-main button:active{
+
+.delete {
+    background-color: red;
+}
+
+.edit {
+    background-color: blue;
+}
+
+.table-main button:active {
     transform: scale(0.8);
 }
 
-.add,.btn-delete{
+.add,
+.btn-delete {
     text-decoration: none;
 }
-.add button ,.check-all,.btn-delete button{
+
+.add button,
+.check-all,
+.btn-delete button {
     display: flex;
     width: 250px;
     height: 50px;
     justify-content: center;
     align-items: center;
-    margin:0 20px 30px 0 !important;
+    margin: 0 20px 30px 0 !important;
     -webkit-box-shadow: 3px 3px 10px 3px #ddd;
     -moz-box-shadow: 3px 3px 10px 3px #ddd;
     box-shadow: 3px 3px 10px 3px #ddd;
     border: none;
     font-size: 20px;
-    border-radius:5px;
+    border-radius: 5px;
     background: #fff;
     color: var(--text-color);
     margin-right: 20px;
     user-select: none;
 }
-.add span{
+
+.add span {
     display: inline-block;
     margin-left: 10px;
 }
-.add button:active, .check-all:active,.btn-delete button:active{
+
+.add button:active,
+.check-all:active,
+.btn-delete button:active {
     -webkit-box-shadow: inset 3px 3px 10px 3px #ddd;
     -moz-box-shadow: inset 3px 3px 10px 3px #ddd;
     box-shadow: inset 3px 3px 10px 3px #ddd;
 }
-.box-btn{
+
+.box-btn {
     width: 100%;
     height: auto;
     display: flex;
@@ -352,7 +410,7 @@ td>img{
 }
 
 /* css trang thêm mới sản phẩm  */
-.form-add{
+.form-add {
     width: 100%;
     height: auto;
     display: flex;
@@ -361,17 +419,19 @@ td>img{
     flex-wrap: wrap;
     margin-bottom: 150px;
 }
-.form-left{
+
+.form-left {
     width: 50%;
     height: auto;
     padding: 50px 0px;
     /* background-color: red; */
 }
+
 .form-left input,
-.form-left select{
+.form-left select {
     width: 90%;
     height: 60px;
-    margin-top:50px;
+    margin-top: 50px;
     outline: none;
     border: none;
     box-shadow: 3px 3px 10px 3px #ddd;
@@ -379,12 +439,14 @@ td>img{
     padding: 0 20px;
     font-size: 20px;
 }
-.form-right{
+
+.form-right {
     width: 50%;
     height: auto;
     padding: 50px 0px;
 }
-.form-right label{
+
+.form-right label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,7 +458,8 @@ td>img{
     border-radius: 10px;
     overflow: hidden;
 }
-.form-right label>span{
+
+.form-right label>span {
     position: absolute;
     z-index: 10;
     display: flex;
@@ -407,17 +470,20 @@ td>img{
     font-size: 100px;
     background-color: #fff;
 }
-.form-right label>img{
+
+.form-right label>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
 }
-.form-bottom{
+
+.form-bottom {
     width: 100%;
     height: 300px;
 }
-.form-bottom textarea{
+
+.form-bottom textarea {
     width: 100%;
     height: 70%;
     border: none;
@@ -427,7 +493,8 @@ td>img{
     padding: 20px;
     font-size: 20px;
 }
-.btn-form{
+
+.btn-form {
     margin-left: 50%;
     transform: translateX(-50%);
     margin-top: 50px;
@@ -442,14 +509,16 @@ td>img{
     font-weight: bold;
     cursor: pointer;
 }
-.btn-form>span{
+
+.btn-form>span {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
 }
-.btn-form::before{
+
+.btn-form::before {
     content: "";
     position: absolute;
     top: 0;
@@ -459,7 +528,8 @@ td>img{
     background: var(--color-main);
     transition: 0.25s;
 }
-.btn-form::after{
+
+.btn-form::after {
     content: "";
     position: absolute;
     top: 0;
@@ -469,7 +539,8 @@ td>img{
     background: var(--color-main);
     transition: 0.25s;
 }
-.btn-form>span::before{
+
+.btn-form>span::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -479,7 +550,8 @@ td>img{
     background: var(--color-main);
     transition: 0.25s;
 }
-.btn-form>span::after{
+
+.btn-form>span::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -489,26 +561,29 @@ td>img{
     background: var(--color-main);
     transition: 0.25s;
 }
-.btn-form:hover::before{
+
+.btn-form:hover::before {
     width: 100%;
 }
-.btn-form:hover::after{
+
+.btn-form:hover::after {
     height: 100%;
 }
 
-.btn-form>span:hover::before{
+.btn-form>span:hover::before {
     width: 100%;
 }
-.btn-form>span:hover::after{
+
+.btn-form>span:hover::after {
     height: 100%;
 }
 
 
 /* css thêm danh mục */
-.form-right-2 input{
+.form-right-2 input {
     width: 100%;
     height: 60px;
-    margin-top:50px;
+    margin-top: 50px;
     outline: none;
     border: none;
     box-shadow: 3px 3px 10px 3px #ddd;
@@ -516,15 +591,16 @@ td>img{
     padding: 0 20px;
     font-size: 20px;
 }
+
 /* css chi tiết và xóa danh mục */
 
-.sub-title{
+.sub-title {
     font-size: 20px;
     color: var(--text-color);
     margin-bottom: 20px;
 }
 
-.select-save{
+.select-save {
     display: flex;
     width: 250px;
     height: 50px;
@@ -534,7 +610,7 @@ td>img{
     box-shadow: 3px 3px 10px 3px #ddd;
     border: none;
     font-size: 20px;
-    border-radius:5px;
+    border-radius: 5px;
     background: #fff;
     color: var(--text-color);
     margin-right: 20px;
@@ -543,25 +619,236 @@ td>img{
     outline: none;
 }
 
-.select-save2{
+.select-save2 {
     width: 150px;
     height: 30px;
     box-shadow: 3px 3px 10px 3px #ddd;
     border: none;
     outline: none;
     user-select: none;
-    border-radius:5px;
+    border-radius: 5px;
     color: var(--text-color);
 }
 
-.erro{
+.erro {
     display: block;
     height: 30px;
     color: red;
     font-size: 18px;
 }
-label{
+
+label {
     display: block;
     margin-top: 20px;
     font-size: 20px;
+}
+
+/* css profile */
+
+.profile {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.profile-left {
+    width: 30%;
+    height:350px;
+    position: relative;
+}
+.animation-box{
+    position: absolute;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    
+}
+.animation-box::before{
+    position: absolute;
+    content: "";
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -40px;
+    background-image: conic-gradient(var(--color-main),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0));
+    animation: reverse rotate 8s infinite linear;
+}
+.animation-box::after{
+    position: absolute;
+    content: "";
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    bottom: -40px;
+    right: -40px;
+    transform: rotate(180deg);
+    background-image: conic-gradient(var(--color-main),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0));
+    animation: reverse rotate1 8s infinite linear;
+}
+@keyframes rotate {
+   0%{transform: rotate(0deg);}
+   100%{transform: rotate(360deg);}
+}
+@keyframes rotate1 {
+    0%{transform: rotate(180deg);}
+   100%{transform: rotate(540deg);}
+}
+
+.box-profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.profile-avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+}
+.profile-avatar:after{
+    position: absolute;
+    content: "";
+    width: 155px;
+    height: 155px;
+    background-color: #3bb77e;
+    top: -2.5px;
+    left: -2.5px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.profile-name {
+    font-weight: bold;
+    margin: 20px 0px 10px;
+    font-size: 18px;
+    color: var(--color-main);
+    position: relative;
+}
+.profile-name::before{
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 100%;
+    left: -35px;
+    transform: skewX(-30deg);
+    background-color: rgba(255, 255, 255, 0.5);
+    /* background-color: red; */
+    animation: textAnimation 2s infinite linear;
+}
+@keyframes textAnimation {
+    0%{left: -35px;}
+    100%{left: 180px;}
+}
+
+.position {
+    color: #868686;
+    display: block;
+    font-size: 15px;
+}
+
+.profile-right {
+    width: 65%;
+    height: 350px;
+    box-shadow: 3px 3px 10px 3px #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+.row{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 10px 0px;
+    border-bottom: 2px solid var(--color-main);
+    position: relative;
+}
+.lable-profile{
+    display: inline-block;
+    width: auto;
+    user-select: none;
+    margin: 0;
+    cursor: text;
+}
+.box-form {}
+
+.input-profile {
+    border: none;
+    outline: none;
+    width: auto;
+    padding-left: 20px;
+    font-size: 21px;
+}
+
+.box-form button{
+    margin-top: 20px;
+    padding: 8px 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--color-main);
+    background-color: var(--color-main);
+    color: #fff;
+    font-weight: bold;
+    transition: .25s;
+}
+.box-form button:hover{
+    background-color: #fff;
+    color: var(--color-main);
+    cursor: pointer;
+}
+.box-form button:active{
+    transform: scale(0.9);
+}
+
+.input-profile:focus {
+    display: none;
+}
+
+.input-profile.unlog:focus {
+    display: block;
+}
+
+.eye{
+    position: absolute;
+    right: 10px;
+    color: var(--color-main);
+    cursor: pointer;
+}
+.repass{
+    display: none;
+}
+.overlay-img::after{
+    content: "Thay thế";
+    position: absolute;
+    z-index: 11;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+   transform: translateY(-10000%);
+   transition: .5s;
+}
+.overlay-img:hover::after{
+    transform: translateX(0%);
 }
