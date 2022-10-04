@@ -33,7 +33,7 @@ function deleteAll($arr, $table, $colum, $location)
     // tách id từ mảng và xóa các sản phẩm được check
     foreach ($arrID as $key => $value) {
         if ($value == "on") {
-            $query3 = "DELETE FROM products WHERE id_product=$key";
+            $query3 = "DELETE FROM $table WHERE $colum=$key";
             connect($query3);
         }
     }
