@@ -41,3 +41,37 @@ function deleteAll($arr, $table, $colum, $location)
     header('location:index.php?action=' . $location . '&&successful');
 }
 
+// hàm chuyển tất cả danh mục
+function updateAll($arr, $location, $idCategories)
+{
+    $arrID = [];
+    foreach ($arr as $value) {
+        $arrID['' . $value["0"] . ''] = isset($_POST['' . $value["0"] . '']) ? "on" : "off";
+    }
+    foreach ($arrID as $key => $value) {
+        if ($value == "on") {
+            $queryUpdate = "UPDATE products SET id_categories=$idCategories WHERE id_product = $key";
+            connect($queryUpdate);
+        }
+    }
+    header('location:index.php?action=' . $location . '&&successful');
+}
+
+// hàm kiểm tra định dạng email
+function validateEmail($email)
+{
+    $partten = "/^[A-Za-z0-9_.]{6,32}@([a-zA-Z0-9]{2,12})(.[a-zA-Z]{2,12})+$/";
+    if (!preg_match($partten, $email)) {
+        return  "Email không đúng định dạng ";
+    }
+}
+
+
+function login($litUser,$emial,$password){
+    foreach($litUser as $key => $value){
+        if($emial){
+
+        }
+    }
+}
+

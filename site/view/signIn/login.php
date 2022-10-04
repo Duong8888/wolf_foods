@@ -1,8 +1,9 @@
 <?php
 if (isset($_POST['btn-logIn'])) {
-  if(empty($_POST[''])){
-
-  }
+  $getData = "SELECT * FROM user";
+  $allUser = getAll($getData);
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 }
 ?>
 <main>
@@ -12,7 +13,7 @@ if (isset($_POST['btn-logIn'])) {
       <a href="index.php?action=sign_up" class="title__register">Đăng ký</a>
     </div>
     <div class="slogan__login">Vui lòng nhập Username và Mật khẩu để đăng nhập Wolf Food</div>
-    <form action="" class="form" method="POST">
+    <form action="index.php?action=sign_in" class="form" method="POST">
       <div class="username">
         <label for="">Email</label>
         <input type="text" name="email" class="username__input" placeholder="Nhập Email">
@@ -22,7 +23,7 @@ if (isset($_POST['btn-logIn'])) {
         <input type="password" name="password" class="password__input" placeholder="Nhập Password">
       </div>
       <p><a class="forgot__pasword" href="#">Quên mật khẩu?</a></p>
-      <button class="button__login" type="button" name="btn-logIn">Đăng nhập</button>
+      <button class="button__login" type="submit" name="btn-logIn">Đăng nhập</button>
       <p class="commit">Wolf Food cam kết bảo mật và sẽ không bao giờ đăng
         hay chia sẻ thông tin mà chưa có được sự đồng ý của bạn.</p>
     </form>
