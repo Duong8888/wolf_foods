@@ -2,8 +2,9 @@
 if (isset($_POST['btn-logIn'])) {
   $getData = "SELECT * FROM user";
   $allUser = getAll($getData);
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+  !empty($_POST['email'])?$email = $_POST['email']: $email = "";
+  !empty($_POST['password'])?$password = $_POST['password']: $password ="";
+  login($allUser,$email,$password);
 }
 ?>
 <main>
@@ -12,7 +13,7 @@ if (isset($_POST['btn-logIn'])) {
       <a href="index.php?action=sign_in" class="title__login">Đăng nhập</a>
       <a href="index.php?action=sign_up" class="title__register">Đăng ký</a>
     </div>
-    <div class="slogan__login">Vui lòng nhập Username và Mật khẩu để đăng nhập Wolf Food</div>
+    <div class="slogan__login" <?=isset($_GET['erro'])?'style="color: red;text-align: center;"':""?>><?=isset($_GET['erro'])?$_GET['erro']:"Vui lòng nhập Username và Mật khẩu để đăng nhập Wolf Food"?></div>
     <form action="index.php?action=sign_in" class="form" method="POST">
       <div class="username">
         <label for="">Email</label>

@@ -75,6 +75,7 @@ if(btnEdit){
         boxProfile.classList.add('overlay-img');
         unlogRepass.style.display = "flex";
         unlogAvatar.setAttribute('for','img');
+        unlogAvatar.style.backgroundColor = "red";
     });
 }
 
