@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../src/css/style__user.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <!-- link bootsrap (11) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/css/profile.css">
   <link rel="stylesheet" href="../src/css/style__login-regis.css">
   <title>Wolf Food</title>
 </head>
@@ -37,7 +40,7 @@
       <div class="hotline">
         <!-- <img src="./img/cart.png" alt="" class="hotline__logo"> -->
         <div class="hotline__content">
-          <p>Hotline</p>
+          <p class="hotline__text">Hotline</p>
           <a class="phone_number">1900 6750</a>
         </div>
       </div>

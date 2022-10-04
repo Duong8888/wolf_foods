@@ -140,7 +140,7 @@ label {
 .password,
 .email,
 .re-password {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .forgot__pasword {
@@ -196,4 +196,10 @@ textarea {
   font-weight: 600;
   text-align: center;
   margin: 15px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  line-height: 12px;
 }

@@ -16,8 +16,8 @@ function checkImg($nameUpload, $folderSave)
 {
   if (file_exists($_FILES[$nameUpload]['tmp_name']) || is_uploaded_file($_FILES[$nameUpload]['tmp_name'])) {
     $folder = $folderSave;
-    $target_file = $folder . basename($_FILES["$nameUpload"]["name"]);
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $file_name = $folder . basename($_FILES["$nameUpload"]["name"]);
+    $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
     // Kiểm tra xem có phải file ảnh hay không
     if (isset($_POST["submit"])) {
@@ -31,7 +31,6 @@ function checkImg($nameUpload, $folderSave)
     if ($_FILES["$nameUpload"]["size"] > 500000) {
       $error['image'] = '';
     }
-
     // Kiểm tra xem đúng đuôi file được upload hay không
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
       $error['image'] = '';
@@ -39,14 +38,13 @@ function checkImg($nameUpload, $folderSave)
 
     // Kiểm tra xem bị 1 trong những lỗi ở trên hay không
     if (isset($error['image'])) {
-      // echo "Sorry, your file was not uploaded.";
       $error['image'] = '';
-      // if everything is ok, try to upload file
     } else {
-      if (move_uploaded_file($_FILES["$nameUpload"]["tmp_name"], $target_file)) {
+      if (move_uploaded_file($_FILES["$nameUpload"]["tmp_name"], $file_name)) {
       } else {
         $error['image'] = '';
       }
     }
   }
+  return $file_name;
 }

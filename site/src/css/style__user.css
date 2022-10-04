@@ -136,13 +136,14 @@ h6 {
   height: 25px;
 }
 
+
 .hotline,
 .account,
 .cart {
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .phone_number {
