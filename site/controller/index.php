@@ -1,5 +1,5 @@
 <?php
-require '../../model/connect.php';
+// require '../../model/connect.php';
 
 require '../view/header.php';
 

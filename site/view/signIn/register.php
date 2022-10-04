@@ -1,12 +1,11 @@
 <?php
-// require '../view/header.php';
-// require '../model/databse.php';
-// require '../../model/validate.php';
-// require '../../model/validate.php';
-// require '../../model/connect.php';
+
+require '../../model/databse.php';
+require '../../model/connect.php';
+require '../../model/validate.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $account = array();
+  // $account = array();
   $error = checkEmty(array('username', 'email', 'password', 're-password'));
   if ($_POST['re-password'] != $_POST['password']) {
     $error['checkpass'] = '';
@@ -35,12 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // =============================================================
   // print_r($error);
   if (empty($error)) {
-    $account['username'] = $_POST['username'];
-    $account['email'] = $_POST['email'];
-    $account['password'] = $_POST['password'];
-    $account['avatar'] = $fileName;
-    // echo $account['avatar'];
-    addUser($account['username'], $account['password'], $account['email'], $account['avatar']);
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $avatar = $fileName;
+
+    addUser($username, $password, $email, $avatar);
   }
 }
 ?>
