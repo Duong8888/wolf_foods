@@ -1,3 +1,8 @@
+<?php
+isset($_SESSION['idUser']) ? $idUser = $_SESSION['idUser'] : header("location:../site/controller/index.php?action=sign_in");
+$getUser = "SELECT * FROM user WHERE id=$idUser";
+$user = getOne($getUser);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +23,12 @@
 <body>
     <div class="container">
         <header>
-        <div class="admin">
+            <div class="admin">
                 <a href="index.php?action=profile" class="admin__info">
                     <div class="admin__info--avatar">
-                        <img src="./src/img/img-11.png" alt="">
+                        <img src="./src/img/<?=$user['avatar'] ?>" alt="">
                     </div>
-                    <p class="admin__info--name">Nguyễn Ánh Dương</p>
+                    <p class="admin__info--name"><?= $user['username'] ?></p>
                 </a>
             </div>
             <nav class="sidebar">
@@ -47,12 +52,16 @@
                             Quản lý danh
                             mục</a>
                     </li>
-                    <li class="sidebar__menu--item" id="admin">
-                        <a href="index.php?action=admin">
-                            <i class='bx bxs-user-detail'></i>
-                            Quản lý nhân
-                            viên</a>
-                    </li>
+                    <!-- là quản lý thì mới có chức năng này -->
+                    <?php if ($user['id_position'] == 1) : ?>
+                        <li class="sidebar__menu--item" id="admin">
+                            <a href="index.php?action=admin">
+                                <i class='bx bxs-user-detail'></i>
+                                Quản lý nhân
+                                viên</a>
+                        </li>
+                    <?php endif ?>
+
                     <li class="sidebar__menu--item" id="clients">
                         <a href="index.php?action=clients">
                             <i class='bx bxs-user-account'></i>
@@ -66,7 +75,7 @@
                             luận</a>
                     </li>
                     <li class="sidebar__menu--item out">
-                        <a href="index.php?action=out">
+                        <a href="index.php?action=log-out">
                             <i class='bx bx-log-out-circle'></i>
                             Đăng xuất</a>
                     </li>

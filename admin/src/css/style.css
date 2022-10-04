@@ -716,6 +716,8 @@ label {
     height: 150px;
     margin-bottom: 10px;
     position: relative;
+    background-color: #3bb77e;
+    border-radius: 50%;
 }
 .profile-avatar img{
     width: 100%;
@@ -731,7 +733,7 @@ label {
     content: "";
     width: 155px;
     height: 155px;
-    background-color: #3bb77e;
+    background-color: inherit;
     top: -2.5px;
     left: -2.5px;
     border-radius: 50%;
@@ -842,7 +844,7 @@ label {
     content: "Thay thế";
     position: absolute;
     z-index: 11;
-    color: #fff;
+    color: red;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;

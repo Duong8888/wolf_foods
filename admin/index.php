@@ -67,6 +67,10 @@ if (isset($_GET['action'])) {
         case 'comment':
             include "./view/comment/commet.php";
             break;
+            // log-out
+        case 'log-out':
+            include "./view/logout/log-out.php";
+            break;
         case 'comment':
             include "./view/comment/commet.php";
             break;
