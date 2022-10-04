@@ -50,14 +50,14 @@ $arrProducts =getAll($queryProducts)
                             <td><?= $value['time_send']?></td>
                             <td><?= $value['content']?></td>
                             <td>
-                                <a href="#">
-                                    <button class="edit" >
+                                <a href="index.php?action=detail-Comment&&CommentID=<?=$value['id_comment']?>">
+                                    <button type="button" class="edit" >
                                         <span class="material-symbols-outlined">
                                             visibility
                                         </span>
                                     </button>
                                 </a>
-                            </td></td>
+                            </td>
                         </tr>    
                            
                             <?php endforeach ?>

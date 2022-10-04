@@ -11,6 +11,7 @@
     --padding-sidebar: 350px;
     --color-main: #3bb77e;
     --text-color: #868686;
+    --truongzeee: #ff1853;
     /* hello world */
 }
 
@@ -498,6 +499,7 @@ td>img {
     margin-left: 50%;
     transform: translateX(-50%);
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 180px;
     height: 50px;
     position: relative;
@@ -852,3 +854,100 @@ label {
 .overlay-img:hover::after{
     transform: translateX(0%);
 }
+/* comment */
+.comment{
+    padding: 30px 10px;
+}
+.comment-top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment-image{
+    width: 50%;
+    margin-right: 10px;
+}
+.comment-p{
+    width: 50%;
+    text-align: center;
+}
+.comment-top_img{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 5px solid var(--truongzeee);
+    box-shadow: 3px 3px 10px 3px #ddd;
+    cursor: pointer;    
+    object-fit: cover;
+    margin: 10px;
+}
+.comment-top_h1{
+    font-size: 1em;
+    color: #fff;
+    background: var(--truongzeee);
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    cursor: default;
+}
+.comment-top_h1:hover{
+    letter-spacing: 0.5em;
+
+}
+.comment-top_p{
+    display: inline-block;
+    font-size: 30px;
+    cursor: default;
+}
+.comment-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment-bottom_img{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 50%;
+    border: 5px solid var(--truongzeee);
+    box-shadow: 3px 3px 10px 3px #ddd;
+    cursor: pointer;    
+    object-fit: cover;
+    margin: 10px;
+}
+.comment-bottom_h1{
+    font-size: 1em;
+    color: #fff;
+    background: var(--truongzeee);
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    cursor: default;
+}
+.comment-bottom_h1:hover{
+    letter-spacing: 0.5em;
+}
+.comment-bottom_p{
+    display: inline-block;
+    font-size: 30px;
+    cursor: default;
+}
+@media (max-width:990px){
+    .comment{
+        padding: 10px;
+    }
+}
+/* end comment */
