@@ -69,7 +69,6 @@ function validateEmail($email)
 // hàm sử lý phần đăng nhập
 function login($litUser, $emial, $password)
 {
-    $erro = [];
     foreach ($litUser as $key => $value) {
         if ($emial == $value['email']) {
             if ($password == $value['password']) {
@@ -81,8 +80,7 @@ function login($litUser, $emial, $password)
                 }
             }
         }else{
-            $erro['erro'] = 'Tài khoản hoặc mật khẩu không đúng';
-            header("location:index.php?action=sign_in&&sai tên đăn nhập hoặc mật khẩu");
+            header("location:index.php?action=sign_in&&erro=Sai tên đăng nhập hoặc mật khẩu");
         }
     }
 }
