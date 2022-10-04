@@ -111,6 +111,3 @@ eyerePassword.addEventListener('click', function () {
 
 });
 
-{/* <span class="material-symbols-outlined">
-visibility_off
-</span> */}

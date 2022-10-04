@@ -1,7 +1,4 @@
 <?php
-
-require '../../model/databse.php';
-require '../../model/connect.php';
 require '../../model/validate.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

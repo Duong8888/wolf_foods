@@ -73,6 +73,9 @@ if (isset($_GET['action'])) {
             include "./view/comment/detail-comment.php";
             break;
             //end comment
+        case 'log-out':
+            include "./view/logout/log-out.php";
+            break;
         default:
             include "./view/content.php";
             break;

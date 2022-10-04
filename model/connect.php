@@ -67,20 +67,33 @@ function validateEmail($email)
 }
 
 // hàm sử lý phần đăng nhập
-function login($litUser, $emial, $password)
+function login($litUser, $email, $password)
 {
     foreach ($litUser as $key => $value) {
-        if ($emial == $value['email']) {
+        if ($email == $value['email']) {
             if ($password == $value['password']) {
                 $_SESSION['idUser'] = $value['id'];
-                if($value['id_position'] == 3){
+                if ($value['id_position'] == 3) {
                     header("location:index.php?Đăng nhập thành công");
-                }else{
+                } else {
                     header("location:../../admin/index.php?action=dashboard");
+                    return;
                 }
+            } else {
+                header("location:index.php?action=sign_in&&erro=Sai tên đăng nhập hoặc mật khẩu");
             }
-        }else{
+        } else {
             header("location:index.php?action=sign_in&&erro=Sai tên đăng nhập hoặc mật khẩu");
         }
     }
+}
+
+// thêm user vào bảng user 
+function addUser($username, $password, $email, $avatar)
+{
+  $sql = "
+  INSERT INTO `user`(`username`, `password`, `email`, `avatar`) 
+  VALUES ('$username', '$password', '$email', '$avatar');
+  ";
+  connect($sql);
 }

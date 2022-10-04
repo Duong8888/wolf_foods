@@ -1,4 +1,5 @@
 <?php
+// include "../../model/connect.php";
 if (isset($_POST['btn-logIn'])) {
   $getData = "SELECT * FROM user";
   $allUser = getAll($getData);
