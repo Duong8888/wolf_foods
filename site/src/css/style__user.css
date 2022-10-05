@@ -561,3 +561,61 @@ footer {
 .list_menu--item a:hover {
   color: rgb(59, 183, 126);
 }
+
+/* css trang all product */
+.box-container{
+  width: 1080px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+}
+
+.box-filter{
+  width: 23%;
+  height: auto;
+
+}
+.filter{
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  height: auto;
+}
+.box-product{
+  width: 75%;
+}
+.filter__title{
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  background-color: #e5e5e5;
+  padding: 10px;
+}
+.filter__box-item{
+  padding: 10px;
+}
+.filter__naem-item{
+  font-weight: bold;
+}
+.filter__box-item>ul{
+  padding: 0;
+}
+.filter__box-item>ul>li{
+  list-style: none;
+  padding: 5px 0px;
+}
+.filter__box-item>ul>li>label:hover{
+  color: #38b000;
+  cursor: pointer;
+}
+
+.list__product.box-new{
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0px;
+  grid-gap: 15px;
+}
+.product__item.new{
+  width: 100%;
+  background-color: #F4F5F8;
+}
