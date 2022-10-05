@@ -1,12 +1,27 @@
 <?php
 require '../../model/validate.php';
 
+$queryUser = "SELECT * FROM user";
+$getAllUser = getAll($queryUser);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // $account = array();
   $error = checkEmty(array('username', 'email', 'password', 're-password'));
   if ($_POST['re-password'] != $_POST['password']) {
     $error['checkpass'] = '';
   }
+
+  if (!empty($_POST['email'])) {
+    $checkSame = $_POST['email'];
+    foreach ($getAllUser as $key => $value) {
+      if (isset($checkSame) && $value['email'] == $checkSame) {
+        $error['same'] = '';
+      }
+    }
+  }
+
+
+  // validate img
   if (file_exists($_FILES['avatar']['tmp_name']) || is_uploaded_file($_FILES['avatar']['tmp_name'])) {
     $folder = "../src/img/img__user/";
     $fileName = $folder . basename($_FILES['avatar']['name']);
@@ -63,6 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php
         if (isset($error['email'])) {
           echo "<p class='error'>Phải nhập email</p>";
+        } else if (isset($error['same'])) {
+          echo "<p class='error'>Email đã có người đăng ký</p>";
         }
         ?>
       </div>
