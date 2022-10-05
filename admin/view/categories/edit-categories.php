@@ -33,7 +33,7 @@ if (isset($_POST['update'])) {
     if (empty($erro)) {
         connect($queryUpdate);
         move_uploaded_file($_FILES['avatar']['tmp_name'], "./src/img/" . $img);
-        header("location:index.php?action=categories");
+        header("location:index.php?action=categories&&successful");
     }
 }
 ?>

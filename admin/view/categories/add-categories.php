@@ -21,7 +21,7 @@ if (isset($_POST['add-categories'])) {
         $query = "INSERT INTO categories(image,category_name) VALUE ('$img','$name')";
         connect($query);
         move_uploaded_file($_FILES['avatar']['tmp_name'], "./src/img/" . $img);
-        header("location:index.php?action=categories");
+        header("location:index.php?action=categories&&successful");
     }
 }
 ?>

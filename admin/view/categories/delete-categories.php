@@ -19,7 +19,7 @@ if (isset($_POST['item-save'])) {
         $categoriesNew = $_POST[$nameOption];
         $update = "UPDATE products SET id_categories='$categoriesNew' WHERE id_product = $idProduct";
         connect($update);
-        header("location:index.php?action=delete-categories&&IDdelete=$id&&successfull");
+        header("location:index.php?action=delete-categories&&IDdelete=$id&&successful");
     }
 };
 
