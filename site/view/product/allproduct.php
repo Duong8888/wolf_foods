@@ -1,3 +1,7 @@
+<?php
+$queryProduct = "SELECT * FROM products";
+$allProduct = getAll($queryProduct);
+?>
 <main>
     <div class="box-container">
         <div class="box-filter">
@@ -27,95 +31,17 @@
         </div>
         <div class="box-product">
             <div class="list__product box-new">
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
+                <?php foreach ($allProduct as $key => $value) : ?>
+                    <div class="product__item new">
+                        <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img">
+                        <a href="#" class="product__item--name new"><?= $value['product_name'] ?></a>
+                        <div class="price-and-cart">
+                            <p class="product__item--status"><?= $value['price'] ?>đ</p>
+                            <p class="price__product--discount"><?= $value['discount'] ?>đ</p>
+                        </div>
+                        <button>Add cart</button>
                     </div>
-                </div>
-
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
-                <div class="product__item new">
-                    <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-                    <p class="product__item--status">Sản phẩm tươi</p>
-                    <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-                    <div class="price-and-cart">
-                        <p class="price__product--discount">26.500đ</p>
-                    </div>
-                </div>
-                <!-- end item prd -->
+                <?php endforeach ?>
             </div>
         </div>
     </div>
