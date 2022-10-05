@@ -121,5 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
       <button class="button__login" name="register">Đăng ký</button>
     </form>
+    <?php
+    if (isset($username) && isset($password) && isset($email) && isset($avatar)) {
+      echo '<p class="succeed">Đăng ký tài khoản thành công!</p>';
+    }
+    ?>
   </div>
 </main>
