@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/css/style__user.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <!-- link bootsrap (11) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="../src/css/profile.css">
   <link rel="stylesheet" href="../src/css/style__login-regis.css">
+  <link rel="stylesheet" href="../src/css/style__user.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <title>WOLF FOOD</title>
   <!-- icon -->
   <link rel="shortcut icon" href="../../admin/src/img/logo-2.png" type="image/x-icon">
@@ -62,7 +62,7 @@
     <!-- end mid header -->
     <ul class="menu">
       <li><a href="index.php">Trang chủ</a></li>
-      <li><a href="index.php?action=all-product">Sản phẩm</a></li>
+      <li><a href="index.php?action=all-product&&page=1">Sản phẩm</a></li>
       <li><a href="#">Giới thiệu</a></li>
       <li><a href="index.php?action=contact">Liên hệ</a></li>
     </ul>

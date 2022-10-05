@@ -1,6 +1,8 @@
 <?php
-$queryProduct = "SELECT * FROM products";
-$allProduct = getAll($queryProduct);
+$table = 'products';
+$row = 8;
+$allProduct = pagination($table, $row);
+$countpage = countPages($row);
 ?>
 <main>
     <div class="box-container">
@@ -31,18 +33,27 @@ $allProduct = getAll($queryProduct);
         </div>
         <div class="box-product">
             <div class="list__product box-new">
-                <?php foreach ($allProduct as $key => $value) : ?>
+                <?php foreach ($allProduct as $value): ?>
                     <div class="product__item new">
-                        <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img">
-                        <a href="#" class="product__item--name new"><?= $value['product_name'] ?></a>
+                        <img src="../../admin/src/img/<?=$value['image']?>" alt="" class="product__img">
+                        <a href="#" class="product__item--name new"><?=$value['product_name']?></a>
                         <div class="price-and-cart">
-                            <p class="product__item--status"><?= $value['price'] ?>đ</p>
-                            <p class="price__product--discount"><?= $value['discount'] ?>đ</p>
+                            <p class="product__item--status"><?=$value['price']?>đ</p>
+                            <p class="price__product--discount"><?=$value['discount']?>đ</p>
                         </div>
                         <button>Add cart</button>
                     </div>
-                <?php endforeach ?>
+                <?php endforeach?>
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm">
+                        <?php for ($item = 1; $item <= $countpage; $item++): ?>
+                        <li class="page-item <?=$_GET['page']==$item?"active":""?>"><a class="page-link" href="index.php?action=all-product&&page=<?=$item?>"><?=$item?></a></li>
+                        <?php endfor?>
+                    </ul>
+                </nav>
             </div>
         </div>
+
     </div>
+
 </main>

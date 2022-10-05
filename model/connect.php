@@ -97,3 +97,25 @@ function addUser($username, $password, $email, $avatar)
   ";
   connect($sql);
 }
+// phân trang 
+
+function pagination($table,$row){
+    // số bản gi hiển thị trên 1 trang là $row;
+    // trang hiện tại
+    isset($_GET['page'])?$page=$_GET['page']:$page = 1;
+    // vị trí bắt đầu lấy có công thức = ($page-1)*$row;
+    $start = ($page-1)*$row;
+    $query = "SELECT * FROM $table LIMIT $start,$row";
+    $all_data = connect($query);
+    return $all_data;
+}
+// Lấy được số trang cần chia
+function countPages($row){
+    $count = "SELECT id_product FROM products";
+    // số trang bằng tổng bản gi chia cho số bản gi lấy ra
+    $getAll = getAll($count);
+    // lấy số bản gi thông qua độ dài của mảng :V
+    $countPage = sizeof($getAll);
+    $result = round($countPage / $row);
+    return $result;
+}

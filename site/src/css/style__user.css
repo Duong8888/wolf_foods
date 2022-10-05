@@ -648,3 +648,19 @@ footer {
   background-color: #38b000;
   border-radius: 15px;
 }
+
+/* gi đè boostarp */
+.pagination.pagination-sm{
+  display: flex;
+  margin-top: 20px;
+  max-width: 103px;
+}
+.pagination{
+  --bs-pagination-color: #38b000;
+}
+.active>.page-link, .page-link.active {
+  z-index: 3;
+  color: #fff;
+  background-color: #38b000;
+  border-color: #38b000;
+}
