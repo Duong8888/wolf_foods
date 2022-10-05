@@ -3,6 +3,8 @@ $table = 'products';
 $row = 8;
 $allProduct = pagination($table, $row);
 $countpage = countPages($row);
+$queryCategories = "SELECT * FROM categories";
+$getCategories = getAll($queryCategories);
 ?>
 <main>
     <div class="box-container">
@@ -12,21 +14,20 @@ $countpage = countPages($row);
                 <div class="filter__box-item">
                     <p class="filter__naem-item">Danh mục</p>
                     <ul>
-                        <li><input type="checkbox" name="" id="checkbox1"> <label for="checkbox1">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox2"> <label for="checkbox2">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox3"> <label for="checkbox3">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox4"> <label for="checkbox4">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox5"> <label for="checkbox5">Thịt Bò Mĩ</label></li>
+                        <?php foreach ($getCategories as $value): ?>
+                        <li><input type="checkbox" name="" id="<?=$value['id_categories']?>"> <label for="<?=$value['id_categories']?>"><?=$value['category_name']?></label></li>
+                        <?php endforeach?>
                     </ul>
                 </div>
                 <div class="filter__box-item">
                     <p class="filter__naem-item">Giá tiền</p>
                     <ul>
-                        <li><input type="checkbox" name="" id="checkbox6"> <label for="checkbox6">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox7"> <label for="checkbox7">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox8"> <label for="checkbox8">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox9"> <label for="checkbox9">Thịt Bò Mĩ</label></li>
-                        <li><input type="checkbox" name="" id="checkbox10"> <label for="checkbox10">Thịt Bò Mĩ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox6"> <label for="checkbox6">Giá dưới 100.000đ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox7"> <label for="checkbox7">100.000đ - 200.000đ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox8"> <label for="checkbox8">200.000đ - 300.000đ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox9"> <label for="checkbox9">300.000đ - 500.000đ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox10"> <label for="checkbox10">500.000đ - 1.000.000đ</label></li>
+                        <li><input type="checkbox" name="" id="checkbox11"> <label for="checkbox11">Giá trên 1.000.000đ</label></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +48,7 @@ $countpage = countPages($row);
                 <nav aria-label="...">
                     <ul class="pagination pagination-sm">
                         <?php for ($item = 1; $item <= $countpage; $item++): ?>
-                        <li class="page-item <?=$_GET['page']==$item?"active":""?>"><a class="page-link" href="index.php?action=all-product&&page=<?=$item?>"><?=$item?></a></li>
+                        <li class="page-item <?=$_GET['page'] == $item ? "active" : ""?>"><a class="page-link" href="index.php?action=all-product&&page=<?=$item?>"><?=$item?></a></li>
                         <?php endfor?>
                     </ul>
                 </nav>
