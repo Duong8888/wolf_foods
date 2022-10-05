@@ -63,10 +63,10 @@ if (isset($_POST['add-clients'])) {
         $rePassword = "";
     }
     if (empty($erro) && $_FILES['avatar']['size'] > 0) {
-        $queryUpdate = "UPDATE user SET username='$username', email='$email', password='$password', avatar='$avatar', id_position=2 WHERE id = $getID";
+        $queryUpdate = "UPDATE user SET username='$username', email='$email', password='$password', avatar='$avatar', id_position=3 WHERE id = $getID";
         move_uploaded_file($_FILES['avatar']['tmp_name'], "./src/img/" . $avatar);
     } else if ($_FILES['avatar']['size'] == 0 && empty($erro)) {
-        $queryUpdate = "UPDATE user SET username='$username', email='$email', password='$password', id_position=2 WHERE id = $getID";
+        $queryUpdate = "UPDATE user SET username='$username', email='$email', password='$password', id_position=3 WHERE id = $getID";
     }
     if (isset($queryUpdate)) {
         connect($queryUpdate);
