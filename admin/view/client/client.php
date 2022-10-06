@@ -72,7 +72,7 @@ $listAdmin = getAll($queryAdmin);
                                                 delete
                                             </span>
                                         </button></a>
-                                    <a href="index.php?action=edit-admin&&ID=<?=$value['id']?>">
+                                    <a href="index.php?action=edit-clients&&ID=<?=$value['id']?>">
                                         <button type="button" class="edit">
                                             <span class="material-symbols-outlined">
                                                 edit_document

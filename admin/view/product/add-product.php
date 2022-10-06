@@ -62,7 +62,7 @@ if (isset($_POST['product-add'])) {
     if (isset($query)) {
         connect($query);
         move_uploaded_file($_FILES['avatar']['tmp_name'], './src/img/' . $avatar);
-        header("location:index.php?action=products&&message=Cập nhật thành công");
+        header("location:index.php?action=products&&successful");
     }
 }
 ?>

@@ -203,3 +203,9 @@ textarea {
   font-size: 12px;
   line-height: 12px;
 }
+
+.succeed {
+  color: green;
+  font-size: 18px;
+  text-align: center;
+}

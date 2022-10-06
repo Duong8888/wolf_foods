@@ -20,7 +20,7 @@ $user = getOne($getUser);
     <link rel="shortcut icon" href="./src/img/logo-2.png" type="image/x-icon">
 </head>
 
-<body>
+<body <?=isset($_GET['successful'])?'onload="alert('."'Cập nhật dữ liệu thành công'".')"':""?>>
     <div class="container">
         <header>
             <div class="admin">
