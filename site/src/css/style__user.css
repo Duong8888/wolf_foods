@@ -103,6 +103,9 @@ h6 {
   width: 155px;
   height: 35px;
 }
+.mid-header img{
+  object-fit: contain;
+}
 
 .search {
   position: relative;
@@ -651,7 +654,21 @@ footer {
   background-color: #38b000;
   border-radius: 15px;
 }
-
+.search-btn{
+  padding: 5px 20px;
+  border: 1px solid #38b000;
+  border-radius: 8px;
+  margin-left: 10px;
+  background-color: #38b000;
+  color: #fff;
+  font-weight: bold;
+  transition: .25s;
+  user-select: none;
+}
+.search-btn:hover{
+  background-color: #fff;
+  color: #38b000;
+}
 /* gi đè boostarp */
 .pagination.pagination-sm{
   display: flex;
@@ -667,3 +684,4 @@ footer {
   background-color: #38b000;
   border-color: #38b000;
 }
+/*  */
