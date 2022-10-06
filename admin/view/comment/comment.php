@@ -4,18 +4,26 @@ $arrComment =getAll($queryComment);
 $queryUser ="SELECT * FROM user";
 $arrUser =getAll($queryUser);
 $queryProducts ="SELECT * FROM products";
-$arrProducts =getAll($queryProducts)
+$arrProducts =getAll($queryProducts);
+
+if(isset($_GET['delete-all'])){
+    $location = 'comment';
+    $tableName = 'comment';
+    $columName = 'id_comment';
+    deleteAll($arrComment,$tableName,$columName,$location);
+}
+
 ?>
 <main>
     <div class="content-box">
         <p class="title">Quản lý bình luận</p>
-        <form action="">
+        <form action="index.php?action=comment&&delete-all" method="POST">
             <div class="box-btn">
                 <label for="" class="check-all">
                     Chọn tất cả
                 </label>
 
-                <a href="#add" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" class="btn-delete">
+                <a href="" onclick="return confirm('Bạn có muốn xóa tất cả mục đã chọn không')" class="btn-delete">
                     <button type="submit">
                         Xóa mục đã chọn
                         <span class="material-symbols-outlined">
@@ -39,7 +47,7 @@ $arrProducts =getAll($queryProducts)
                     <tbody>
                         <?php foreach ($arrComment as $key => $value) :?>
                         <tr>
-                            <td><input type="checkbox" class="checknow"></td>
+                            <td><input type="checkbox" name="<?=$value['id_comment']?>" class="checknow"></td>
                             <td><?php 
                                 foreach($arrUser as $key =>$valueUser){
                                     if($valueUser['id']==$value['id_user']){
