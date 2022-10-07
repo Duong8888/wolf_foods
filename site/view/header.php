@@ -4,6 +4,13 @@
     $keyWord = $_POST['search'];
     header("location:index.php?action=all-product&&keyWord=$keyWord");
   }
+  if(isset($_SESSION['idUser'])){
+    $idUser = $_SESSION['idUser'];
+    // lấy ra user đã đăng nhập và hệ thống
+    $user = "SELECT * FROM user WHERE id = $idUser";
+    $userLogIn = getAll($user);
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,3 +83,4 @@
     <div class="line"></div>
     <!--end menu  -->
   </header>
+
