@@ -5,7 +5,7 @@ require '../view/header.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'sign_in':
-            require '../view/signIn/login.php'; 
+            require '../view/signIn/login.php';
             break;
         case 'sign_up':
             require '../view/signIn/register.php';
@@ -13,8 +13,12 @@ if (isset($_GET['action'])) {
         case 'contact':
             require '../view/contact/contact.php';
             break;
-        case 'all-product':
+
+        case 'all-product': 
             require '../view/product/allproduct.php';
+            break;
+        case 'detail-product':
+            require '../view/product/detail-product.php';
             break;
         default:
             include "../view/main_index.php";
