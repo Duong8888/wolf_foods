@@ -75,6 +75,7 @@ function login($litUser, $email, $password)
                 $_SESSION['idUser'] = $value['id'];
                 if ($value['id_position'] == 3) {
                     header("location:index.php?Đăng nhập thành công");
+                    return;
                 } else {
                     header("location:../../admin/index.php?action=dashboard");
                     return;
