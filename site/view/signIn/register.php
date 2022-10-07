@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // validate img
   if (file_exists($_FILES['avatar']['tmp_name']) || is_uploaded_file($_FILES['avatar']['tmp_name'])) {
-    // $folder = "../src/img/img__user/";
-    $fileName = basename($_FILES['avatar']['name']);
+    $folder = "../src/img/img__user/";
+    $fileName = $folder . basename($_FILES['avatar']['name']);
     $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
     if ($fileType != 'jpg' && $fileType != 'png' && $fileType != 'jpeg' && $fileType != 'webp') {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $avatar = $fileName;
+    $avatar = $_FILES['avatar']['tmp_name'];
 
     addUser($username, $password, $email, $avatar);
   }
