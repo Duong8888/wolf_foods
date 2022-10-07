@@ -57,23 +57,23 @@
                 </div>
                 <div class="box-detail-bottom_home-mini">
                     <div class="home_mini">
-                    <i class='bx bxs-home' ></i>
+                    <i class='x bx bxs-home' ></i>
                     <p>Trang chủ</p>
                     </div>
                     <div class="home_mini">
-                    <i class='bx bxl-product-hunt' ></i>
+                    <i class='x bx bxl-product-hunt' ></i>
                     <p>Sản phẩm</p>
                     </div>
                     <div class="home_mini">
-                    <i class='bx bx-news' ></i>
+                    <i class='x bx bx-news' ></i>
                     <p>Tin tức</p>
                     </div>
                     <div class="home_mini">
-                    <i class='bx bx-user-circle'></i>
+                    <i class='x bx bx-user-circle'></i>
                     <p>Giới thiệu</p>
                     </div>
                     <div class="home_mini">
-                    <i class='bx bx-phone-call'></i>
+                    <i class='x bx bx-phone-call'></i>
                     <p>Liên hệ</p>
                     </div>
                 </div>

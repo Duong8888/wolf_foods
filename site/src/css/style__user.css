@@ -881,7 +881,7 @@ footer {
   align-items: center;
 }
 .box-detail-bottom-left{
-  width: 70%;
+  width: 60%;
 }
 .box-detail-bottom-header p{
   font-size: 18px;
@@ -897,6 +897,29 @@ footer {
   height: auto !important;
 }
 .box-detail-bottom-right{
-  width: 30%;
+  width: 40%;
 }
+.box-detail-bottom_home-mini{
+  display: flex;
+}
+.home_mini{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  line-height: 10px;
+  cursor: pointer;
+}
+.home_mini:active{
+  box-shadow: inset 3px 3px 10px 3px #ddd;
+}
+.home_mini .x{
+  color: #3b3b3b;
+  font-size: 20px
+}
+.home_mini p{
+  margin-top: 10px;
+}
+
 /*  */
