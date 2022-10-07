@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $avatar = $_FILES['avatar']['tmp_name'];
+    $avatar = $_FILES['avatar']['name'];
 
     addUser($username, $password, $email, $avatar);
   }
