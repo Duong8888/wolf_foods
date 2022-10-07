@@ -56,7 +56,7 @@ if(isset($_GET['delete-all'])){
                                 } 
                             ?></td>
                             <td><?= $value['time_send']?></td>
-                            <td><?= $value['content']?></td>
+                            <td><div><?= $value['content']?></div></td>
                             <td>
                                 <a href="index.php?action=detail-Comment&&CommentID=<?=$value['id_comment']?>">
                                     <button type="button" class="edit" >
@@ -67,7 +67,6 @@ if(isset($_GET['delete-all'])){
                                 </a>
                             </td>
                         </tr>    
-                           
                             <?php endforeach ?>
                     </tbody>
                 </table>
