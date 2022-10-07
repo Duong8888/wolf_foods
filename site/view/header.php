@@ -1,3 +1,10 @@
+<!-- search -->
+<?php
+  if(isset($_POST['btn'])){
+    $keyWord = $_POST['search'];
+    header("location:index.php?action=all-product&&keyWord=$keyWord");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +42,9 @@
       <a href="index.php">
         <img src="../src/img/img__header/logo.png" alt="" class="logo">
       </a>
-      <form action="" class="search">
-        <input type="text" class="search__input" placeholder="Bạn cần tìm gì? ">
-        <button class="search__button"><img src="../src/img/img__header/seach.svg" alt=""></button>
+      <form action="index.php" class="search" method="POST">
+        <input autocomplete="off" value="<?=isset($_GET['keyWord'])?$_GET['keyWord']:""?>" type="text" name="search" class="search__input" placeholder="Bạn cần tìm gì? ">
+        <button class="search__button" name="btn" type="submit"><img src="../src/img/img__header/seach.svg" alt=""></button>
       </form>
       <div class="hotline">
         <!-- <img src="./img/cart.png" alt="" class="hotline__logo"> -->

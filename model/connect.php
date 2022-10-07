@@ -116,7 +116,12 @@ function countPages($row){
     $getAll = getAll($count);
     // lấy số bản gi thông qua độ dài của mảng :V
     $countPage = sizeof($getAll);
-    $result = round($countPage / $row);
+    $result = ceil($countPage / $row);
     return $result;
 }
-
+// hiển thị giá sản phẩm đã được giảm giá
+function displayProduct($product){
+    $discount = ($product['price'] / 100)*$product['discount'];
+    $price = $product['price'] - ceil($discount);
+    return $price;
+}

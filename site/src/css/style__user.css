@@ -387,9 +387,10 @@ h6 {
 .price-and-cart {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin-top: 10px;
+  flex-direction: column-reverse;
 }
 
 /* end slide show prd discount */
