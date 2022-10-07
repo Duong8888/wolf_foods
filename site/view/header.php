@@ -1,3 +1,17 @@
+<!-- search -->
+<?php
+if (isset($_POST['btn'])) {
+  $keyWord = $_POST['search'];
+  header("location:index.php?action=all-product&&keyWord=$keyWord");
+}
+if (isset($_SESSION['idUser'])) {
+  $idUser = $_SESSION['idUser'];
+  // lấy ra user đã đăng nhập và hệ thống
+  $user = "SELECT * FROM user WHERE id_position = 3 AND id = $idUser";
+  $userLogIn = getOne($user);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,9 +51,9 @@
       <a href="index.php">
         <img src="../src/img/img__header/logo.png" alt="" class="logo">
       </a>
-      <form action="" class="search">
-        <input type="text" class="search__input" placeholder="Bạn cần tìm gì? ">
-        <button class="search__button"><img src="../src/img/img__header/seach.svg" alt=""></button>
+      <form action="index.php" class="search" method="POST">
+        <input autocomplete="off" value="<?= isset($_GET['keyWord']) ? $_GET['keyWord'] : "" ?>" type="text" name="search" class="search__input" placeholder="Bạn cần tìm gì? ">
+        <button class="search__button" name="btn" type="submit"><img src="../src/img/img__header/seach.svg" alt=""></button>
       </form>
       <div class="hotline">
         <!-- <img src="./img/cart.png" alt="" class="hotline__logo"> -->
@@ -49,17 +63,23 @@
         </div>
       </div>
       <div class="account">
-        <img src="../src/img/img__header/user.png" alt="" class="account__logo">
-        <p class="">Tài khoản</p>
+        <img src="<?= isset($userLogIn['avatar']) ? "../../admin/src/img/" . $userLogIn['avatar'] : "../src/img/img__header/user.png" ?>" alt="" class="account__logo">
+        <p class=""><?= isset($userLogIn['username']) ? $userLogIn['username'] : "Tài khoản" ?></p>
         <div class="account__hover">
-          <a href="index.php?action=sign_in" class="sign__in">Đăng nhập</a>
-          <a href="index.php?action=sign_up" class="sign__up">Đăng ký</a>
+          <?php if (!isset($_SESSION['idUser'])) { ?>
+            <a href="index.php?action=sign_in" class="sign__in">Đăng nhập</a>
+            <a href="index.php?action=sign_up" class="sign__up">Đăng ký</a>
+          <?php } else { ?>
+            <a href="index.php?action=profile" class="sign__up">Hồ sơ</a>
+            <a href="index.php?action=sign_up" class="sign__up">Gỏ hàng</a>
+            <a href="../../admin/index.php?action=log-out" class="sign__up">Đăng suất</a>
+          <?php } ?>
         </div>
       </div>
-      <div class="cart">
+      <!-- <div class="cart">
         <img src="../src/img/img__header/cart.png" alt="" class="cart__logo">
         <p>Giỏ hàng</p>
-      </div>
+      </div> -->
     </div>
     <!-- end mid header -->
     <ul class="menu">

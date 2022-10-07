@@ -19,6 +19,8 @@ if (isset($_GET['action'])) {
             break;
         case 'detail-product':
             require '../view/product/detail-product.php';
+        case 'profile':
+            require '../view/profile/profile.php';
             break;
         default:
             include "../view/main_index.php";

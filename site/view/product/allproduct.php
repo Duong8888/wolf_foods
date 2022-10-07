@@ -48,18 +48,18 @@ if (isset($_POST['btn-search'])) {
     $check = "";
     foreach ($getCategories as $key => $value) {
         // lấy được mảng trang thái các ô input phần categories
-        $status[$value['id_categories']] = isset($_POST[$value['id_categories']]) ? "on" : "of";
-        $check = isset($_POST[$value['id_categories']]) ? "on" : "of";
+        $status[$value['id_categories']] = isset($_POST[$value['id_categories']]) ? "on" : "off";
+        $check = isset($_POST[$value['id_categories']]) ? "on" : "off";
     }
     // Kiểm tra xem categories có được check
     foreach ($status as $key => $value) {
-        if($value == "on"){
+        if ($value == "on") {
             $check = "on";
         }
     }
     // Kiểm tra giá tiền được chọn
     foreach ($arrFilterPrice as $key => $value) {
-        $price[$value['valueStart']] = isset($_POST[$value['valueStart']]) ? "on" : "of";
+        $price[$value['valueStart']] = isset($_POST[$value['valueStart']]) ? "on" : "off";
     }
 
     // lấy mức giá trong khoảng đã chọn được
@@ -74,37 +74,45 @@ if (isset($_POST['btn-search'])) {
         }
     }
     // hàm lấy dc id và tạo phần hỗ trợ câu lệnh truy vấn cho phần lọc sản Phẩm
-    function displayId($status){
+    function displayId($status)
+    {
         $count  = 0;
         $subQuery = "";
-        foreach($status as $key => $value){
-            if($value == "on"){
-                if($count%2 == 0){
-                    $subQuery .= " id_categories = ".$key;
-                }else{
-                    $subQuery .= " or id_categories = ".$key;
-                }
+        foreach ($status as $key => $value) {
+            if ($value == "on") {
+                    if($count == 0){
+                        $subQuery .= " id_categories = " . $key;
+                    }else{
+                        $subQuery .= " or id_categories = " . $key;
+                    }
                 $count++;
             }
         }
         return $subQuery;
     }
-        // lấy giá trị đầu tiên của mảng $arrStart
-        !empty($arrStart)?$start = array_values($arrStart)[0]:"";
-        isset($arrEnd['end'])?$end = $arrEnd['end']:"";
-        // trường hợp người dùng lọc bằng categories và price
-        if (isset($arrEnd['end']) && !empty($arrStart) && $check == "on") {
-            $queryFilterProduct = "SELECT * FROM products WHERE price BETWEEN $start and $end and ". displayId($status);
-            
-        }else if(isset($arrEnd['end']) && !empty($arrStart)){// trường hợp người dùng chỉ lọc bằng price
-            $queryFilterProduct = "SELECT * FROM products WHERE price BETWEEN $start and $end ";
-        }else{ // trường hợp người dùng chỉ lọc bằng categories
-            $queryFilterProduct = "SELECT * FROM products WHERE ".displayId($status);
+    // lấy giá trị đầu tiên của mảng $arrStart
+    !empty($arrStart) ? $start = array_values($arrStart)[0] : "";
+    isset($arrEnd['end']) ? $end = $arrEnd['end'] : "";
+    // trường hợp người dùng lọc bằng categories và price
+    if (isset($arrEnd['end']) && !empty($arrStart) && $check == "on") {
+        $queryFilterProduct = "SELECT * FROM products WHERE price BETWEEN $start and $end and " . displayId($status);
+    } else if (isset($arrEnd['end']) && !empty($arrStart)) { // trường hợp người dùng chỉ lọc bằng price
+        $queryFilterProduct = "SELECT * FROM products WHERE price BETWEEN $start and $end ";
+    } else if ($check == "on") { // trường hợp người dùng chỉ lọc bằng categories
+        $queryFilterProduct = "SELECT * FROM products WHERE " . displayId($status);
+    }
+    // thực thi câu lệnh truy vấn và lấy ra mảng kết quả
+    if (isset($queryFilterProduct)) {
+        $allProduct = getAll($queryFilterProduct);
+        if (empty($allProduct)) {
+            header("location:index.php?action=all-product&&noProduct");
         }
-        // thực thi câu lệnh truy vấn và lấy ra mảng kết quả
-        if(isset($queryFilterProduct)){
-            $allProduct = getAll($queryFilterProduct);
-        }
+    }
+}
+if (isset($_GET['keyWord'])) {
+    $keyWord = $_GET['keyWord'];
+    $query = "SELECT * FROM products WHERE product_name LIKE '%$keyWord%'";
+    $allProduct = getAll($query);
 }
 ?>
 <main>
@@ -118,7 +126,7 @@ if (isset($_POST['btn-search'])) {
                         <p class="filter__naem-item">Danh mục</p>
                         <ul>
                             <?php foreach ($getCategories as $value) : ?>
-                                <li><input type="checkbox" name="<?= $value['id_categories'] ?>" id="<?= $value['id_categories'] ?>"> <label for="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></label></li>
+                                <li><input <?php if(isset($status[$value['id_categories']])){if($status[$value['id_categories']] == "on"){echo "checked";}}?> type="checkbox" name="<?= $value['id_categories'] ?>" id="<?= $value['id_categories'] ?>"> <label for="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></label></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -126,7 +134,7 @@ if (isset($_POST['btn-search'])) {
                         <p class="filter__naem-item">Giá tiền</p>
                         <ul>
                             <?php foreach ($arrFilterPrice as $key => $value) : ?>
-                                <li><input type="checkbox" name="<?= $value['valueStart'] ?>" id="<?= $key ?>"> <label for="<?= $key ?>"><?= $value['text'] ?></label></li>
+                                <li><input <?php if(isset($price[$value['valueStart']])){if($price[$value['valueStart']] == "on"){echo "checked";}}?> type="checkbox" name="<?= $value['valueStart'] ?>" id="<?= $key ?>"> <label for="<?= $key ?>"><?= $value['text'] ?></label></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -134,29 +142,34 @@ if (isset($_POST['btn-search'])) {
             </div>
         </div>
         <div class="box-product">
-            <div class="list__product box-new">
-                <?php foreach ($allProduct as $value) : ?>
-                    <div class="product__item new">
-                        <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img">
-                        <a href="#" class="product__item--name new"><?= $value['product_name'] ?></a>
-                        <div class="price-and-cart">
-                            <p class="product__item--status"><?= $value['price'] ?>đ</p>
-                            <p class="price__product--discount"><?= $value['discount'] ?>đ</p>
+            <?php if (isset($_GET['keyWord']) && empty($_GET['keyWord']) || isset($_GET['noProduct'])) { ?>
+                <div class="alert alert-warning" role="alert">
+                    Sản phẩm đã hết !
+                </div>
+            <?php } else { ?>
+
+                <div class="list__product box-new">
+                    <?php foreach ($allProduct as $value) : ?>
+                        <div class="product__item new">
+                            <!-- gọi ra hàm tính toán và hiển thị giá sản phẩm -->
+                            <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img">
+                            <a href="#" class="product__item--name new"><?= $value['product_name'] ?></a>
+                            <div class="price-and-cart">
+                                <p class="product__item--status"><?= displayProduct($value) ?>đ</p>
+                                <p class="price__product--discount"><?= $value['price'] ?>đ</p>
+                            </div>
+                            <button>Add cart</button>
                         </div>
-                        <button>Add cart</button>
-                    </div>
-                <?php endforeach ?>
-
-            </div>
-            <nav aria-label="...">
-                <ul class="pagination pagination-sm">
-                    <?php for ($item = 1; $item <= $countpage; $item++) : ?>
-                        <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?action=all-product&&page=<?= $item ?>"><?= $item ?></a></li>
-                    <?php endfor ?>
-                </ul>
-            </nav>
+                    <?php endforeach ?>
+                </div>
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm">
+                        <?php for ($item = 1; $item <= $countpage; $item++) : ?>
+                            <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?action=all-product&&page=<?= $item ?>"><?= $item ?></a></li>
+                        <?php endfor ?>
+                    </ul>
+                </nav>
+            <?php } ?>
         </div>
-
     </div>
-
 </main>
