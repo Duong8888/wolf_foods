@@ -67,7 +67,6 @@ if(isset($_GET['delete-all'])){
                                 </a>
                             </td>
                         </tr>    
-                           
                             <?php endforeach ?>
                     </tbody>
                 </table>

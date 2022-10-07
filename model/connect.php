@@ -119,3 +119,4 @@ function countPages($row){
     $result = round($countPage / $row);
     return $result;
 }
+
