@@ -41,13 +41,75 @@
         <div class="box-detail-bottom">
             <div class="box-detail-bottom-left">
                 <div class="box-detail-bottom-header">
-                    <p>Thông tin sản phẩm</p>
+                    <p>Commnet</p>
                 </div>
                 <div class="box-detail-bottom-main">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iusto sit repellat quam, totam alias similique? Voluptatum, id obcaecati molestias pariatur voluptatem, qui ad quia enim quaerat exercitationem voluptatibus placeat! <br><br> Lorem, ipsum dolor sit amet consectetur adipisicing elit. At aperiam saepe, quam voluptas omnis sit voluptatem dolorum neque quo vitae corrupti provident libero inventore perspiciatis earum natus nostrum illum nemo. </p>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjcI1w40FW3hpDD4VJW9Nr88yYoDV2ZMy0pw&usqp=CAU" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora iste ad in sapiente voluptas temporibus ab nesciunt perferendis, totam mollitia iusto modi, ipsa porro. Quae vitae a asperiores laborum aliquid.</p>
+                    <div class="box-detail-comment2">
+                        <h2>Leave Us a Comment</h2>
+                        <form action="">
+                            <textarea placeholder="Add Your Comment"></textarea>
+                            <div class="box-detail-comment_btn">
+                                <input type="submit" value="Comment">
+                                <button>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <section id="test">
+       
+        <div class="test-box-contain">
+            <div class="test-box">
+                <div class="box-top">
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=768,574" alt="">
+                            
+                            </div>
+                            <div class="name-user">
+                                <strong>Truong</strong>
+                                <span>@hello</span>
+                        </div>
+                    </div>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
+                </div>
+            </div>
+        </div>
+        <div class="test-box-contain">
+            <div class="test-box">
+                <div class="box-top">
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="https://api.vip.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg" alt="">
+                            
+                            </div>
+                            <div class="name-user">
+                                <strong>Truong2</strong>
+                                <span>@professer</span>
+                        </div>
+                    </div>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
+                </div>
+            </div>
+        </div>
+   
             </div>
             <div class="box-detail-bottom-right">
                 <div class="box-detail-bottom-header">
@@ -125,16 +187,7 @@
             </div>
         </div>
         <div class="box-detail-comment">
-            <div class="box-detail-comment2">
-                <h2>Leave Us a Comment</h2>
-                <form action="">
-                    <textarea placeholder="Add Your Comment"></textarea>
-                    <div class="box-detail-comment_btn">
-                        <input type="submit" value="Comment">
-                        <button>Cancel</button>
-                    </div>
-                </form>
-            </div>
+
 
         </div>
         <div class="box-detail-slishow">
