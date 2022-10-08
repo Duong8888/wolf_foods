@@ -1,6 +1,6 @@
 <?php
+isset($_GET['ID']) ? $id = $_GET['ID'] : "";
 if (isset($_GET['ID'])) {
-    $id = $_GET['ID'];
     // tăng view sản phẩm 
     $upView = "UPDATE products SET view=view+1 WHERE id_product = $id";
     connect($upView);
@@ -17,6 +17,23 @@ if (isset($_GET['ID'])) {
     $idCategories = $productDetail['id_categories'];
     $query = "SELECT * FROM products WHERE id_categories = $idCategories";
     $similarProducts = getAll($query);
+    // comment
+    if (isset($_POST['btn-Comment'])) {
+        $idProduct = $_GET['ID'];
+        $content = $_POST['content'];
+        $idUser = $_SESSION['idUser'];
+        $timeSend = date('Y-m-d');
+        if (!empty($content)) {
+            $query = "INSERT INTO comment SET content='$content', id_user='$idUser', id_porduct='$idProduct', time_send='$timeSend' ";
+            connect($query);
+        }
+    }
+    // lấy ra bình luận của sản phẩm
+    $queryComment = "SELECT * FROM comment WHERE id_porduct = $id";
+    $getComment = getAll($queryComment);
+    // lấy mảng người dùng để xem đối chiếu với id hiển thị tên người bình luận
+    $queryUser = "SELECT * FROM user";
+    $getUser = getAll($queryUser);
 };
 ?>
 <main>
@@ -57,40 +74,45 @@ if (isset($_GET['ID'])) {
                 </div>
 
                 <section id="test">
-                    <div class="test-box-contain">
-                        <div class="test-box">
-                            <div class="box-top">
-                                <div class="profile">
-                                    <div class="profile-img">
-                                        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=768,574" alt="">
-
+                    <?php foreach ($getComment as $value) : ?>
+                        <div class="test-box-contain">
+                            <div class="test-box">
+                                <div class="box-top">
+                                    <div class="profile">
+                                        <?php foreach ($getUser as $user) {
+                                            if ($user['id'] == $value['id_user']) { ?>
+                                                <div class="profile-img">
+                                                    <img src="../../../admin/src/img/<?= $user['avatar'] ?>" alt="">
+                                                </div>
+                                                <div class="name-user">
+                                                    <strong><?= $user['username'] ?></strong>
+                                                    <span><?= $value['time_send'] ?></span>
+                                                </div>
+                                        <?php }
+                                        } ?>
                                     </div>
-                                    <div class="name-user">
-                                        <strong>Truong</strong>
-                                        <span>@hello</span>
+                                    <div class="reviews">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
-                                <div class="reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <div class="client-comment">
+                                    <p><?= $value['content'] ?></p>
                                 </div>
-                            </div>
-                            <div class="client-comment">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach ?>
+
                 </section>
                 <div class="box-detail-bottom-main">
                     <div class="box-detail-comment2">
-                        <form action="">
-                            <textarea placeholder="Add Your Comment"></textarea>
+                        <form action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>" method="POST">
+                            <textarea name="content" placeholder="Add Your Comment"></textarea>
                             <div class="box-detail-comment_btn">
-                                <input type="submit" value="Comment">
-                                <button>Cancel</button>
+                                <input type="submit" name="btn-Comment" value="Comment">
                             </div>
                         </form>
                     </div>
