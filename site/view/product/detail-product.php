@@ -59,7 +59,7 @@ if (isset($_GET['ID'])) {
                 </div>
 
                 <section id="test">
-                    <div class="test-box-contain">
+                <div class="test-box-contain">
                         <div class="test-box">
                             <div class="box-top">
                                 <div class="profile">
@@ -70,32 +70,6 @@ if (isset($_GET['ID'])) {
                                     <div class="name-user">
                                         <strong>Truong</strong>
                                         <span>@hello</span>
-                                    </div>
-                                </div>
-                                <div class="reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="client-comment">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="test-box-contain">
-                        <div class="test-box">
-                            <div class="box-top">
-                                <div class="profile">
-                                    <div class="profile-img">
-                                        <img src="https://api.vip.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg" alt="">
-
-                                    </div>
-                                    <div class="name-user">
-                                        <strong>Truong2</strong>
-                                        <span>@professer</span>
                                     </div>
                                 </div>
                                 <div class="reviews">
@@ -144,11 +118,8 @@ if (isset($_GET['ID'])) {
             </div>
         </div>
         <div class="box-detail-comment">
-
-
         </div>
         <div class="box-detail-slishow">
-
         </div>
     </div>
 </main>

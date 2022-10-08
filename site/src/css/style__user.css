@@ -10,6 +10,9 @@
   font: inherit;
 
 }
+html{
+  scroll-behavior: revert !important;
+}
 
 body {
   line-height: 1.5;

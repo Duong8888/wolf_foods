@@ -97,6 +97,7 @@
     },
   });
 </script>
+<script src="../../admin/src/js/main.js"></script>
 </body>
 
 </html>
