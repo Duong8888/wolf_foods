@@ -3,6 +3,9 @@ $qureyCategories = "SELECT * FROM categories";
 $qureyProduct = "SELECT * FROM products";
 $arrCategories = getAll($qureyCategories);
 $arrProduct = getAll($qureyProduct);
+// lấy sản phảm có view cao
+$qureyProductSlider = "SELECT * FROM products ORDER BY view DESC";
+$arrProductSlider = getAll($qureyProductSlider);
 // phân trang hiển thị sản phẩm 
 $row = 10;
 $tabel = 'products';
@@ -22,7 +25,7 @@ $countpage = countPages($row);
           <div class="categories-img">
             <img src="../../admin/src/img/<?= $item['image'] ?>" alt="">
           </div>
-          <a href="#" class="categories-name">
+          <a href="index.php?action=all-product&&page=1" class="categories-name">
             <?= $item['category_name'] ?>
           </a>
         </div>
@@ -35,17 +38,17 @@ $countpage = countPages($row);
       <h1 class="title__discount">10 Sản phẩm nhiều lượt xem nhất</h1>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <?php foreach ($arrProduct as $item) : ?>
+          <?php for ($i = 0; $i < 10; $i++) : ?>
             <div class="swiper-slide">
-              <img src="../../admin/src/img/<?= $item['image'] ?>" alt="" class="slogan__product">
+              <img src="../../admin/src/img/<?= $arrProductSlider[$i]['image'] ?>" alt="" class="slogan__product">
 
-              <a href="index.php?action=detail-product&&ID=<?=$item['id_product']?>" class="product__item--name"><?= $item['product_name'] ?></a>
+              <a href="index.php?action=detail-product&&ID=<?=$arrProductSlider[$i]['id_product']?>" class="product__item--name"><?= $arrProductSlider[$i]['product_name'] ?></a>
               <div class="price-and-cart">
-                <p class="product__item--status"><?= displayProduct($item) ?></p>
-                <p class="price__product--discount"><?= $item['price'] ?>đ</p>
+                <p class="product__item--status"><?= displayProduct($arrProductSlider[$i]) ?></p>
+                <p class="price__product--discount"><?= $arrProductSlider[$i]['price'] ?>đ</p>
               </div>
             </div>
-          <?php endforeach ?>
+          <?php endfor ?>
         </div>
       </div>
       <!-- end slideshow :)) -->

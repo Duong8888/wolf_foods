@@ -1,7 +1,11 @@
 <!-- display detail product -->
 <?php
+
 if (isset($_GET['ID'])) {
     $id = $_GET['ID'];
+    // tăng view sản phẩm 
+    $upView = "UPDATE products SET view=view+1 WHERE id_product = $id";
+    connect($upView);
     $queryDetail = "SELECT * FROM products WHERE id_product = $id";
     $queryCategories = "SELECT * FROM categories";
     $arrCategories  = getAll($queryCategories);
@@ -128,11 +132,11 @@ if (isset($_GET['ID'])) {
                     <?php foreach ($similarProducts as $value) : ?>
                         <div class="home-mini_product">
                             <div class="home-mini_product-img">
-                                <img src="../../../admin/src/img/<?=$value['image']?>" alt="">
+                                <img src="../../../admin/src/img/<?= $value['image'] ?>" alt="">
                             </div>
                             <div class="home-mini_product-detail">
-                                <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>"><?=$value['product_name']?></a>
-                                <p class="desc-detail"><?=$value['description']?></p>
+                                <a href="index.php?action=detail-product&&ID=<?= $value['id_product'] ?>"><?= $value['product_name'] ?></a>
+                                <p class="desc-detail"><?= $value['description'] ?></p>
                             </div>
                         </div>
                     <?php endforeach ?>
