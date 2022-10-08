@@ -1,127 +1,51 @@
-
+<?php
+$qureyCategories = "SELECT * FROM categories";
+$qureyProduct = "SELECT * FROM products";
+$arrCategories = getAll($qureyCategories);
+$arrProduct = getAll($qureyProduct);
+// phân trang hiển thị sản phẩm 
+$row = 10;
+$tabel = 'products';
+$paginationProduct = pagination($tabel, $row);
+$countpage = countPages($row);
+?>
 <main>
   <div class="banner">
     <a href="#"><img src="../src/img/img__header/banner.jpg" alt="" class="banner__img"></a>
   </div>
   <!-- end banner -->
-  <div class="list__categories">
-    <div class="item__categories">
-      <img src="../src/img/img__header/wolf_cate1.jpg" alt="" class="item__categories__img">
-      <div class="item__categories__content">
-        <h3 class="title__categories">Rau, củ, trái cây</h3>
-        <ul class="menu__categories">
-          <li><a href="#">Rau xanh, rau tươi</a></li>
-          <li><a href="#">Củ, quả, măng tươi</a></li>
-          <li><a href="#">Hành, tỏi, ớt, rau thơm</a></li>
-          <li><a href="#">Nấm các loại</a></li>
-          <li><a href="#">Combo rau củ quả</a></li>
-        </ul>
-        <button class="buy__now">Mua sắm ngay</button>
-      </div>
+  <div class="categories">
+    <p class="title-categories">Danh mục sản phẩm</p>
+    <div class="main-categories">
+      <?php foreach ($arrCategories as $item) : ?>
+        <div class="box-categories">
+          <div class="categories-img">
+            <img src="../../admin/src/img/<?= $item['image'] ?>" alt="">
+          </div>
+          <a href="#" class="categories-name">
+            <?= $item['category_name'] ?>
+          </a>
+        </div>
+      <?php endforeach ?>
     </div>
-    <!-- end item category -->
-    <div class="item__categories">
-      <img src="../src/img/img__header/wolf_cate2.jpg" alt="" class="item__categories__img">
-      <div class="item__categories__content">
-        <h3 class="title__categories">Sữa các loại</h3>
-        <ul class="menu__categories">
-          <li><a href="#">Sữa tươi</a></li>
-          <li><a href="#">Sữa chua uống liền</a></li>
-          <li><a href="#">Sữa hạt, Sữa đậu</a></li>
-          <li><a href="#">Sữa cacao, Lúa mạch</a></li>
-          <li><a href="#">Sữa chua ăn</a></li>
-        </ul>
-        <button class="buy__now">Mua sắm ngay</button>
-      </div>
-    </div>
-    <!-- end item category -->
-    <div class="item__categories">
-      <img src="../src/img/img__header/wolf_cate3.jpg" alt="" class="item__categories__img">
-      <div class="item__categories__content">
-        <h3 class="title__categories">Thực phẩm chế biến</h3>
-        <ul class="menu__categories">
-          <li><a href="#">Thịt xông khói</a></li>
-          <li><a href="#">Khoai tây chiên</a></li>
-          <li><a href="#">Mì ăn liền</a></li>
-          <li><a href="#">Bơ thực vật</a></li>
-          <li><a href="#">Thực phẩm đóng hộp</a></li>
-        </ul>
-        <button class="buy__now">Mua sắm ngay</button>
-      </div>
-    </div>
-    <!-- end item category -->
-    <div class="item__categories">
-      <img src="../src/img/img__header/wolf_cate4.jpg" alt="" class="item__categories__img">
-      <div class="item__categories__content">
-        <h3 class="title__categories">Đồ uống các loại</h3>
-        <ul class="menu__categories">
-          <li><a href="#">Bia, nước có cồn</a></li>
-          <li><a href="#">Rượu các loại</a></li>
-          <li><a href="#">Nước ngọt</a></li>
-          <li><a href="#">Nước tăng lực, bù khoáng</a></li>
-          <li><a href="#">Nước trái cây, nước trà</a></li>
-        </ul>
-        <button class="buy__now">Mua sắm ngay</button>
-      </div>
-    </div>
-    <!-- end item category -->
   </div>
   <!-- end list categories -->
   <div class="wrap-discount">
     <div class="discount__product">
-      <h1 class="title__discount">Săn sale đón lễ</h1>
+      <h1 class="title__discount">10 Sản phẩm nhiều lượt xem nhất</h1>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-            
-            <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-            <div class="price-and-cart">
-              <p class="product__item--status">2000đ</p>
-              <p class="price__product--discount">26.500đ</p>
+          <?php foreach ($arrProduct as $item) : ?>
+            <div class="swiper-slide">
+              <img src="../../admin/src/img/<?= $item['image'] ?>" alt="" class="slogan__product">
+
+              <a href="#" class="product__item--name"><?= $item['product_name'] ?></a>
+              <div class="price-and-cart">
+                <p class="product__item--status"><?= displayProduct($item) ?></p>
+                <p class="price__product--discount"><?= $item['price'] ?>đ</p>
+              </div>
             </div>
-          </div>
-          <!-- end item discount -->
-          <div class="swiper-slide">
-            <img src="../src/img/img_product/hop-30-trung-cut-tuoi-tfood-30-trung-202112271006004018.jpg" alt="" class="slogan__product">
-            
-            <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-            <div class="price-and-cart">
-              <p class="product__item--status">2000đ</p>
-              <p class="price__product--discount">26.500đ</p>
-            </div>
-          </div>
-          <!-- end item discount -->
-          <div class="swiper-slide">
-            <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-            
-            <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-            <div class="price-and-cart">
-              <p class="product__item--status">2000đ</p>
-              <p class="price__product--discount">26.500đ</p>
-            </div>
-          </div>
-          <!-- end item discount -->
-          <div class="swiper-slide">
-            <img src="../src/img/img_product/hop-30-trung-cut-tuoi-tfood-30-trung-202112271006004018.jpg" alt="" class="slogan__product">
-            
-            <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-            <div class="price-and-cart">
-              <p class="product__item--status">2000đ</p>
-              <p class="price__product--discount">26.500đ</p>
-            </div>
-          </div>
-          <!-- end item discount -->
-          <div class="swiper-slide">
-            <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-            
-            <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-            <div class="price-and-cart">
-              <p class="product__item--status">2000đ</p>
-              <p class="price__product--discount">26.500đ</p>
-            </div>
-          </div>
-          <!-- end item discount -->
+          <?php endforeach ?>
         </div>
       </div>
       <!-- end slideshow :)) -->
@@ -130,7 +54,7 @@
   <!-- end discount prd -->
   <div class="list__product--wrap">
     <div class="title--button__categories">
-      <h1 class="title__product">
+      <h1 class="title__product" id="listProduct">
         Thịt, cá, trứng, rau
         <!-- thay đổi theo button chọn ở dưới -->
       </h1>
@@ -142,99 +66,26 @@
       </div>
     </div>
     <div class="list__product">
-      <div class="product__item--slogan">
-        <img src="../src/img/img_product/slogan.jpg" alt="" class="slogan__product">
-      </div>
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
+      <?php foreach ($paginationProduct as $item) : ?>
+        <div class="product__item">
+          <img src="../../admin/src/img/<?= $item['image'] ?>" alt="">
+
+          <a href="#" class="product__item--name"><?= $item['product_name'] ?></a>
+          <div class="price-and-cart">
+            <p class="product__item--status"><?= displayProduct($item) ?></p>
+            <p class="price__product--discount"><?= $item['price'] ?>đ</p>
+          </div>
         </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
-      <div class="product__item">
-        <img src="../src/img/img_product/bap-bo-uc-tuoi-hut-chan-khong-khay-250g-202112251850343812.jpg" alt="" class="slogan__product">
-        
-        <a href="#" class="product__item--name">Bắp bò Úc tươi Trung Đông hút chân không khay 250g</a>
-        <div class="price-and-cart">
-          <p class="product__item--status">2000đ</p>
-          <p class="price__product--discount">26.500đ</p>
-        </div>
-      </div>
-      <!-- end item prd -->
+      <?php endforeach ?>
+    </div>
+    <div class="box-nav">
+      <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+          <?php for ($item = 1; $item <= $countpage; $item++) : ?>
+            <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?page=<?= $item ?>#listProduct"><?= $item ?></a></li>
+          <?php endfor ?>
+        </ul>
+      </nav>
     </div>
   </div>
 </main>
