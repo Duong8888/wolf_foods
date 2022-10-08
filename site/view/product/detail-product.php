@@ -1,6 +1,4 @@
-<!-- display detail product -->
 <?php
-
 if (isset($_GET['ID'])) {
     $id = $_GET['ID'];
     // tăng view sản phẩm 
@@ -59,7 +57,7 @@ if (isset($_GET['ID'])) {
                 </div>
 
                 <section id="test">
-                <div class="test-box-contain">
+                    <div class="test-box-contain">
                         <div class="test-box">
                             <div class="box-top">
                                 <div class="profile">

@@ -14,11 +14,14 @@ if (isset($_GET['action'])) {
             require '../view/contact/contact.php';
             break;
 
-        case 'all-product': 
+        case 'all-product':
             require '../view/product/allproduct.php';
             break;
         case 'detail-product':
             require '../view/product/detail-product.php';
+            break;
+        case 'cart-product':
+            require '../view/cart/cart.php';
             break;
         case 'profile':
             require '../view/profile/profile.php';

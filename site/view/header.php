@@ -54,7 +54,7 @@ if (isset($_SESSION['idUser'])) {
       </a>
       <form action="index.php" class="search" method="POST">
         <input autocomplete="off" value="<?= isset($_GET['keyWord']) ? $_GET['keyWord'] : "" ?>" type="text" name="search" class="search__input" placeholder="Bạn cần tìm gì? ">
-        <button class="search__button" name="btn" type="submit"><img src="../src/img/img__header/seach.svg" alt=""></button>
+        <button class="search__button" name="btn" type="submit"><img src="../src/img/img__header/seach.svg" class="icon-seach" alt=""></button>
       </form>
       <div class="hotline">
         <!-- <img src="./img/cart.png" alt="" class="hotline__logo"> -->
@@ -72,7 +72,7 @@ if (isset($_SESSION['idUser'])) {
             <a href="index.php?action=sign_up" class="sign__up">Đăng ký</a>
           <?php } else { ?>
             <a href="index.php?action=profile" class="sign__up">Hồ sơ</a>
-            <a href="index.php?action=sign_up" class="sign__up">Gỏ hàng</a>
+            <a href="index.php?action=cart-product" class="sign__up">Gỏ hàng</a>
             <a href="../../admin/index.php?action=log-out" class="sign__up">Đăng suất</a>
           <?php } ?>
         </div>

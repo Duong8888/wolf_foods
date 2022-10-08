@@ -53,6 +53,11 @@ h6 {
   justify-content: space-between;
   align-items: center;
 }
+.icon-seach{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .line {
   /* min-width: 1080px; */

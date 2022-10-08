@@ -1,6 +1,4 @@
-<?php
-require './header.php';
-?>
+
 <main>
   <div class="cart_wrap">
     <h1 class="cart__title">Giỏ hàng</h1>
@@ -56,6 +54,3 @@ require './header.php';
     }
   </script>
 </main>
-<?php
-require './footer.php';
-?>
