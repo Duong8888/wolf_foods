@@ -34,7 +34,7 @@
                     <button>Yêu thích</button><button>Cửa hàng</button>
                 </div>
                 <div class="detail-call">
-                    <p>Gọi <span> 1900 6750</span> để được tư vấn</p>
+                    <p>Gọi <a href=""><span> 1900 6750</span></a> để được tư vấn</p>
                 </div>
             </form>
         </div>
@@ -57,29 +57,83 @@
                 </div>
                 <div class="box-detail-bottom_home-mini">
                     <div class="home_mini">
-                    <i class='x bx bxs-home' ></i>
-                    <p>Trang chủ</p>
+                        <i class='x bx bxs-home'></i>
+                        <p>Trang chủ</p>
                     </div>
                     <div class="home_mini">
-                    <i class='x bx bxl-product-hunt' ></i>
-                    <p>Sản phẩm</p>
+                        <i class='x bx bxl-product-hunt'></i>
+                        <p>Sản phẩm</p>
                     </div>
                     <div class="home_mini">
-                    <i class='x bx bx-news' ></i>
-                    <p>Tin tức</p>
+                        <i class='x bx bx-news'></i>
+                        <p>Tin tức</p>
                     </div>
                     <div class="home_mini">
-                    <i class='x bx bx-user-circle'></i>
-                    <p>Giới thiệu</p>
+                        <i class='x bx bx-user-circle'></i>
+                        <p>Giới thiệu</p>
                     </div>
                     <div class="home_mini">
-                    <i class='x bx bx-phone-call'></i>
-                    <p>Liên hệ</p>
+                        <i class='x bx bx-phone-call'></i>
+                        <p>Liên hệ</p>
                     </div>
                 </div>
                 <div class="box-detail-bottom-header">
                     <p>Sản phẩm tương tự</p>
                 </div>
+                <div class="box-detail-bottom_home-advanced">
+                    <div class="home-mini_product">
+                        <div class="home-mini_product-img">
+                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                        </div>
+                        <div class="home-mini_product-detail">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
+                        </div>
+                    </div>
+                    <div class="home-mini_product">
+                        <div class="home-mini_product-img">
+                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                        </div>
+                        <div class="home-mini_product-detail">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
+                        </div>
+                    </div>
+                    <div class="home-mini_product">
+                        <div class="home-mini_product-img">
+                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                        </div>
+                        <div class="home-mini_product-detail">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
+                        </div>
+                    </div>
+                    <div class="home-mini_product">
+                        <div class="home-mini_product-img">
+                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                        </div>
+                        <div class="home-mini_product-detail">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
+                        </div>
+                    </div>
+                    <div class="home-mini_product">
+                        <div class="home-mini_product-img">
+                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                        </div>
+                        <div class="home-mini_product-detail">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-detail-comment">
+            <div class="box-detail-comment2">
+                <h2>Leave Us a Comment</h2>
+                <form action="">
+                    <textarea placeholder="Add Your Comment"></textarea>
+                    <div class="box-detail-comment_btn">
+                        <input type="submit" value="Comment">
+                        <button>Cancel</button>
+                    </div>
+                </form>
             </div>
 
         </div>
