@@ -152,8 +152,8 @@ if (isset($_GET['keyWord'])) {
                     <?php foreach ($allProduct as $value) : ?>
                         <div class="product__item new">
                             <!-- gọi ra hàm tính toán và hiển thị giá sản phẩm -->
-                            <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img">
-                            <a href="#" class="product__item--name new"><?= $value['product_name'] ?></a>
+                            <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img new">
+                            <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>" class="product__item--name new"><?= $value['product_name'] ?></a>
                             <div class="price-and-cart">
                                 <p class="product__item--status"><?= displayProduct($value) ?>đ</p>
                                 <p class="price__product--discount"><?= $value['price'] ?>đ</p>

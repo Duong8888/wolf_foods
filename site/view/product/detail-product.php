@@ -1,26 +1,36 @@
+<!-- display detail product -->
+<?php
+if (isset($_GET['ID'])) {
+    $id = $_GET['ID'];
+    $queryDetail = "SELECT * FROM products WHERE id_product = $id";
+    $queryCategories = "SELECT * FROM categories";
+    $arrCategories  = getAll($queryCategories);
+    $productDetail = getOne($queryDetail);
+    foreach ($arrCategories as $value) {
+        if ($productDetail['id_categories'] == $value['id_categories']) {
+            $categoriesName = $value['category_name'];
+        }
+    }
+    // lấy sản phẩm cùng loại để hiển thị
+    $idCategories = $productDetail['id_categories'];
+    $query = "SELECT * FROM products WHERE id_categories = $idCategories";
+    $similarProducts = getAll($query);
+};
+?>
 <main>
-    <div class="detail-menu">
-        <div class="detail-menu__product">
-            <a href="">Trang chủ</a>/<a href="">Củ, quả, măng tươi</a>/ <span>
-                <a href="">Đầu cá hồi tươi túi 1kg (300g - 500g/cái)</a>
-            </span>
-        </div>
-    </div>
     <div class="box-detail">
         <div class="box-detail-top">
-            <h1>Đầu cá hồi tươi túi 1kg (300g - 500g/cái)</h1>
-
         </div>
         <div class="box-detail-main">
             <div class="box-detail-main-left">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjcI1w40FW3hpDD4VJW9Nr88yYoDV2ZMy0pw&usqp=CAU" alt="">
+                <img src="../../../admin/src/img/<?= $productDetail['image'] ?>" alt="">
             </div>
             <form class="box-detail-main-right" action="">
 
-                <p>Thương hiệu: <span> Wolf Food</span></p>
-                <p>Mã sản phẩm: <span> (Đang cập nhật...)</span></p>
-                <p><span>40.000đ</span> Giá niêm yến: <span>59.000đ</span> </p>
-                <p>Tiết kiệm:<span> 19.000đ</span></p>
+                <p>Tên sản phẩm: <span><?= $productDetail['product_name'] ?></span></p>
+                <p>Loại sản phẩm: <span> <?= isset($categoriesName) ? $categoriesName : "Đang cập nhật" ?></span></p>
+                <p><span><?= displayProduct($productDetail) ?>đ</span> Giá niêm yến: <span><?= $productDetail['price'] ?>đ</span> </p>
+                <p>Tiết kiệm:<span><?= $productDetail['price'] - displayProduct($productDetail) ?>đ</span></p>
                 <div class="box-detail-main-right-count">
                     <button>-</button>
                     <input type="text" value="1">
@@ -41,11 +51,65 @@
         <div class="box-detail-bottom">
             <div class="box-detail-bottom-left">
                 <div class="box-detail-bottom-header">
-                    <p>Commnet</p>
+                    <p>Bình Luận</p>
                 </div>
+
+                <section id="test">
+                    <div class="test-box-contain">
+                        <div class="test-box">
+                            <div class="box-top">
+                                <div class="profile">
+                                    <div class="profile-img">
+                                        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=768,574" alt="">
+
+                                    </div>
+                                    <div class="name-user">
+                                        <strong>Truong</strong>
+                                        <span>@hello</span>
+                                    </div>
+                                </div>
+                                <div class="reviews">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="client-comment">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-box-contain">
+                        <div class="test-box">
+                            <div class="box-top">
+                                <div class="profile">
+                                    <div class="profile-img">
+                                        <img src="https://api.vip.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg" alt="">
+
+                                    </div>
+                                    <div class="name-user">
+                                        <strong>Truong2</strong>
+                                        <span>@professer</span>
+                                    </div>
+                                </div>
+                                <div class="reviews">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="client-comment">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="box-detail-bottom-main">
                     <div class="box-detail-comment2">
-                        <h2>Leave Us a Comment</h2>
                         <form action="">
                             <textarea placeholder="Add Your Comment"></textarea>
                             <div class="box-detail-comment_btn">
@@ -55,134 +119,23 @@
                         </form>
                     </div>
                 </div>
-                <section id="test">
-       
-        <div class="test-box-contain">
-            <div class="test-box">
-                <div class="box-top">
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=768,574" alt="">
-                            
-                            </div>
-                            <div class="name-user">
-                                <strong>Truong</strong>
-                                <span>@hello</span>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="client-comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
-                </div>
-            </div>
-        </div>
-        <div class="test-box-contain">
-            <div class="test-box">
-                <div class="box-top">
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="https://api.vip.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg" alt="">
-                            
-                            </div>
-                            <div class="name-user">
-                                <strong>Truong2</strong>
-                                <span>@professer</span>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="client-comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo atque laborum dignissimos magnam dolorem similique quisquam veritatis rerum, aliquam libero modi qui molestias ab minima culpa delectus quod aperiam. Maxime.</p>
-                </div>
-            </div>
-        </div>
-   
             </div>
             <div class="box-detail-bottom-right">
-                <div class="box-detail-bottom-header">
-                    <p>
-                        Nhóm hàng tương tự
-                    </p>
-                </div>
-                <div class="box-detail-bottom_home-mini">
-                    <div class="home_mini">
-                        <i class='x bx bxs-home'></i>
-                        <p>Trang chủ</p>
-                    </div>
-                    <div class="home_mini">
-                        <i class='x bx bxl-product-hunt'></i>
-                        <p>Sản phẩm</p>
-                    </div>
-                    <div class="home_mini">
-                        <i class='x bx bx-news'></i>
-                        <p>Tin tức</p>
-                    </div>
-                    <div class="home_mini">
-                        <i class='x bx bx-user-circle'></i>
-                        <p>Giới thiệu</p>
-                    </div>
-                    <div class="home_mini">
-                        <i class='x bx bx-phone-call'></i>
-                        <p>Liên hệ</p>
-                    </div>
-                </div>
                 <div class="box-detail-bottom-header">
                     <p>Sản phẩm tương tự</p>
                 </div>
                 <div class="box-detail-bottom_home-advanced">
-                    <div class="home-mini_product">
-                        <div class="home-mini_product-img">
-                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
+                    <?php foreach ($similarProducts as $value) : ?>
+                        <div class="home-mini_product">
+                            <div class="home-mini_product-img">
+                                <img src="../../../admin/src/img/<?=$value['image']?>" alt="">
+                            </div>
+                            <div class="home-mini_product-detail">
+                                <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>"><?=$value['product_name']?></a>
+                                <p class="desc-detail"><?=$value['description']?></p>
+                            </div>
                         </div>
-                        <div class="home-mini_product-detail">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
-                        </div>
-                    </div>
-                    <div class="home-mini_product">
-                        <div class="home-mini_product-img">
-                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
-                        </div>
-                        <div class="home-mini_product-detail">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
-                        </div>
-                    </div>
-                    <div class="home-mini_product">
-                        <div class="home-mini_product-img">
-                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
-                        </div>
-                        <div class="home-mini_product-detail">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
-                        </div>
-                    </div>
-                    <div class="home-mini_product">
-                        <div class="home-mini_product-img">
-                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
-                        </div>
-                        <div class="home-mini_product-detail">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
-                        </div>
-                    </div>
-                    <div class="home-mini_product">
-                        <div class="home-mini_product-img">
-                            <img src="https://img.freepik.com/premium-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?w=2000" alt="">
-                        </div>
-                        <div class="home-mini_product-detail">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illum ab asp. Saepe.</p>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

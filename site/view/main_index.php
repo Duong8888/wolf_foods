@@ -39,7 +39,7 @@ $countpage = countPages($row);
             <div class="swiper-slide">
               <img src="../../admin/src/img/<?= $item['image'] ?>" alt="" class="slogan__product">
 
-              <a href="#" class="product__item--name"><?= $item['product_name'] ?></a>
+              <a href="index.php?action=detail-product&&ID=<?=$item['id_product']?>" class="product__item--name"><?= $item['product_name'] ?></a>
               <div class="price-and-cart">
                 <p class="product__item--status"><?= displayProduct($item) ?></p>
                 <p class="price__product--discount"><?= $item['price'] ?>đ</p>
@@ -70,7 +70,7 @@ $countpage = countPages($row);
         <div class="product__item">
           <img src="../../admin/src/img/<?= $item['image'] ?>" alt="">
 
-          <a href="#" class="product__item--name"><?= $item['product_name'] ?></a>
+          <a href="index.php?action=detail-product&&ID=<?=$item['id_product']?>" class="product__item--name"><?= $item['product_name'] ?></a>
           <div class="price-and-cart">
             <p class="product__item--status"><?= displayProduct($item) ?></p>
             <p class="price__product--discount"><?= $item['price'] ?>đ</p>
