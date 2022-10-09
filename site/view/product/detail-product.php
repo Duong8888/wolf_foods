@@ -19,14 +19,18 @@ if (isset($_GET['ID'])) {
     $similarProducts = getAll($query);
     // comment
     if (isset($_POST['btn-Comment'])) {
+        // kiểm tra xem người dùng có reload trang không nếu không thì $countReload = 0;
+        $countReload = $_POST['sub-reload-page'];
         $idProduct = $_GET['ID'];
         $content = $_POST['content'];
         $idUser = $_SESSION['idUser'];
         $timeSend = date('Y-m-d');
-        if (!empty($content)) {
+        if (!empty($content) && $countReload==0) {
             $query = "INSERT INTO comment SET content='$content', id_user='$idUser', id_porduct='$idProduct', time_send='$timeSend' ";
             connect($query);
         }
+        // nếu load lại trang thì tăng count lên 1;
+        $countReload++;
     }
     // lấy ra bình luận của sản phẩm
     $queryComment = "SELECT * FROM comment WHERE id_porduct = $id";
@@ -71,12 +75,13 @@ if (isset($_GET['ID'])) {
         <div class="box-detail-bottom">
             <div class="box-detail-bottom-left">
                 <div class="box-detail-bottom-header">
-                    <p>Bình Luận</p>
+                    <p >Bình Luận</p>
                 </div>
 
                 <section id="test">
-                    <?php foreach ($getComment as $value) : ?>
-                        <div class="test-box-contain">
+                    <?php foreach ($getComment as $key => $value) : ?>
+                        <!-- gán id cho commet mới nhất -->
+                        <div class="test-box-contain" <?php if($key+1 == count($getComment)){echo 'id="sub-comment"';}?>>
                             <div class="test-box">
                                 <div class="box-top">
                                     <div class="profile">
@@ -109,9 +114,10 @@ if (isset($_GET['ID'])) {
                 </section>
                 <div class="box-detail-bottom-main">
                     <div class="box-detail-comment2">
-                        <form action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>" method="POST">
+                        <form action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>#sub-comment" method="POST">
                             <textarea name="content" placeholder="Add Your Comment"></textarea>
                             <div class="box-detail-comment_btn">
+                                <input type="text" hidden value="<?=isset($countReload)?$countReload:"0"?>" name="sub-reload-page">
                                 <input <?= isset($_SESSION['idUser']) ? 'type="submit"' : 'type="button" class="sub-btn"'; ?> name="btn-Comment" value="Comment">
                             </div>
                         </form>

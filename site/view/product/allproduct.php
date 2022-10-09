@@ -158,7 +158,7 @@ if (isset($_GET['keyWord'])) {
                                 <p class="product__item--status"><?= displayProduct($value) ?>đ</p>
                                 <p class="price__product--discount"><?= $value['price'] ?>đ</p>
                             </div>
-                            <button>Add cart</button>
+                            <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>" class="product__item--name new"><button>Add cart</button></a>
                         </div>
                     <?php endforeach ?>
                 </div>

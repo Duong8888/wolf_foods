@@ -700,11 +700,22 @@ footer {
   border-radius: 10px;
 }
 
-.product__item.new button {
+.product__item.new a button {
   border: none;
   color: #fff;
   background-color: #38b000;
   border-radius: 15px;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #38b000;
+  transition: .5s;
+}
+.product__item.new a button:hover{
+  color: #008000;
+  background-color: #fff;
 }
 
 .search-btn {
