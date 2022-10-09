@@ -1,4 +1,5 @@
 <?php
+// phân trang sản phẩm
 $table = 'products';
 $row = 8;
 $allProduct = pagination($table, $row);

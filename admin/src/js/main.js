@@ -153,3 +153,19 @@ if (quantity) {
         discountProduct2Display.innerHTML = discount;
     }
 }
+
+// unlog profile user 
+var btnProfile = document.querySelector('.btn.btn-info.new');
+if (btnProfile) {
+    var input = document.querySelectorAll('.input');
+    var count = 0;
+    btnProfile.addEventListener('click', function () {
+
+        input[0].removeAttribute('readonly');
+        input[0].style.backgroundColor = 'blue';
+        input[0].style.color = '#fff';
+        input[2].removeAttribute('readonly');
+        input[2].style.backgroundColor = 'blue';
+        input[2].style.color = '#fff';
+    });
+}

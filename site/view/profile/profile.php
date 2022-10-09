@@ -1,4 +1,8 @@
+<?php
+
+?>
 <main class="main_prf">
+  <form action="index.php?action=profile" method="POST">
   <div class="container">
     <div class="main-body">
 
@@ -8,11 +12,9 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex flex-column align-items-center text-center">
-                <img src="<?=isset($userLogIn['avatar'])?"../../admin/src/img/".$userLogIn['avatar']:"https://bootdey.com/img/Content/avatar/avatar7.png"?>" alt="Admin" class="rounded-circle" width="150">
+                <img src="<?= isset($userLogIn['avatar']) ? "../../admin/src/img/" . $userLogIn['avatar'] : "https://bootdey.com/img/Content/avatar/avatar7.png" ?>" alt="Admin" class="rounded-circle" width="150">
                 <div class="mt-3">
-                  <h4>John Doe</h4>
-                  <p class="text-secondary mb-1">Full Stack Developer</p>
-                  <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                  <h4><?= $userLogIn['username'] ?></h4>
                 </div>
               </div>
             </div>
@@ -27,7 +29,7 @@
                   <h6 class="mb-0">UserName</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  Kenneth Valdez
+                  <input class="input" readonly type="text" name="username" value="<?=$userLogIn['username']?>">
                 </div>
               </div>
               <hr>
@@ -36,7 +38,7 @@
                   <h6 class="mb-0">Email</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  fip@jukmuh.al
+                  <input class="input" readonly type="text" name="email" value="<?= $userLogIn['email'] ?>">
                 </div>
               </div>
               <hr>
@@ -45,13 +47,14 @@
                   <h6 class="mb-0">Password</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  (239) 816-9029
+                  <input class="input" readonly type="password" name="password" value="<?= $userLogIn['password'] ?>">
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-sm-12">
-                  <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                  <button type="button" class="btn btn-info new ">Chỉnh sửa</button>
+                  <button type="submit" class="btn btn-info ">Lưu</button>
                 </div>
               </div>
             </div>
@@ -63,4 +66,5 @@
 
     </div>
   </div>
+  </form>
 </main>
