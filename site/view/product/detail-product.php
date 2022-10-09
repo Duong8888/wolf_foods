@@ -35,6 +35,19 @@ if (isset($_GET['ID'])) {
     // lấy mảng người dùng để xem đối chiếu với id hiển thị tên người bình luận
     $queryUser = "SELECT * FROM user";
     $getUser = getAll($queryUser);
+
+    // thêm sản phẩm vào giỏ hàng
+    if (isset($_POST['add-cart'])) {
+        // lấy số lượng sản phẩm, lấy id sản phẩm, lấy id người dùng
+        if (!empty($_POST['quantity1'])) {
+            $quantity1 = $_POST['quantity1'];
+            $idUser = $_SESSION['idUser'];
+            $idProduct = $_GET['ID'];
+            $query = "INSERT INTO cart SET id_product='$idProduct', id_user='$idUser', quantity='$quantity1'";
+            connect($query);
+            header("location:index.php?action=cart-product");
+        }
+    }
 };
 ?>
 <main>
@@ -45,7 +58,7 @@ if (isset($_GET['ID'])) {
             <div class="box-detail-main-left">
                 <img src="../../../admin/src/img/<?= $productDetail['image'] ?>" alt="">
             </div>
-            <form class="box-detail-main-right" action="">
+            <form method="POST" class="box-detail-main-right" action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>">
                 <!-- giá gốc, % giảm giá -->
                 <input type="text" id="main-price" value="<?= $productDetail['price'] ?>" hidden>
                 <input type="text" id="main-discount" value="<?= $productDetail['discount'] ?>" hidden>
@@ -54,17 +67,18 @@ if (isset($_GET['ID'])) {
                 <p>Loại sản phẩm: <span class="categories-product_detail"> <?= isset($categoriesName) ? $categoriesName : "Đang cập nhật" ?></span></p>
                 <p><span class="price-1"><span class="price-product_detail"><?= displayProduct($productDetail) ?></span>đ</span> Giá niêm yến: <span class="discount-1"><span class="discount-product_detail"><?= $productDetail['price'] ?></span>đ</span> </p>
                 <p>Tiết kiệm:<span class="discount2-product_detail"><?= $productDetail['price'] - displayProduct($productDetail) ?>đ</span></p>
-                <div class="product__cart--quantity">
-                    <button type="button" class="btn__quantity reduce__cart" onclick="reduce()">-</button>
-                    <div class="input__quantity"><input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="1" min="1"></div>
-                    <button type="button" class="btn__quantity raise__cart" onclick="raise()">+</button>
+                <div class="product__cart--quantity input__quantity">
+                    <div class="input-group mb-3 new">
+                        <span class="input-group-text new">Số lượng</span>
+                        <input name="quantity1" type="text" class="form-control prodct__cart--quantity-inp" autocomplete="off" id="quantity" onkeyup="result()" value="<?= isset($_POST['quantity']) ? $_POST['quantity'] : "1" ?>">
+                    </div>
                 </div>
                 <button class="detail-purchase">
                     <p>Mua ngay</p>
                     <p>Giao tận nơi hoặc nhận tại cửa hàng</p>
                 </button>
                 <div class="box-detail-main-right_both">
-                    <a <?= isset($_SESSION['idUser']) ? 'href="index.php?action=cart-product"' : 'class="sub-btn2"'; ?>><button type="button">Thêm vào giỏ hàng</button></a><a href=""><button>Cửa hàng</button></a>
+                    <a href=""><button name="add-cart" <?= isset($_SESSION['idUser']) ? 'type="submit"' : ' type="button" class="sub-btn2"'; ?>>Thêm vào giỏ hàng</button></a><a href=""><button>Cửa hàng</button></a>
                 </div>
                 <div class="detail-call">
                 </div>

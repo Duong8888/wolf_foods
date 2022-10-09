@@ -145,21 +145,8 @@ var discountProduct2Display = document.querySelector('.discount2-product_detail'
 var mainPrice = document.querySelector('#main-price');
 var mainDiscount = document.querySelector('#main-discount');
 if (quantity) {
-    let quantityValue = quantity.value;
-    function reduce() {
-        if (quantityValue === 0) {
-            return;
-        } else {
-            quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${--quantityValue}" min="1">`
-            var discount = Math.round((mainPrice.value * quantityValue) / 100) * mainDiscount.value;
-            priceProductDisplay.innerHTML = (mainPrice.value * quantityValue) - discount;
-            discountProductDisplay.innerHTML = (mainPrice.value * quantityValue);
-            discountProduct2Display.innerHTML = discount;
-        }
-    }
-
-    function raise() {
-        quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${++quantityValue}" min="1">`
+    function result() {
+        let quantityValue = quantity.value;
         var discount = Math.round((mainPrice.value * quantityValue) / 100) * mainDiscount.value;
         priceProductDisplay.innerHTML = (mainPrice.value * quantityValue) - discount;
         discountProductDisplay.innerHTML = (mainPrice.value * quantityValue);
