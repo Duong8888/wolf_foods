@@ -20,17 +20,14 @@ if (isset($_GET['ID'])) {
     // comment
     if (isset($_POST['btn-Comment'])) {
         // kiểm tra xem người dùng có reload trang không nếu không thì $countReload = 0;
-        $countReload = $_POST['sub-reload-page'];
         $idProduct = $_GET['ID'];
         $content = $_POST['content'];
         $idUser = $_SESSION['idUser'];
         $timeSend = date('Y-m-d');
-        if (!empty($content) && $countReload==0) {
+        if (!empty($content)) {
             $query = "INSERT INTO comment SET content='$content', id_user='$idUser', id_porduct='$idProduct', time_send='$timeSend' ";
             connect($query);
         }
-        // nếu load lại trang thì tăng count lên 1;
-        $countReload++;
     }
     // lấy ra bình luận của sản phẩm
     $queryComment = "SELECT * FROM comment WHERE id_porduct = $id";
@@ -38,7 +35,6 @@ if (isset($_GET['ID'])) {
     // lấy mảng người dùng để xem đối chiếu với id hiển thị tên người bình luận
     $queryUser = "SELECT * FROM user";
     $getUser = getAll($queryUser);
-    // băt người dùng đăng nhập để sử dụng bình luận
 };
 ?>
 <main>
@@ -117,7 +113,6 @@ if (isset($_GET['ID'])) {
                         <form action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>#sub-comment" method="POST">
                             <textarea name="content" placeholder="Add Your Comment"></textarea>
                             <div class="box-detail-comment_btn">
-                                <input type="text" hidden value="<?=isset($countReload)?$countReload:"0"?>" name="sub-reload-page">
                                 <input <?= isset($_SESSION['idUser']) ? 'type="submit"' : 'type="button" class="sub-btn"'; ?> name="btn-Comment" value="Comment">
                             </div>
                         </form>
