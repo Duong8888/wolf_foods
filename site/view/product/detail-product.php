@@ -34,6 +34,7 @@ if (isset($_GET['ID'])) {
     // lấy mảng người dùng để xem đối chiếu với id hiển thị tên người bình luận
     $queryUser = "SELECT * FROM user";
     $getUser = getAll($queryUser);
+    // băt người dùng đăng nhập để sử dụng bình luận
 };
 ?>
 <main>
@@ -50,10 +51,10 @@ if (isset($_GET['ID'])) {
                 <p>Loại sản phẩm: <span> <?= isset($categoriesName) ? $categoriesName : "Đang cập nhật" ?></span></p>
                 <p><span><?= displayProduct($productDetail) ?>đ</span> Giá niêm yến: <span><?= $productDetail['price'] ?>đ</span> </p>
                 <p>Tiết kiệm:<span><?= $productDetail['price'] - displayProduct($productDetail) ?>đ</span></p>
-                <div class="box-detail-main-right-count">
-                    <button>-</button>
-                    <input type="text" value="1">
-                    <button>+</button>
+                <div class="product__cart--quantity">
+                    <button type="button" class="btn__quantity reduce__cart" onclick="reduce()">-</button>
+                    <div class="input__quantity"><input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="1" min="1"></div>
+                    <button type="button" class="btn__quantity raise__cart" onclick="raise()">+</button>
                 </div>
                 <button class="detail-purchase">
                     <p>Mua ngay</p>
@@ -105,16 +106,36 @@ if (isset($_GET['ID'])) {
                             </div>
                         </div>
                     <?php endforeach ?>
-
                 </section>
                 <div class="box-detail-bottom-main">
                     <div class="box-detail-comment2">
                         <form action="index.php?action=detail-product&&ID=<?= $_GET['ID'] ?>" method="POST">
                             <textarea name="content" placeholder="Add Your Comment"></textarea>
                             <div class="box-detail-comment_btn">
-                                <input type="submit" name="btn-Comment" value="Comment">
+                                <input <?= isset($_SESSION['idUser']) ? 'type="submit"' : 'type="button" class="sub-btn"'; ?> name="btn-Comment" value="Comment">
                             </div>
                         </form>
+                        <!-- modal -->
+                        <div class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">WOLF FOOD</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Vui lòng đăng nhập để sử dụng chức năng này.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="index.php?action=sign_in">
+                                            <button type="button" class="btn btn-primary">log in</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- modal -->
                     </div>
                 </div>
             </div>

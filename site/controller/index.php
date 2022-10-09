@@ -34,3 +34,4 @@ if (isset($_GET['action'])) {
     require '../view/main_index.php';
 }
 require '../view/footer.php';
+

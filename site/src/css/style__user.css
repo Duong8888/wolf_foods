@@ -1089,7 +1089,7 @@ a {
   font-size: 20px;
 }
 
-.box-detail-comment_btn input[type="submit"],
+.box-detail-comment_btn input,
 button {
   padding: 10px 15px;
   border: none;
@@ -1099,7 +1099,7 @@ button {
 
 }
 
-.box-detail-comment_btn input[type="submit"] {
+.box-detail-comment_btn input {
   color: #fff;
   background: #3bb77e;
 }
@@ -1306,6 +1306,8 @@ button {
   border-right: none;
   padding: 10px;
   vertical-align: top;
+  width: 50px;
+  text-align: center;
 }
 
 .cart__pay {
@@ -1347,3 +1349,8 @@ button {
   color: #008000;
   font-weight: 600;
 }
+/* css modal */
+.modal{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* end modal */

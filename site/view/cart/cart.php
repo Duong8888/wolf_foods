@@ -36,21 +36,5 @@
     </div>
     <!-- end pay cart -->
   </div>
-  <script>
-    let quantity = document.querySelector('#quantity');
-    let quantityValue = quantity.value;
-    let quantityInp = document.querySelector('.input__quantity');
-
-    function reduce() {
-      if (quantityValue === 0) {
-        return;
-      } else {
-        quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${--quantityValue}" min="1">`
-      }
-    }
-
-    function raise() {
-      quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${++quantityValue}" min="1">`
-    }
-  </script>
+  
 </main>

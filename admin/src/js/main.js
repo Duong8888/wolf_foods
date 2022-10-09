@@ -86,28 +86,67 @@ var eyePassword = document.querySelector('.row .eye');
 var eyerePassword = document.querySelector('.repass .eye');
 var countClick1 = 0;
 var countClick2 = 0;
+if (inputPassword) {
+    eyePassword.addEventListener('click', function () {
+        if (countClick1 % 2 == 0) {
+            inputPassword.type = 'text';
+            eyePassword.innerText = "visibility_off";
+        } else {
+            inputPassword.type = 'password';
+            eyePassword.innerText = "visibility";
+        }
+        countClick1++;
 
-eyePassword.addEventListener('click', function () {
-    if (countClick1 % 2 == 0) {
-        inputPassword.type = 'text';
-        eyePassword.innerText = "visibility_off";
-    } else {
-        inputPassword.type = 'password';
-        eyePassword.innerText = "visibility";
+    });
+    eyerePassword.addEventListener('click', function () {
+
+        if (countClick2 % 2 == 0) {
+            inputRePassword.type = 'text';
+            eyerePassword.innerText = "visibility_off";
+        } else {
+            inputRePassword.type = 'password';
+            eyerePassword.innerText = "visibility";
+        }
+        countClick2++;
+
+    });
+}
+
+// hiện lên modal thông báo khi người dùng chưa đăng nhập vào hệ thống
+var boxComment = document.querySelector('.box-detail-bottom-main');
+var modal = document.querySelector('.modal');
+var btnClose = document.querySelector('.btn-close');
+var btnClose2 = document.querySelector('.btn.btn-secondary');
+var btnCommet = document.querySelector('.sub-btn');
+if (boxComment) {
+    function check() {
+        modal.style.display = 'block';
     }
-    countClick1++;
-
-});
-eyerePassword.addEventListener('click', function () {
-
-    if (countClick2 % 2 == 0) {
-        inputRePassword.type = 'text';
-        eyerePassword.innerText = "visibility_off";
-    } else {
-        inputRePassword.type = 'password';
-        eyerePassword.innerText = "visibility";
+    function closeModal() {
+        modal.style.display = 'none';
     }
-    countClick2++;
+    btnClose.addEventListener('click', closeModal);
+    btnClose2.addEventListener('click', closeModal);
+    if(btnCommet){
+        btnCommet.addEventListener('click', check);
+    }
+}
 
-});
+// tăng giảm số lượng sản phẩm
 
+let quantity = document.querySelector('#quantity');
+let quantityInp = document.querySelector('.input__quantity');
+if (quantity) {
+    let quantityValue = quantity.value;
+    function reduce() {
+        if (quantityValue === 0) {
+            return;
+        } else {
+            quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${--quantityValue}" min="1">`
+        }
+    }
+
+    function raise() {
+        quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${++quantityValue}" min="1">`
+    }
+}
