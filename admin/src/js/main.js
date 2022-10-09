@@ -118,6 +118,7 @@ var modal = document.querySelector('.modal');
 var btnClose = document.querySelector('.btn-close');
 var btnClose2 = document.querySelector('.btn.btn-secondary');
 var btnCommet = document.querySelector('.sub-btn');
+var btnCommet2 = document.querySelector('.sub-btn2');
 if (boxComment) {
     function check() {
         modal.style.display = 'block';
@@ -127,15 +128,22 @@ if (boxComment) {
     }
     btnClose.addEventListener('click', closeModal);
     btnClose2.addEventListener('click', closeModal);
-    if(btnCommet){
+    if (btnCommet) {
         btnCommet.addEventListener('click', check);
+        btnCommet2.addEventListener('click', check);
     }
 }
 
-// tăng giảm số lượng sản phẩm
-
+// tăng giảm số lượng sản phẩm và tăng tiền sản phẩm theo số lượng
 let quantity = document.querySelector('#quantity');
 let quantityInp = document.querySelector('.input__quantity');
+// giá hiển thị
+var priceProductDisplay = document.querySelector('.price-product_detail');
+var discountProductDisplay = document.querySelector('.discount-product_detail');
+var discountProduct2Display = document.querySelector('.discount2-product_detail');
+// giá tiền bằng số lượng nhân tiền 1 sản phẩm
+var mainPrice = document.querySelector('#main-price');
+var mainDiscount = document.querySelector('#main-discount');
 if (quantity) {
     let quantityValue = quantity.value;
     function reduce() {
@@ -143,10 +151,18 @@ if (quantity) {
             return;
         } else {
             quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${--quantityValue}" min="1">`
+            var discount = Math.round((mainPrice.value * quantityValue) / 100) * mainDiscount.value;
+            priceProductDisplay.innerHTML = (mainPrice.value * quantityValue) - discount;
+            discountProductDisplay.innerHTML = (mainPrice.value * quantityValue);
+            discountProduct2Display.innerHTML = discount;
         }
     }
 
     function raise() {
         quantityInp.innerHTML = `<input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="${++quantityValue}" min="1">`
+        var discount = Math.round((mainPrice.value * quantityValue) / 100) * mainDiscount.value;
+        priceProductDisplay.innerHTML = (mainPrice.value * quantityValue) - discount;
+        discountProductDisplay.innerHTML = (mainPrice.value * quantityValue);
+        discountProduct2Display.innerHTML = discount;
     }
 }

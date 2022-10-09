@@ -46,11 +46,14 @@ if (isset($_GET['ID'])) {
                 <img src="../../../admin/src/img/<?= $productDetail['image'] ?>" alt="">
             </div>
             <form class="box-detail-main-right" action="">
-
-                <p>Tên sản phẩm: <span><?= $productDetail['product_name'] ?></span></p>
-                <p>Loại sản phẩm: <span> <?= isset($categoriesName) ? $categoriesName : "Đang cập nhật" ?></span></p>
-                <p><span><?= displayProduct($productDetail) ?>đ</span> Giá niêm yến: <span><?= $productDetail['price'] ?>đ</span> </p>
-                <p>Tiết kiệm:<span><?= $productDetail['price'] - displayProduct($productDetail) ?>đ</span></p>
+                <!-- giá gốc, % giảm giá -->
+                <input type="text" id="main-price" value="<?= $productDetail['price'] ?>" hidden>
+                <input type="text" id="main-discount" value="<?= $productDetail['discount'] ?>" hidden>
+                <!--  -->
+                <p>Tên sản phẩm: <span class="name-product_detail"><?= $productDetail['product_name'] ?></span></p>
+                <p>Loại sản phẩm: <span class="categories-product_detail"> <?= isset($categoriesName) ? $categoriesName : "Đang cập nhật" ?></span></p>
+                <p><span class="price-1"><span class="price-product_detail"><?= displayProduct($productDetail) ?></span>đ</span> Giá niêm yến: <span class="discount-1"><span class="discount-product_detail"><?= $productDetail['price'] ?></span>đ</span> </p>
+                <p>Tiết kiệm:<span class="discount2-product_detail"><?= $productDetail['price'] - displayProduct($productDetail) ?>đ</span></p>
                 <div class="product__cart--quantity">
                     <button type="button" class="btn__quantity reduce__cart" onclick="reduce()">-</button>
                     <div class="input__quantity"><input type="text" class="prodct__cart--quantity-inp" id="quantity" readonly value="1" min="1"></div>
@@ -61,23 +64,24 @@ if (isset($_GET['ID'])) {
                     <p>Giao tận nơi hoặc nhận tại cửa hàng</p>
                 </button>
                 <div class="box-detail-main-right_both">
-                    <button>Yêu thích</button><button>Cửa hàng</button>
+                    <a <?= isset($_SESSION['idUser']) ? 'href="index.php?action=cart-product"' : 'class="sub-btn2"'; ?>><button type="button">Thêm vào giỏ hàng</button></a><a href=""><button>Cửa hàng</button></a>
                 </div>
                 <div class="detail-call">
-                    <p>Gọi <a href=""><span> 1900 6750</span></a> để được tư vấn</p>
                 </div>
             </form>
         </div>
         <div class="box-detail-bottom">
             <div class="box-detail-bottom-left">
                 <div class="box-detail-bottom-header">
-                    <p >Bình Luận</p>
+                    <p>Bình Luận</p>
                 </div>
 
                 <section id="test">
                     <?php foreach ($getComment as $key => $value) : ?>
                         <!-- gán id cho commet mới nhất -->
-                        <div class="test-box-contain" <?php if($key+1 == count($getComment)){echo 'id="sub-comment"';}?>>
+                        <div class="test-box-contain" <?php if ($key + 1 == count($getComment)) {
+                                                            echo 'id="sub-comment"';
+                                                        } ?>>
                             <div class="test-box">
                                 <div class="box-top">
                                     <div class="profile">
