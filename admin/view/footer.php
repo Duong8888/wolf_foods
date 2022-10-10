@@ -1,8 +1,9 @@
         <!-- footer -->
-        <script src="./src/js/main.js"></script>
+        
         <footer>
 
         </footer>
+        <script src="./src/js/main.js"></script>
     </div>
 </body>
 

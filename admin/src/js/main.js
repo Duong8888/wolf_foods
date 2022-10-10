@@ -176,6 +176,27 @@ if (btnProfile) {
         input[2].style.backgroundColor = '#0dcaf0';
         input[2].style.color = '#fff';
         img.style.border = '8px solid #0dcaf0';
-        lable11.setAttribute('for','img');
+        lable11.setAttribute('for', 'img');
     });
+}
+// biểu đồ
+var myDiv = document.querySelector('#myDiv');
+if(myDiv){
+    var data = [{
+        values: [19, 26, 50, 5],
+        labels: ['Residential', 'Non-Residential', 'Utility','DươngDương'],
+        type: 'pie'
+      }];
+      
+      var layout = {
+        height: 350,
+        width: 450
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
+}
+// sử lý reload khi comment n
+// ngăn xác nhận lại biểu mẫu tránh lặp lại comment
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
 }

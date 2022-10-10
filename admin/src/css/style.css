@@ -207,6 +207,22 @@ main {
     height: auto;
 }
 
+.box_myDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#myDiv{
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.myDiv-left{
+    width: 50%;
+}
+
 .title {
     text-align: center;
     font-size: 50px;

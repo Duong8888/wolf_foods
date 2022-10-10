@@ -28,7 +28,7 @@ if(isset($_GET['delete'])){
                 <p class="product__cart--brand"><?=$valueProduct['price']?>đ</p>
                 <a onclick="return confirm('Bạn có chắc xóa không.')" href="index.php?action=cart-product&&delete&&ID=<?=$valueCart['id_cart']?>" class="product__cart--delete">Xóa</a>
               </div>
-              <p class="product__cart--price"><?=displayProduct($valueProduct)?>đ</p>
+              <p class="product__cart--price"><?=(displayProduct($valueProduct)*$valueCart['quantity'])?>đ</p>
               <div class="product__cart--quantity input__quantity">
                 <div class="input-group mb-3 new">
                   <span class="input-group-text new">Số lượng</span>
