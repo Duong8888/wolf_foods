@@ -26,14 +26,14 @@ if (isset($_SESSION['idUser'])) {
   <link rel="stylesheet" href="../src/css/profile.css">
   <link rel="stylesheet" href="../src/css/style__login-regis.css">
   <link rel="stylesheet" href="../src/css/style__user.css">
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <title>WOLF FOOD</title>
   <!-- icon -->
   <link rel="shortcut icon" href="../../admin/src/img/logo-2.png" type="image/x-icon">
 </head>
 
-<body>
+<body <?= isset($_GET['successful']) ? 'onload="alert(' . "'Cập nhật dữ liệu thành công'" . ')"' : "" ?>>
 
   <header>
     <div class="top-header">

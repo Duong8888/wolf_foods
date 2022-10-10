@@ -78,7 +78,7 @@ if (isset($_GET['ID'])) {
                     <p>Giao tận nơi hoặc nhận tại cửa hàng</p>
                 </button>
                 <div class="box-detail-main-right_both">
-                    <a href=""><button name="add-cart" <?= isset($_SESSION['idUser']) ? 'type="submit"' : ' type="button" class="sub-btn2"'; ?>>Thêm vào giỏ hàng</button></a><a href=""><button>Cửa hàng</button></a>
+                    <a><button name="add-cart" <?= isset($_SESSION['idUser']) ? 'type="submit"' : ' type="button" class="sub-btn2"'; ?>>Thêm vào giỏ hàng</button></a><a href=""><button type="">Cửa hàng</button></a>
                 </div>
                 <div class="detail-call">
                 </div>

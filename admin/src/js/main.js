@@ -25,20 +25,25 @@ if (btn) {
 
 var imgDisplay = document.querySelector('.form-right>label>img');
 var imgDisplay2 = document.querySelector('.box-profile>label>img');
+var imgDisplay3 = document.querySelector('.rounded-circle');
 var fileImg = document.querySelector('#img');
 if (fileImg) {
     if (imgDisplay) {
         fileImg.addEventListener('change', function () {
-            console.log(URL.createObjectURL(fileImg.files[0]));
             imgDisplay.src = URL.createObjectURL(fileImg.files[0]);
             imgDisplay.style.zIndex = '11';
         });
     }
     if (imgDisplay2) {
         fileImg.addEventListener('change', function () {
-            console.log(URL.createObjectURL(fileImg.files[0]));
             imgDisplay2.src = URL.createObjectURL(fileImg.files[0]);
             imgDisplay2.style.zIndex = '11';
+        });
+    }
+    if (imgDisplay3) {
+        fileImg.addEventListener('change', function () {
+            imgDisplay3.src = URL.createObjectURL(fileImg.files[0]);
+            imgDisplay3.style.zIndex = '11';
         });
     }
 
@@ -156,16 +161,21 @@ if (quantity) {
 
 // unlog profile user 
 var btnProfile = document.querySelector('.btn.btn-info.new');
+
 if (btnProfile) {
+    var lable11 = document.querySelector('.clickImg');
+    var img = document.querySelector('.rounded-circle');
+    console.log(img);
     var input = document.querySelectorAll('.input');
     var count = 0;
     btnProfile.addEventListener('click', function () {
-
         input[0].removeAttribute('readonly');
-        input[0].style.backgroundColor = 'blue';
+        input[0].style.backgroundColor = '#0dcaf0';
         input[0].style.color = '#fff';
         input[2].removeAttribute('readonly');
-        input[2].style.backgroundColor = 'blue';
+        input[2].style.backgroundColor = '#0dcaf0';
         input[2].style.color = '#fff';
+        img.style.border = '8px solid #0dcaf0';
+        lable11.setAttribute('for','img');
     });
 }

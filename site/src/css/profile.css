@@ -2,7 +2,7 @@
   margin-top: 20px;
   color: #1a202c;
   text-align: left;
-  background-color: #e2e8f0;
+  /* background-color: #e2e8f0; */
 }
 
 .phone_number {
@@ -63,11 +63,15 @@
 .h-100 {
   height: 100% !important;
 }
-
+.rounded-circle{
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+}
 .shadow-none {
   box-shadow: none !important;
 }
-input{
+.input{
   width: 100%;
   font-size: 20px;
   border: none;
@@ -75,4 +79,9 @@ input{
   padding-left: 20px;
   border-radius: 10px;
   height: 35px;
+}
+.erro-profile{
+  display: block;
+  color: red;
+  padding-left: 20px;
 }
