@@ -18,17 +18,15 @@ $user = getOne($getUser);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- icon web -->
     <link rel="shortcut icon" href="./src/img/logo-2.png" type="image/x-icon">
-    <!-- link thư viện Plotly.js vẽ biểu đồ -->
-    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
 </head>
 
-<body <?=isset($_GET['successful'])?'onload="alert('."'Cập nhật dữ liệu thành công'".')"':""?>>
+<body <?= isset($_GET['successful']) ? 'onload="alert(' . "'Cập nhật dữ liệu thành công'" . ')"' : "" ?>>
     <div class="container">
         <header>
             <div class="admin">
                 <a href="index.php?action=profile" class="admin__info">
                     <div class="admin__info--avatar">
-                        <img src="./src/img/<?=$user['avatar'] ?>" alt="">
+                        <img src="./src/img/<?= $user['avatar'] ?>" alt="">
                     </div>
                     <p class="admin__info--name"><?= $user['username'] ?></p>
                 </a>
@@ -69,6 +67,11 @@ $user = getOne($getUser);
                             <i class='bx bxs-user-account'></i>
                             Quản lý khách
                             hàng</a>
+                    </li>
+                    <li class="sidebar__menu--item" id="order">
+                        <a href="index.php?action=order">
+                            <i class='bx bx-star'></i>
+                            Đơn hàng</a>
                     </li>
                     <li class="sidebar__menu--item" id="comment">
                         <a href="index.php?action=comment">

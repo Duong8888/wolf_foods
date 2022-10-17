@@ -34,15 +34,6 @@ $arrProduct = getAll($queryProduct);
                 </div>
             </div>
         </div>
-        <!-- biểu đồ tỉ lệ sản phẩm theo danh mục -->
-        <div class="box_myDiv">
-            <div id='myDiv'>Tỉ lệ hàng hóa
-                <!-- biểu đồ được vẽ bằng Plotly.js -->
-            </div>
-            <div class="myDiv-left"></div>
-        </div>
-
-        <!--  -->
         <div class="table-main">
             <table>
                 <thead>

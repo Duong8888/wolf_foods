@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // validate img
   if (file_exists($_FILES['avatar']['tmp_name']) || is_uploaded_file($_FILES['avatar']['tmp_name'])) {
-    $folder = "../../../admin/src/img/";
+    $folder = "../../admin/src/img/";
     $fileName = $folder . basename($_FILES['avatar']['name']);
     $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $error['filesize'] = '';
       die();
     }
-    if (move_uploaded_file($_FILES['avatar']['tmp_name'], $fileName)) {
+    if (move_uploaded_file($_FILES['avatar']['tmp_name'],$fileName)) {
     } else {
       $error['avatar'] = '';
       die();

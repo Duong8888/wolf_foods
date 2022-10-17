@@ -13,7 +13,6 @@ if (isset($_GET['action'])) {
         case 'contact':
             require '../view/contact/contact.php';
             break;
-
         case 'all-product':
             require '../view/product/allproduct.php';
             break;
@@ -26,6 +25,12 @@ if (isset($_GET['action'])) {
         case 'profile':
             require '../view/profile/profile.php';
             break;
+        case 'check-out':
+            require '../view/checkout/checkout.php';
+            break;
+        case 'bill':
+            require '../view/checkout/bill.php';
+            break;
         default:
             include "../view/main_index.php";
             break;
@@ -34,4 +39,3 @@ if (isset($_GET['action'])) {
     require '../view/main_index.php';
 }
 require '../view/footer.php';
-

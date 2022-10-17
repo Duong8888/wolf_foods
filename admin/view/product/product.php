@@ -2,18 +2,19 @@
 $query = "SELECT * FROM products ORDER BY id_product DESC";
 
 $products = getAll($query);
-    // xóa một sản phẩm
-if(isset($_GET['id'])){
-    $getID = $_GET['id'];
-    $query2 = "DELETE FROM products WHERE id_product=$getID";
-    connect($query2);
-    header('location:index.php?action=products&&successful');
-    // xóa nhiều sản phẩm
-}else if(isset($_GET['delete-all'])){
+// xóa một sản phẩm
+// if(isset($_GET['id'])){
+//     $getID = $_GET['id'];
+//     $query2 = "DELETE FROM products WHERE id_product=$getID";
+//     connect($query2);
+//     header('location:index.php?action=products&&successful');
+//     // xóa nhiều sản phẩm
+// }else 
+if (isset($_GET['delete-all'])) {
     $location = 'products';
     $tableName = 'products';
     $columName = 'id_product';
-    deleteAll($products,$tableName,$columName,$location);
+    deleteAll($products, $tableName, $columName, $location);
 }
 ?>
 <main>
@@ -58,23 +59,31 @@ if(isset($_GET['id'])){
                     <tbody>
                         <?php foreach ($products as $key => $value) : ?>
                             <tr>
-                                <td><input type="checkbox" name="<?=$value['id_product']?>" class="checknow"></td>
+                                <td><input type="checkbox" name="<?= $value['id_product'] ?>" class="checknow"></td>
                                 <td>
-                                    <div><?=$value['product_name']?></div>
+                                    <div><?= $value['product_name'] ?></div>
                                 </td>
-                                <td><img src="./src/img/<?=$value['image']?>" alt=""></td>
-                                <td>$ <?=$value['price']?></td>
+                                <td><img src="./src/img/<?= $value['image'] ?>" alt=""></td>
+                                <td>$ <?= $value['price'] ?></td>
                                 <td>
-                                    <div><?=$value['description']?></div>
+                                    <div><?= $value['description'] ?></div>
                                 </td>
                                 <td>
-                                    <a  onclick="return confirm('Bạn có muốn xóa không')" href="index.php?action=products&&id=<?=$value['id_product']?>">
+                                    <!-- <a  onclick="return confirm('Bạn có muốn xóa không')" href="index.php?action=products&&id=<?= $value['id_product'] ?>">
                                         <button type="button" class="delete" name="btn">
                                             <span class="material-symbols-outlined">
                                                 delete
                                             </span>
-                                        </button></a>
-                                    <a href="index.php?action=edit&&productID=<?=$value['id_product']?>">
+                                        </button></a> -->
+
+                                    <a href="index.php?action=detai-product&&productID=<?= $value['id_product'] ?>">
+                                        <button type="button" class="edit">
+                                            <span class="material-symbols-outlined">
+                                                visibility
+                                            </span>
+                                        </button>
+                                    </a>
+                                    <a href="index.php?action=edit&&productID=<?= $value['id_product'] ?>">
                                         <button type="button" class="edit">
                                             <span class="material-symbols-outlined">
                                                 edit_document

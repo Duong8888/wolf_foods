@@ -15,6 +15,9 @@ if (isset($_GET['action'])) {
         case 'add-product':
             include "./view/product/add-product.php";
             break;
+        case 'detai-product':
+            include "./view/product/detai-product.php";
+            break;
         case 'edit':
             include "./view/product/edit-product.php";
             break;
@@ -73,6 +76,15 @@ if (isset($_GET['action'])) {
             include "./view/comment/detail-comment.php";
             break;
             //end comment
+
+            // order
+        case 'order':
+            include "./view/order/order.php";
+            break;
+        case 'order-detail':
+            include "./view/order/detail-order.php";
+            break;
+            // end order
         case 'log-out':
             include "./view/logout/log-out.php";
             break;

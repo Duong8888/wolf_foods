@@ -7,8 +7,8 @@
 }
 
 :root {
-    --width-sidebar: 300px;
-    --padding-sidebar: 350px;
+    --width-sidebar: 280px;
+    --padding-sidebar: 320px;
     --color-main: #3bb77e;
     --text-color: #868686;
     --truongzeee: #ff1853;
@@ -185,7 +185,7 @@ header {
     color: #000;
     font-size: 20px;
     display: block;
-    padding: 15px 0;
+    padding: 10px 0;
     color: #fff;
     display: flex;
     align-items: center;
@@ -207,19 +207,21 @@ main {
     height: auto;
 }
 
-.box_myDiv{
+.box_myDiv {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
 }
-#myDiv{
+
+#myDiv {
     width: 50%;
     font-size: 20px;
     font-weight: bold;
 }
-.myDiv-left{
+
+.myDiv-left {
     width: 50%;
 }
 
@@ -309,10 +311,15 @@ main {
     box-shadow: 3px 3px 10px 3px #ddd;
     border-radius: 10px;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .table-main table {
     width: 100%;
+}
+
+a {
+    text-decoration: none;
 }
 
 .table-main tr {
@@ -1027,8 +1034,9 @@ label {
     align-items: center;
     margin-bottom: 30px;
     justify-content: space-between;
-    
+
 }
+
 .comment-profile {
     width: 50px;
     height: 50px;
@@ -1036,21 +1044,25 @@ label {
     overflow: hidden;
     margin-right: 10px;
 }
+
 .comment-bottom_img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.comment-delete{
+
+.comment-delete {
     text-align: center;
     margin: 50px 0;
 }
-.comment-bottom_h1.new{
-   font-size: 12px;
-   color: #3b3b3b; 
-   margin-top: 5px;
+
+.comment-bottom_h1.new {
+    font-size: 12px;
+    color: #3b3b3b;
+    margin-top: 5px;
 }
+
 .comment-bottom_p {
     font-size: 0.9rem;
     color: #4b4b4b;
@@ -1061,48 +1073,60 @@ label {
     margin: 50px 0px;
     text-decoration: none;
 }
+
 .delete-comment button {
     letter-spacing: 1px;
     padding: 10px;
     border: 1px solid red;
     color: red;
     background: #fff;
-    border-radius: 10px;cursor: pointer;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .delete-comment button span {
     animation: animate 2s linear infinite;
 }
-.delete-comment button span:nth-child(1){
+
+.delete-comment button span:nth-child(1) {
     animation-delay: 0s;
-} 
-.delete-comment button span:nth-child(2){
+}
+
+.delete-comment button span:nth-child(2) {
     animation-delay: 0.25s;
-} 
-.delete-comment button span:nth-child(3){
+}
+
+.delete-comment button span:nth-child(3) {
     animation-delay: 0.5s;
-} 
-.delete-comment button span:nth-child(4){
+}
+
+.delete-comment button span:nth-child(4) {
     animation-delay: 0.75s;
-} 
-.delete-comment button span:nth-child(5){
+}
+
+.delete-comment button span:nth-child(5) {
     animation-delay: 1s;
-} 
-.delete-comment button span:nth-child(6){
+}
+
+.delete-comment button span:nth-child(6) {
     animation-delay: 1.25s;
-} 
-.delete-comment button span:nth-child(7){
+}
+
+.delete-comment button span:nth-child(7) {
     animation-delay: 1.5s;
-} 
-.delete-comment button span:nth-child(8){
+}
+
+.delete-comment button span:nth-child(8) {
     animation-delay: 1.75s;
-} 
-.delete-comment button span:nth-child(9){
+}
+
+.delete-comment button span:nth-child(9) {
     animation-delay: 2s;
-} 
-.delete-comment button span:nth-child(10){
+}
+
+.delete-comment button span:nth-child(10) {
     animation-delay: 2.25s;
-} 
+}
 
 @keyframes animate {
 
@@ -1111,7 +1135,7 @@ label {
         color: red;
         filter: blur(0px);
         text-shadow: 0 0 10px #770000,
-            0 0 20px #770000,   
+            0 0 20px #770000,
             0 0 40px #770000,
             0 0 80px #770000,
             0 0 120px #770000,
@@ -1127,11 +1151,13 @@ label {
         text-shadow: 0 0 10px none;
     }
 }
-.x{
+
+.x {
     font-size: 20px;
     color: yellow;
 }
-.comment-p-left{
+
+.comment-p-left {
     display: flex;
     align-items: center;
 }
@@ -1143,3 +1169,106 @@ label {
 }
 
 /* end comment */
+/* css order detai */
+.box-bill {
+    width: 550px;
+    height: 300px;
+    /* background-color: red; */
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.box-bill::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 200px);
+    height: calc(100% + 400px);
+    background-image: conic-gradient(blue, #fff0, #fff0,#fff0 ,#fff0);
+    animation: reverse rotate1 8s infinite linear;
+}
+.box-bill::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 200px);
+    height: calc(100% + 400px);
+    background-image: conic-gradient(red, #fff0, #fff0,#fff0 ,#fff0);
+    transform: rotate(180deg);
+    animation: reverse rotate 8s infinite linear;
+}
+
+
+.box-bill-main {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin: auto;
+    border-radius: inherit;
+    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 100px 3px #ddd;
+}
+
+.main-bill-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #3bb77e;
+}
+
+.main-bill-phone {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.main-bill-address {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.main-bill-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box-main-check {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-check label {
+    font-size: 15px;
+    font-weight: 100;
+    margin: 0px 20px 0px 5px;
+}
+.box-bill-main button{
+    font-weight: bold;
+    color: #fff;
+    background-color: #3bb77e;
+    border: 1px solid #3bb77e;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    transition: .5s;
+}
+.box-bill-main button:hover{
+    color: #3bb77e;
+    background-color: #fff;
+}
