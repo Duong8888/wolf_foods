@@ -413,7 +413,7 @@ h6 {
   display: block;
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .price-and-cart {
@@ -511,7 +511,7 @@ h6 {
   border-radius: inherit;
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .product__item--status {
