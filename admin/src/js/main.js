@@ -179,24 +179,66 @@ if (btnProfile) {
         lable11.setAttribute('for', 'img');
     });
 }
-// biểu đồ
-var myDiv = document.querySelector('#myDiv');
-if(myDiv){
-    var data = [{
-        values: [19, 26, 50, 5],
-        labels: ['Residential', 'Non-Residential', 'Utility','DươngDương'],
-        type: 'pie'
-      }];
-      
-      var layout = {
-        height: 350,
-        width: 450
-      };
-      
-      Plotly.newPlot('myDiv', data, layout);
-}
 // sử lý reload khi comment n
 // ngăn xác nhận lại biểu mẫu tránh lặp lại comment
-if(window.history.replaceState){
-    window.history.replaceState(null,null,window.location.href);
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
+// hiển thị tông tiền của giỏ hàng
+var priceCart = document.querySelectorAll('.product__cart--price>span');
+var black = document.querySelector('.number__total--black');
+var green = document.querySelector('.number__total--green');
+
+if (priceCart) {
+    var total = 0;
+    function displayTotalPrice() {
+        priceCart.forEach(element => {
+            total += Number(element.innerText);
+
+        });
+        black.innerText = total + 'đ';
+        green.innerText = total + 'đ';
+        localStorage.setItem('totalBill',total);
+    }
+    displayTotalPrice();
+}
+// validate form của trang order
+var inputName = document.querySelector('#username');
+var inputAddress = document.querySelector('#floatingTextarea2');
+var inputPhone = document.querySelector('#floatingInput');
+var btnChekout = document.querySelector('button[name="btn-check-out-1"]');
+var totalPrice = document.querySelector('#total-price-bill');
+if (inputAddress) {
+    totalPrice.value = localStorage.getItem('totalBill');
+    // biểu thức chính quy kiểm tra số điện thoại đúng định dạng
+    const isVNPhoneMobile = /^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/;
+    btnChekout.addEventListener('click', function () {
+        var countErro = 0;
+        // kiểm tra số điện thoại đúng định dạng
+        if(isVNPhoneMobile.test(inputPhone.value) == false){
+            inputPhone.classList.add('is-invalid');
+            countErro++;
+        }else{
+            inputPhone.classList.remove('is-invalid');
+        }
+        if(inputName.value.length == 0){
+            inputName.classList.add('is-invalid');
+            countErro++;
+        }else{
+            inputName.classList.remove('is-invalid');
+        }
+
+        if(inputAddress.value.length == 0){
+            inputAddress.classList.add('is-invalid');
+            countErro++;
+        }else{
+            inputAddress.classList.remove('is-invalid');
+        }
+        console.log(countErro);
+        if(countErro == 0){
+            btnChekout.setAttribute('type','submit');
+        }
+        
+    });
 }

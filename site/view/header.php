@@ -72,7 +72,7 @@ if (isset($_SESSION['idUser'])) {
             <a href="index.php?action=sign_up" class="sign__up">Đăng ký</a>
           <?php } else { ?>
             <a href="index.php?action=profile" class="sign__up">Hồ sơ</a>
-            <a href="index.php?action=cart-product" class="sign__up">Gỏ hàng</a>
+            <a href="index.php?action=cart-product" class="sign__up">Giỏ hàng</a>
             <a href="../../admin/index.php?action=log-out" class="sign__up">Đăng suất</a>
           <?php } ?>
         </div>

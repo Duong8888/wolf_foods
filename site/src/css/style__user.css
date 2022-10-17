@@ -785,7 +785,8 @@ footer {
 }
 
 .box-detail {
-  margin: 0 135px;
+  margin: auto;
+  width: 1080px;
 
 }
 
@@ -1238,7 +1239,15 @@ button {
 
 .cart__title {
   font-size: 22px;
-  margin-top: 20px;
+  margin: 20px 20px 50px 0px;
+  display: inline-block;
+  color: #202020;
+  padding: 0px 10px;
+}
+
+.cart__title.click {
+  color: #008000;
+  border-bottom: 2px solid #008000;
 }
 
 .product__cart_img {
@@ -1301,7 +1310,7 @@ button {
   align-items: center;
 }
 
-.btn__quantity{
+.btn__quantity {
   height: 30px;
   width: 30px;
   display: flex;
@@ -1319,15 +1328,17 @@ button {
   font-size: 20px;
 }
 
-.form-control.prodct__cart--quantity-inp:focus{
+.form-control.prodct__cart--quantity-inp:focus {
   border-color: #33b530;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.0);
 }
-.mb-3.new{
+
+.mb-3.new {
   width: 200px;
   height: 40px;
 }
-.input-group-text.new{
+
+.input-group-text.new {
   background-color: #3bb77e;
   color: #fff;
   font-weight: bold;
@@ -1381,3 +1392,210 @@ button {
 }
 
 /* end modal */
+
+/* css check out */
+.box-check-out {
+  width: 1080px;
+  height: auto;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-check-out {
+  width: 30%;
+  height: auto;
+}
+
+.title-checkout {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.box-info {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #bee5eb;
+  background-color: #d1ecf1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3bb77e;
+  margin-bottom: 50px;
+}
+
+.box-list-product-cart {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.box-list-product-cart::-webkit-scrollbar {
+  width: 10px;
+}
+
+.box-list-product-cart::-webkit-scrollbar-thumb {
+  background-color: #3bb77e;
+  border-radius: 20px;
+}
+
+.box-list-product-cart::-webkit-scrollbar-track {
+  background-color: #d1ecf1;
+}
+
+
+.product-item-check-out {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.left {
+  width: 35%;
+  height: 100%;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right {
+  width: 65%;
+  height: 100%;
+  padding-left: 10px;
+}
+
+.right-name {
+  display: block;
+  margin: 0px;
+}
+
+.right-quantity {
+  display: block;
+}
+
+.right-price {
+  display: block;
+}
+
+.total {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+
+.total-top {
+  width: 100%;
+  height: auto;
+}
+
+
+.total-bottom {
+  width: 100%;
+  height: auto;
+}
+
+.total-top p,
+.total-bottom p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-top p span,
+.total-bottom p span {
+  color: #333;
+}
+
+.total-bottom button {
+  background-color: #3bb77e;
+  color: #fff;
+  font-weight: bold;
+  transition: .5s;
+  border: 1px solid #3bb77e;
+}
+
+.total-bottom button:hover {
+  background-color: #fff;
+  color: #3bb77e;
+}
+
+/* css bill */
+
+.box-bill {
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
+}
+
+.bill-item {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px 3px #ddd;
+  margin-bottom: 30px;
+}
+
+.bill-item>div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-dital-bill{
+  margin-left: 25px;
+}
+
+.img-bill {
+  height: 100%;
+  object-fit: contain;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #1d72e0;
+}
+
+.list-name {}
+
+.box-text {
+  font-size: 20px;
+  font-weight: bold;
+  /* white-space: nowrap; 
+    thuộc tính cho cá chữ trong hàng không xuống dòng trừ khi găoj thẻ br */
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; hiển thị dấu ... khi văn bản dài */
+  text-overflow: ellipsis;
+  max-width: 500px;
+  margin-right: -50px;
+}
+.box-status{
+  padding: 40px;
+}
+.address {
+  
+}
+
+.total-price {
+  font-weight: bold;
+}
+
+.status-bill {
+  margin: auto;
+  padding: 0 20px;
+  font-weight: bold;
+  color: #008000;
+}
