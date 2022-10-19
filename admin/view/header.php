@@ -32,7 +32,7 @@ $user = getOne($getUser);
                 </a>
             </div>
             <nav class="sidebar">
-                <p class="sidebar__logo"><img src="./src/img/logo.webp" alt=""></p>
+                <a href="../site/controller/index.php"><p class="sidebar__logo"><img src="./src/img/logo.webp" alt=""></p></a>
                 <ul class="sidebar__menu">
                     <li class="sidebar__menu--item" id="dashboard">
                         <a href="index.php?action=dashboard">

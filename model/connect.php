@@ -1,7 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-// connect vào database thông qua thư viện post_add
 function connect($query)
 {
     $conn = new PDO("mysql:host=localhost;dbname=wolffood;charset=utf8", "root", "");
@@ -61,8 +60,9 @@ function updateAll($arr, $location, $idCategories)
 function validateEmail($email)
 {
     $partten = "/^[A-Za-z0-9_.]{6,32}@([a-zA-Z0-9]{2,12})(.[a-zA-Z]{2,12})+$/";
+    // hàm preg_match có tác dụng thực hiện các đối sách xác minh một chuỗi regex vơi một chuỗi cần so sánh.
     if (!preg_match($partten, $email)) {
-        return  "Email không đúng định dạng ";
+        return  "Email không đúng định dạng";
     }
 }
 
@@ -99,7 +99,6 @@ function addUser($username, $password, $email, $avatar)
   connect($sql);
 }
 // phân trang 
-
 function pagination($table,$row){
     // số bản gi hiển thị trên 1 trang là $row;
     // trang hiện tại
@@ -120,9 +119,16 @@ function countPages($row){
     $result = ceil($countPage / $row);
     return $result;
 }
+
 // hiển thị giá sản phẩm đã được giảm giá
 function displayProduct($product){
     $discount = ($product['price'] / 100)*$product['discount'];
     $price = $product['price'] - ceil($discount);
     return $price;
+}
+// thống kê sản phẩm theo danh mục
+function thongke(){
+    $query = "SELECT categories.category_name as name, COUNT(products.id_product) as countSP, MIN(products.price) as minPrice, MAX(products.price) as maxPrice, AVG(products.price) as avgPrice FROM categories LEFT JOIN products ON categories.id_categories = products.id_categories GROUP BY categories.id_categories";
+    $arr = getAll($query);
+    return $arr;
 }

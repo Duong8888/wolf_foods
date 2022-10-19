@@ -147,7 +147,7 @@ header {
     left: 0%;
     background-color: var(--color-main);
     transform: skewX(-20deg);
-    animation: logo 2s infinite linear;
+    animation: logo 1s infinite linear;
 }
 
 @keyframes logo {
@@ -312,6 +312,15 @@ main {
     border-radius: 10px;
     margin-bottom: 50px;
     margin-top: 50px;
+}
+.text-title{
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: var(--color-main);
+}
+.table-new th,.table-new td{
+    text-align: start !important;
 }
 
 .table-main table {

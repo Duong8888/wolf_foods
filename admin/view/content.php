@@ -1,17 +1,17 @@
 <?php
-// lấy mảng danh mục và lấy mảng sản phẩm từ 2 bảng lấy ra dc số lượng sản phẩm của 1 danh mục để hiển thị lên biểu đồ
-$queryCategories = "SELECT * FROM categories";
-$queryProduct = "SELECT * FROM products";
-$arrCategories = getAll($queryCategories);
-$arrProduct = getAll($queryProduct);
-    
+$queryCountOrder = "SELECT COUNT(id_order) FROM order_user WHERE status=0 ";
+$countOrder = getOne($queryCountOrder);
+$queryCountView = "SELECT SUM(view) FROM products";
+$countView = getOne($queryCountView);
+$queryCountComment = "SELECT COUNT(content) FROM comment";
+$countComment = getOne($queryCountComment);
 ?>
 <main>
     <div class="content-box">
         <div class="parameters">
             <div class="parameters__item">
                 <div class="parameters__item--left">
-                    <p><span>60</span><br>Bình Luận</p>
+                    <p><span><?= $countComment[0] ?></span><br>Bình Luận</p>
                 </div>
                 <div class="parameters__item--right">
                     <i class='bx bx-message-rounded-dots'></i>
@@ -19,7 +19,7 @@ $arrProduct = getAll($queryProduct);
             </div>
             <div class="parameters__item">
                 <div class="parameters__item--left">
-                    <p><span>60</span><br>Lượt xem</p>
+                    <p><span><?= $countView[0] ?></span><br>Lượt xem</p>
                 </div>
                 <div class="parameters__item--right">
                     <i class='bx bxs-face'></i>
@@ -27,77 +27,38 @@ $arrProduct = getAll($queryProduct);
             </div>
             <div class="parameters__item">
                 <div class="parameters__item--left">
-                    <p><span>60</span><br>Đơn hàng mới</p>
+                    <p><span><?= $countOrder[0] ?></span><br>Đơn hàng mới</p>
                 </div>
                 <div class="parameters__item--right">
                     <i class='bx bx-cart-download'></i>
                 </div>
             </div>
         </div>
+
         <div class="table-main">
-            <table>
+            <p class="text-title">Thống kê sản phẩm theo danh mục</p>
+            <table class="table-new">
                 <thead>
                     <tr>
-                        <th>STT</th>
-                        <th>Tên khách hàng</th>
-                        <th>Thời gian giao dịch</th>
-                        <th>Mã mặt hàng</th>
+                        <th>Tên danh mục</th>
+                        <th>Số lượng sản phẩm</th>
+                        <th>Giá thấp nhất</th>
+                        <th>Giá cao nhất</th>
+                        <th>Giá trung bình</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div> Ánh Dương Ánh Dương Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div> Ánh Dương Ánh Dương Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div> Ánh Dương Ánh Dương Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div> Ánh Dương Ánh Dương Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div>Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div>Ánh Dương</div>
-                        </td>
-                        <td>18:20:20</td>
-                        <td>#003</td>
-                    </tr>
+                    <?php foreach (thongke() as $value) { ?>
+                        <tr>
+                            <td>
+                                <?= $value['name'] ?>
+                            </td>
+                            <td><?= $value['countSP'] ?></td>
+                            <td><?= empty($value['minPrice'])?0:$value['minPrice']?>đ</td>
+                            <td><?= empty($value['maxPrice'])?0:$value['maxPrice']?>đ</td>
+                            <td><?= empty($value['avgPrice'])?0:$value['avgPrice']?>đ</td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

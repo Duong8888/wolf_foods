@@ -19,7 +19,6 @@ if (isset($_GET['ID'])) {
     $similarProducts = getAll($query);
     // comment
     if (isset($_POST['btn-Comment'])) {
-        // kiểm tra xem người dùng có reload trang không nếu không thì $countReload = 0;
         $idProduct = $_GET['ID'];
         $content = $_POST['content'];
         $idUser = $_SESSION['idUser'];

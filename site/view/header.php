@@ -7,7 +7,7 @@ if (isset($_POST['btn'])) {
 if (isset($_SESSION['idUser'])) {
   $idUser = $_SESSION['idUser'];
   // lấy ra user đã đăng nhập và hệ thống
-  $user = "SELECT * FROM user WHERE id_position = 3 AND id = $idUser";
+  $user = "SELECT * FROM user WHERE  id = $idUser";
   $userLogIn = getOne($user);
 }
 
@@ -74,6 +74,9 @@ if (isset($_SESSION['idUser'])) {
             <a href="index.php?action=profile" class="sign__up">Hồ sơ</a>
             <a href="index.php?action=cart-product" class="sign__up">Giỏ hàng</a>
             <a href="../../admin/index.php?action=log-out" class="sign__up">Đăng suất</a>
+            <?php if($userLogIn['id_position'] != 3){?>
+              <a href="../../admin/index.php" class="sign__up">Trang quản trị</a>
+            <?php }?>
           <?php } ?>
         </div>
       </div>
