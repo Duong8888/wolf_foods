@@ -85,8 +85,8 @@ $countpage = countPages($row);
       <nav aria-label="...">
         <ul class="pagination pagination-sm">
           <?php for ($item = 1; $item <= $countpage; $item++) : ?>
-            <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?page=<?= $item ?>#listProduct"><?= $item ?></a></li>
-          <?php endfor ?>
+            <li class="page-item <?php if(isset($_GET['page']) && $_GET['page'] == $item){echo "active";}else{echo '';};?>"><a class="page-link" href="index.php?page=<?= $item ?>#listProduct"><?= $item ?></a></li>
+          <?php endfor?>
         </ul>
       </nav>
     </div>

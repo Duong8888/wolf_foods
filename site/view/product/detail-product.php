@@ -42,7 +42,7 @@ if (isset($_GET['ID'])) {
             $quantity1 = $_POST['quantity1'];
             $idUser = $_SESSION['idUser'];
             $idProduct = $_GET['ID'];
-            $query = "INSERT INTO cart SET id_product='$idProduct', id_user='$idUser', quantity='$quantity1'";
+            $query = "INSERT INTO cart SET id_product='$idProduct', id_user='$idUser', quantity='$quantity1',status=0";
             connect($query);
             header("location:index.php?action=cart-product");
         }
