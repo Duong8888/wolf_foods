@@ -174,6 +174,7 @@ if (isset($_GET['keyWord'])) {
                 <nav aria-label="...">
                     <ul class="pagination pagination-sm">
                         <?php if (isset($_GET['page'])) for ($item = 1; $item <= $countpage; $item++) : ?>
+                            
                             <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?action=all-product&&page=<?= $item ?>"><?= $item ?></a></li>
                         <?php endfor ?>
                     </ul>
