@@ -81,11 +81,11 @@ if (isset($_POST['btn-search'])) {
         $subQuery = "";
         foreach ($status as $key => $value) {
             if ($value == "on") {
-                    if($count == 0){
-                        $subQuery .= " id_categories = " . $key;
-                    }else{
-                        $subQuery .= " or id_categories = " . $key;
-                    }
+                if ($count == 0) {
+                    $subQuery .= " id_categories = " . $key;
+                } else {
+                    $subQuery .= " or id_categories = " . $key;
+                }
                 $count++;
             }
         }
@@ -127,7 +127,11 @@ if (isset($_GET['keyWord'])) {
                         <p class="filter__naem-item">Danh mục</p>
                         <ul>
                             <?php foreach ($getCategories as $value) : ?>
-                                <li><input <?php if(isset($status[$value['id_categories']])){if($status[$value['id_categories']] == "on"){echo "checked";}}?> type="checkbox" name="<?= $value['id_categories'] ?>" id="<?= $value['id_categories'] ?>"> <label for="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></label></li>
+                                <li><input <?php if (isset($status[$value['id_categories']])) {
+                                                if ($status[$value['id_categories']] == "on") {
+                                                    echo "checked";
+                                                }
+                                            } ?> type="checkbox" name="<?= $value['id_categories'] ?>" id="<?= $value['id_categories'] ?>"> <label for="<?= $value['id_categories'] ?>"><?= $value['category_name'] ?></label></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -135,7 +139,11 @@ if (isset($_GET['keyWord'])) {
                         <p class="filter__naem-item">Giá tiền</p>
                         <ul>
                             <?php foreach ($arrFilterPrice as $key => $value) : ?>
-                                <li><input <?php if(isset($price[$value['valueStart']])){if($price[$value['valueStart']] == "on"){echo "checked";}}?> type="checkbox" name="<?= $value['valueStart'] ?>" id="<?= $key ?>"> <label for="<?= $key ?>"><?= $value['text'] ?></label></li>
+                                <li><input <?php if (isset($price[$value['valueStart']])) {
+                                                if ($price[$value['valueStart']] == "on") {
+                                                    echo "checked";
+                                                }
+                                            } ?> type="checkbox" name="<?= $value['valueStart'] ?>" id="<?= $key ?>"> <label for="<?= $key ?>"><?= $value['text'] ?></label></li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -154,18 +162,18 @@ if (isset($_GET['keyWord'])) {
                         <div class="product__item new">
                             <!-- gọi ra hàm tính toán và hiển thị giá sản phẩm -->
                             <img src="../../admin/src/img/<?= $value['image'] ?>" alt="" class="product__img new">
-                            <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>" class="product__item--name new"><?= $value['product_name'] ?></a>
+                            <a href="index.php?action=detail-product&&ID=<?= $value['id_product'] ?>" class="product__item--name new"><?= $value['product_name'] ?></a>
                             <div class="price-and-cart">
                                 <p class="product__item--status"><?= displayProduct($value) ?>đ</p>
                                 <p class="price__product--discount"><?= $value['price'] ?>đ</p>
                             </div>
-                            <a href="index.php?action=detail-product&&ID=<?=$value['id_product']?>" class="product__item--name new"><button>Mua ngay</button></a>
+                            <a href="index.php?action=detail-product&&ID=<?= $value['id_product'] ?>" class="product__item--name new"><button>Mua ngay</button></a>
                         </div>
                     <?php endforeach ?>
                 </div>
                 <nav aria-label="...">
                     <ul class="pagination pagination-sm">
-                        <?php for ($item = 1; $item <= $countpage; $item++) : ?>
+                        <?php if (isset($_GET['page'])) for ($item = 1; $item <= $countpage; $item++) : ?>
                             <li class="page-item <?= $_GET['page'] == $item ? "active" : "" ?>"><a class="page-link" href="index.php?action=all-product&&page=<?= $item ?>"><?= $item ?></a></li>
                         <?php endfor ?>
                     </ul>
